@@ -1,95 +1,70 @@
 ---
 name: modeling
-description: Build or attack a minimum sufficient model when the relevant reality is not understood well enough to predict, decide, act, or verify. Use for ambiguous goals, missing causal structure, unclear boundaries/states/relations, hidden assumptions, or model-quality testing. Do not use merely because a task is complex if the missing evidence or action is already known.
+description: Build or challenge a minimum sufficient model when an Understanding Gap prevents reliable prediction, decision, action, or verification. Use for ambiguous goals, unclear boundaries/states/relations, hidden assumptions, or missing causal structure. Do not use merely because a task is complex when the decisive evidence or action is already known.
 ---
 
 # Modeling
 
-Use this skill for a **Model Gap**.
+Use this skill for an **Understanding Gap**.
 
-## Purpose first
+## Orient first
 
-When not already clear, determine only what can change the current work:
+Determine only what can change the current work:
 
 - Goal — intended real-world state.
 - Current Question — what must be understood, chosen, changed, or verified now.
 - Success — observable resolution.
+- Constraints — only those capable of changing action or acceptance.
 
-When materially relevant, also distinguish Outcome Owner, Decision Owner, Risk Owner, and Priority / Trade-off Policy.
+Ownership, authority, or trade-off policy matters only when it can change a real decision or risk boundary.
 
-Do not automatically treat the user's proposed feature, task, implementation, workflow, technology, library, service, or terminology as the real Goal.
+Do not treat the user's proposed feature, task, implementation, tool, architecture, or terminology as the Goal by default.
 
-## Build the minimum sufficient model
+## Build only the model you need
 
-Preserve distinctions capable of changing a relevant prediction, decision, action, capability source, constraint, or acceptance result.
+Preserve distinctions capable of changing a relevant:
 
-Possible dimensions:
+- prediction;
+- decision;
+- action;
+- capability source;
+- constraint;
+- proof or acceptance result.
 
-- Boundary
-- Entities
-- State
-- Relations
-- Dynamics
-- Causality
-- Dependencies
-- Capabilities
-- Constraints / Invariants
-- Time
-- Actions / Inputs
-- Authority / Agency
-- Observations / Outputs
-- Uncertainty
+Possible dimensions include boundary, entities, state, relations, dynamics, causality, dependencies, capabilities, constraints, time, actions, authority, observations, and uncertainty.
 
-These are tools, not mandatory headings.
+These are prompts for thought, not mandatory fields.
 
-Do not create information merely because a schema contains a field.
-
-## Optional operators
+## Optional methods
 
 Use only when triggered.
 
-### First Principles
-
-Use when a convention, inherited solution, or terminology may be mistaken for the requirement.
-
-Ask what fundamentally must be true, what outcome matters, which constraints are conventions, and what requirement would remain if the current implementation disappeared.
-
-### Inversion
-
-Use when failure, reliability, regressions, omissions, or hidden failure modes matter.
-
-Ask: **What would make this definitely fail?**
-
-Work backward to causes, missing states, violated invariants, unsafe assumptions, guards, and required evidence.
-
-### Stress Thinking
-
-Use when scale, boundaries, resources, missing data, concurrency, accuracy, or failure cost may hide structural weakness.
-
-Ask: **What breaks first?**
+- **First principles** — when a convention or inherited solution may be mistaken for the requirement.
+- **Inversion / fault analysis** — when hidden failure modes, regressions, reliability, or safety matter.
+- **Stress / boundary analysis** — when extremes, scale, concurrency, missing data, or resource pressure may expose weakness.
+- **Causal analysis** — when the decision depends on why something happens.
+- **Experiment / simulation / spike** — when a controlled observation can resolve uncertainty more cheaply than more argument.
 
 Use another established method when it is better suited.
 
-## Attack important models
+## Challenge important models
 
-Apply rigor proportional to consequence, uncertainty, novelty, irreversibility, cost, and complexity.
+Do not run a fixed checklist. Ask only the checks that can expose a decision-relevant weakness:
 
-- **Run Test** — can a concrete input/state produce a concrete result?
-- **Separation Test** — can the model distinguish cases that should differ?
-- **Counterfactual Test** — if one important condition changes, what should change and remain unchanged?
-- **Coverage Test** — check decision-relevant boundaries, exceptions, and failure modes.
-- **Grounding Test** — connect important claims to code, data, documents, logs, measurements, behavior, tests, observations, or authoritative sources.
-- **Falsification Test** — what evidence would make the model wrong?
-- **Generalization Test** — test a materially different case where practical.
-- **Traceability Test** — why does each important element exist; what Gap / Capability / Outcome / Goal does it serve?
-- **Ablation Test** — if an element were removed, could any relevant result change?
+- Can the model distinguish cases that should produce different outcomes?
+- Does it make useful counterfactual predictions?
+- Are important claims grounded in reality, and what would falsify them?
+- Have relevant boundaries, exceptions, or failure modes been omitted?
+- Can important elements trace to the current purpose, and can irrelevant ones be removed?
+
+Increase rigor with consequence, uncertainty, novelty, irreversibility, and cost.
 
 ## Exit
 
-Stop modeling when the current model is sufficiently trustworthy for the current purpose.
+Stop when remaining uncertainty is unlikely to change the next decision, action, capability source, constraint, or proof.
 
-If the exact missing observation is now known, reroute to **evidence-acquisition**.
+If the decisive missing observation becomes known → `evidence-acquisition` or `observability-coverage`.
 
-If several materially different interventions remain, reroute to **decision-analysis**.
+If materially different viable actions remain → `decision-analysis`.
 
-If the intervention is known but a capability is missing, reroute to **capability-sourcing**.
+If the intervention is understood but a capability is missing → `capability-sourcing`.
