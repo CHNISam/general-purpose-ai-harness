@@ -5,13 +5,13 @@ description: Define proof, verify implementation, validate real-world outcomes, 
 
 # Validation
 
-Use for a **Verification / Validation Gap** and for proof before important action.
+Use for a **Validation Gap** and for proof before important action.
 
 ## Define proof before action
 
 Ask:
 
-- What observation would prove the Reality Gap closed?
+- What observation would show the intended change actually occurred?
 - What would materially reduce the Evidence Gap?
 - What would show an acquired capability is sufficient?
 - What result would show the action failed?
@@ -41,11 +41,11 @@ Compare Intended State vs Observed State.
 Classify the result:
 
 1. action succeeded and the relevant model remains supported;
-2. Reality Gap remains;
+2. Execution Gap remains;
 3. acquired capability proved insufficient;
 4. capability source decision must be revisited;
 5. evidence contradicts the model;
-6. new Model Gap appeared;
+6. new Understanding Gap appeared;
 7. new Evidence Gap appeared;
 8. action was ineffective;
 9. Goal / Boundary / Assumption needs revision.
