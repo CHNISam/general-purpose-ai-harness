@@ -5,7 +5,7 @@ description: Decide how to obtain a required capability before committing to cus
 
 # Capability Sourcing
 
-Use this skill for a **Capability Gap**.
+Use this skill when a **Capability Gap** is currently important enough to affect the next action or decision.
 
 Core distinctions:
 
@@ -145,4 +145,4 @@ Do not force reuse merely because reuse exists.
 
 Stop sourcing research when a sufficiently suitable source is established, remaining alternatives are unlikely to change the decision, search cost exceeds expected decision value, a spike gives enough evidence, or custom implementation is demonstrably cheaper and sufficiently safe.
 
-Capability sourcing exists to reduce work, not create analysis paralysis.
+Capability sourcing exists to reduce total work and ownership burden, not create analysis paralysis.
