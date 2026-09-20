@@ -43,7 +43,7 @@ REROUTE OR FINISH
 Route by the **current blocker**, not by the wording of the user's request.
 
 - **Model Gap** — relevant reality is not understood well enough to predict, decide, act, or verify. Load `modeling`.
-- **Evidence Gap** — the needed observation is known but reliable evidence is missing. Load `evidence-acquisition`.
+- **Evidence Gap** — relevant evidence is missing. If the current observation frame/channel may materially miss relevant reality, load `observability-coverage` first; otherwise load `evidence-acquisition` for retrieval, measurement, and evidence quality.
 - **Decision Gap** — materially different viable actions remain. Load `decision-analysis`.
 - **Capability Gap** — the intervention is understood but a required capability is unavailable, unlocated, unevaluated, or has materially different sources. Load `capability-sourcing`.
 - **Planning Gap** — the direction is chosen but dependent execution structure is unclear. Load `planning`.
@@ -60,6 +60,8 @@ Additional task modes:
 ## Always-on invariants
 
 - Need ≠ capability ≠ capability source ≠ implementation.
+- Search results, platforms, samples, and telemetry streams are observations through frames, not the full relevant reality.
+- When coverage can materially affect the conclusion, model the observation space before acquiring evidence.
 - Do not mechanically translate a request into a task or implementation.
 - Do not use more reasoning to hide an Evidence Gap.
 - Do not treat generated analysis as a Source of Truth.
