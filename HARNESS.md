@@ -2324,32 +2324,30 @@ Do I already know exactly what evidence is missing?
 
     YES
     → Stop abstract reasoning.
+    → Route the Evidence Gap:
 
-    ↓
+        Could the current observation frame / channel
+        materially miss relevant reality?
 
-Could the current observation frame / channel
-materially miss relevant reality?
+            YES / UNKNOWN
+            → Observability / Coverage Gate.
+            → Map the relevant reality, evidence generation, frames, and channels.
+            → Select / combine suitable channels.
 
-    YES / UNKNOWN
-    → Observability / Coverage Gate.
-    → Map the relevant reality, evidence generation, frames, and channels.
-    → Select / combine suitable channels.
+        Do suitable evidence traces already exist?
+
+            YES
+            → Retrieve / inspect / query / crawl / fetch.
+
+            NO
+            → Measure / instrument / survey / interview / experiment.
+
+        → Validate evidence quality as required.
+        → Observe Reality.
+        → Update.
+        → Reroute.
 
     NO
-    ↓
-
-Do suitable evidence traces already exist?
-
-    YES
-    → Retrieve / inspect / query / crawl / fetch.
-
-    NO
-    → Measure / instrument / survey / interview / experiment.
-
-    ↓
-
-Validate evidence quality as required.
-
     ↓
 
 Am I mistaking a solution or convention for the requirement?
