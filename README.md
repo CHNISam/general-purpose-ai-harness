@@ -1,74 +1,137 @@
-# General-Purpose AI Harness
+# General-Purpose AI Operating Protocol
 
-A progressively disclosed problem-solving harness for general-purpose AI assistants and agents.
+A progressively disclosed operating protocol for general-purpose AI assistants and agents.
 
-The repository packages the **Model-First Adaptive Harness** as a machine-readable, versioned knowledge system instead of forcing the full methodology into every context window.
+The repository packages the **Model-First Adaptive Protocol** as a small router plus on-demand skills. It is designed to guide judgment inside existing AI runtimes rather than replace them.
+
+## What this is
+
+This project provides:
+
+- a compact operating protocol for non-trivial problem solving;
+- a small `AGENTS.md` router;
+- progressively disclosed `SKILL.md` methods;
+- explicit evidence, capability, decision, and validation discipline;
+- examples of expected routing behavior.
+
+It is **not**:
+
+- an agent runtime or SDK;
+- an executor or tool orchestration framework;
+- a formal decision procedure;
+- a claim that every routing decision can be mechanically proven;
+- a CI or benchmark suite.
+
+The Protocol supports model judgment. It does not replace judgment.
 
 ## Start here
 
-### AI agents
+### AI systems
 
 1. Read [AGENTS.md](AGENTS.md).
-2. Identify the current dominant gap.
+2. Diagnose the current blocker.
 3. Load only the relevant skill from [`.agents/skills/`](.agents/skills/).
-4. Read [HARNESS.md](HARNESS.md) only when the compact runtime layer is insufficient or the user explicitly asks for the canonical methodology.
+4. Read [PROTOCOL.md](PROTOCOL.md) only when canonical wording, unusual edge cases, or Protocol maintenance require it.
+
+Codex can discover repository `AGENTS.md` instructions and repository-local skills automatically. Other AI systems that can read repository files can use the same structure by starting from `AGENTS.md`.
 
 ### Humans
 
-- [HARNESS.md](HARNESS.md) — canonical Model-First Adaptive Harness v2.6. This is the source text and is intentionally preserved.
-- [AGENTS.md](AGENTS.md) — compact runtime kernel and router.
-- [`.agents/skills/`](.agents/skills/) — progressively disclosed methods.
-- [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance rules.
-- [docs/coverage-map.md](docs/coverage-map.md) — semantic coverage from the canonical Harness to the runtime layer.
-- [evals/routing-cases.md](evals/routing-cases.md) — routing regression cases.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.7**.
+- [AGENTS.md](AGENTS.md) — compact router and always-on guards.
+- [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
+- [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
+- [docs/runtime-map.md](docs/runtime-map.md) — descriptive mapping from canonical concepts to runtime files.
+- [examples/routing-cases.md](examples/routing-cases.md) — expected routing examples, not an automated benchmark.
+
+## Conceptual model
+
+```text
+Purpose
+  ↓
+Diagnosis
+  ↓
+Dominant Gap
+  ↓
+Conditional Method
+  ↓
+Action / Evidence
+  ↓
+Verification / Validation
+  ↓
+Update
+```
+
+The important distinction is that **Gaps are diagnostic dimensions, not mutually exclusive states**. Several may coexist. The Dominant Gap is simply the one whose reduction is most likely to change the next useful decision, action, or proof.
+
+Methods such as first-principles reasoning, inversion, experiments, trade studies, planning, and workflow hardening are conditional tools. They are not mandatory stages.
 
 ## Design
 
 ```text
-HARNESS.md
-Canonical methodology
-        |
-        v
+PROTOCOL.md
+Canonical operational doctrine
+        │
+        ▼
 AGENTS.md
-Always-on kernel + router
-        |
-        v
+Small router + guards
+        │
+        ▼
 .agents/skills/*
 Load only when relevant
-        |
-        v
+        │
+        ▼
 Task-specific work
-        |
-        v
-Evidence -> Update -> Reroute
+        │
+        ▼
+Evidence → Update → Reroute
 ```
 
-The repository follows two complementary principles:
+This follows two constraints:
 
-> Preserve the complexity necessary to make good decisions.
+> Preserve distinctions that can change the current decision, action, constraint, capability source, or proof.
 
-> Remove the complexity unnecessary to understand or execute those decisions.
+> Remove structure that cannot.
+
+## Why progressive disclosure
+
+Frontier models already possess substantial general reasoning ability. The Protocol should therefore add only the guidance that materially improves behavior for the current task.
+
+OpenAI's current guidance similarly favors concise, outcome-oriented instructions for capable models, and its Agent Skills design loads skill metadata first and full instructions only when the skill is selected.
+
+The repository therefore keeps `AGENTS.md` small and moves conditional procedures into skills.
 
 ## Canonical vs derived content
 
-`HARNESS.md` is canonical.
+`PROTOCOL.md` is canonical.
 
-`AGENTS.md`, skills, docs, and evals are **derived runtime representations**. They may compress or reorganize the canonical methodology for progressive disclosure, but they must not silently change its meaning.
+`AGENTS.md`, skills, docs, and examples are derived representations. They may compress or reorganize the canonical Protocol for progressive disclosure, but should not silently change its meaning.
 
-When derived files and `HARNESS.md` disagree, treat `HARNESS.md` as authoritative unless the task explicitly updates the canonical Harness.
+[docs/runtime-map.md](docs/runtime-map.md) is a maintenance aid, not proof that semantic coverage is complete.
 
-See [docs/coverage-map.md](docs/coverage-map.md) before changing routing or skill boundaries.
+[examples/routing-cases.md](examples/routing-cases.md) records expected behavior, not measured model performance.
 
-## Compatibility
+## Development principle
 
-The skills use the open Agent Skills `SKILL.md` format and are stored under `.agents/skills/`, which Codex discovers as repository-local skills.
+Do not add a new concept, rule, skill, script, validator, or automation merely to make the system look more complete.
 
-Other general-purpose AI systems can still use the repository by starting from `AGENTS.md` and reading the referenced skills as ordinary Markdown.
+Add structure when repeated real tasks show that the current Protocol is insufficient.
+
+Prefer:
+
+```text
+real failure
+→ diagnose
+→ smallest useful correction
+→ use again
+```
+
+over speculative framework growth.
 
 ## Design references
 
-- OpenAI — Harness engineering: repository knowledge as the system of record, short `AGENTS.md`, progressive disclosure.
-- OpenAI — Codex customization and repository-local skills.
-- Agent Skills specification — `SKILL.md` metadata, on-demand loading, optional resources.
+- OpenAI — Harness engineering: short repository maps, structured knowledge, progressive disclosure, and mechanical enforcement only where useful.
+- OpenAI — Codex customization: concise `AGENTS.md`, repository-local skills, and task-specific instructions.
+- OpenAI — reasoning and model guidance: capable models often benefit from simple, direct, outcome-oriented prompts.
 
-This repository is intentionally small at the entry layer. Do not turn `AGENTS.md` into a second copy of `HARNESS.md`.
+The Protocol is intended to work **inside** existing agent harnesses and chat interfaces rather than reimplement their runtime infrastructure.
