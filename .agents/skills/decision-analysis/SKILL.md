@@ -67,5 +67,5 @@ Once one direction is sufficiently selected:
 
 - if dependent execution structure is unclear → `planning`;
 - if a capability source is still unresolved → `capability-sourcing`;
-- if reality simply needs to change → execute;
+- if an Execution Gap remains → execute;
 - after action → `validation`.
