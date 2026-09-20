@@ -7,7 +7,7 @@ They are **examples**, not measured behavioral evals or regression tests.
 | Case | Expected primary route | What should usually remain unloaded |
 |---|---|---|
 | "Fix this obvious typo." | Direct execution | modeling, decision-analysis, capability-sourcing, planning |
-| "I don't understand why this behaves differently in two cases." | Understanding Gap → `modeling` | capability-sourcing unless a missing capability emerges |
+| "I don't understand why this behaves differently in two cases." | Model Gap → `modeling` | capability-sourcing unless a missing capability emerges |
 | "The exact official database is known; retrieve the current value." | Evidence Gap → `evidence-acquisition` | observability-coverage unless frame sufficiency is uncertain |
 | "Google cannot find a local-government list; relevant publishing may happen on platform-native channels." | Evidence Gap → `observability-coverage` | decision-analysis unless materially different observation strategies remain |
 | "Infer what all potential players want from 10,000 Reddit comments." | Evidence Gap → `observability-coverage` | do not treat Reddit as the target population |
@@ -15,7 +15,7 @@ They are **examples**, not measured behavioral evals or regression tests.
 | "Should we choose A or B? Both satisfy hard constraints." | Decision Gap → `decision-analysis` | planning until a direction is selected |
 | "We need OCR. Should we build it?" | Capability Gap → `capability-sourcing` | direct custom implementation |
 | "Implement the selected migration across five dependent stages." | Planning Gap → `planning` | decision-analysis unless a real trade-off reappears |
-| "The feature is implemented; prove it works for the intended user need." | Validation Gap → `validation` | capability-sourcing unless the capability itself failed |
+| "The feature is implemented; prove it works for the intended user need." | Verification / Validation Gap → `validation` | capability-sourcing unless the capability itself failed |
 | "This repeated release process keeps failing and manual verification is expensive." | `workflow-hardening` task mode | project-modeling unless project structure is the blocker |
 | "Derive current work from goals and dependencies." | `project-modeling` task mode | capability-sourcing unless a work item needs a missing capability |
 | "Turn this validated slice into instructions for another agent." | `delegation` task mode | modeling if the slice is already sufficient |
@@ -27,7 +27,7 @@ A task can contain multiple simultaneous Gaps:
 
 ```text
 Architecture decision
-├─ Understanding Gap: current ownership is unclear
+├─ Model Gap: current ownership is unclear
 ├─ Evidence Gap: performance data is missing
 └─ Decision Gap: two viable designs exist
 ```
@@ -38,7 +38,7 @@ It should choose the current **Dominant Gap**. For example:
 
 ```text
 inspect current ownership
-→ Understanding Gap reduced
+→ Model Gap reduced
 → missing performance observation becomes decisive
 → Evidence Gap becomes dominant
 → acquire evidence
@@ -50,7 +50,7 @@ inspect current ownership
 
 The Protocol is being applied poorly if the agent:
 - loads all skills by default;
-- treats every non-trivial request as an Understanding Gap;
+- treats every non-trivial request as a Model Gap;
 - keeps modeling after the decisive evidence need is known;
 - triggers observation-space analysis for an obvious authoritative single-source lookup;
 - manufactures alternatives when one action clearly follows;
