@@ -1,11 +1,13 @@
 ---
 name: evidence-acquisition
-description: Acquire and qualify real evidence when the decisive observation, fact, measurement, source, experiment, or result is known but not yet possessed. Use for research, inspection, measurement, testing, provenance checks, identity/version matching, source conflicts, or precision requirements. Do not substitute more abstract reasoning for a known Evidence Gap.
+description: Retrieve, measure, and qualify real evidence once the relevant observation space is sufficiently understood. Use for research, inspection, measurement, testing, provenance checks, identity/version matching, source conflicts, or precision requirements. If the current search engine, platform, sample, database, telemetry stream, or other frame may materially miss relevant reality, use observability-coverage first. Do not substitute more abstract reasoning for a known Evidence Gap.
 ---
 
 # Evidence Acquisition
 
-Use this skill for an **Evidence Gap**.
+Use this skill for an **Evidence Gap** after the relevant observation frame is sufficiently understood.
+
+If source coverage, sampling frame, platform boundaries, or representation risk could materially change the conclusion, route to **observability-coverage** first.
 
 ## Define what evidence would resolve the gap
 
@@ -51,10 +53,14 @@ The agent's model, summary, interpretation, plan, generated document, or previou
 ## Procedure
 
 1. State the exact evidence need internally.
-2. Choose the cheapest sufficiently authoritative observation/source.
-3. Verify identity, version, environment, or entity matching when it can change the result.
-4. Resolve or expose material source conflicts.
-5. Stop when evidence is sufficient for the current purpose.
+2. Determine whether suitable traces already exist.
+3. If traces exist, retrieve / inspect / query / crawl / fetch them through an appropriate channel.
+4. If traces do not exist, measure / instrument / survey / interview / experiment / collect as appropriate.
+5. Choose the cheapest sufficiently authoritative observation/source.
+6. Verify identity, version, environment, or entity matching when it can change the result.
+7. Resolve or expose material source conflicts.
+8. Check that the evidence supports only the scope actually observed.
+9. Stop when evidence is sufficient for the current purpose.
 
 Do not research indefinitely.
 

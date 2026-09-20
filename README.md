@@ -15,7 +15,7 @@ The repository packages the **Model-First Adaptive Harness** as a machine-readab
 
 ### Humans
 
-- [HARNESS.md](HARNESS.md) — canonical Model-First Adaptive Harness v2.5. This is the source text and is intentionally preserved.
+- [HARNESS.md](HARNESS.md) — canonical Model-First Adaptive Harness v2.6. This is the source text and is intentionally preserved.
 - [AGENTS.md](AGENTS.md) — compact runtime kernel and router.
 - [`.agents/skills/`](.agents/skills/) — progressively disclosed methods.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance rules.
