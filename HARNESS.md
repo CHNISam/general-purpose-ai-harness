@@ -1,6 +1,6 @@
-# Model-First Adaptive Harness v2.5
+# Model-First Adaptive Harness v2.6
 
-Status: Candidate v2.5
+Status: Candidate v2.6
 
 Purpose:
 A general operating protocol for AI agents to understand problems, acquire evidence,
@@ -13,6 +13,8 @@ Design principles:
 > Human-facing understanding should be simple.
 
 > Source a capability before deciding to build it.
+
+> Model the observation space before acquiring evidence.
 
 > Differentiate where differentiation matters.
 > Reuse, standardize, or integrate where differentiation does not matter.
@@ -321,12 +323,38 @@ The relevant reality is not understood well enough to:
 EVIDENCE GAP
 -------------------------------------------------------------------------------
 
-We already know what observation would resolve the problem,
-but reliable evidence is missing.
+Evidence needed to resolve the problem is missing,
+or the current observation frame may not sufficiently cover
+the relevant reality.
 
-→ Research / inspect / measure / test / experiment / collect.
+First determine, only when it can materially affect the conclusion:
+
+- Can the relevant reality be sufficiently observed through the current frame / channel?
+- Do suitable evidence traces already exist?
+- If they exist, can they be retrieved?
+- If they do not exist, must they be measured, instrumented, surveyed,
+  interviewed, or experimentally produced?
+- Once acquired, is the evidence sufficiently trustworthy for the current use?
+
+Route internally as needed:
+
+    Coverage / Observability
+        → map the relevant reality, evidence generation, frames, and channels.
+
+    Retrieval
+        → search / query / crawl / fetch.
+
+    Measurement
+        → instrument / survey / interview / experiment / collect.
+
+    Evidence Quality
+        → validate provenance / identity / freshness / coverage /
+          precision / conflicts.
 
 Do NOT use more abstract reasoning to hide an Evidence Gap.
+
+Do NOT treat one search engine, platform, database, sample,
+or telemetry stream as equivalent to the full relevant reality.
 
 
 -------------------------------------------------------------------------------
@@ -891,6 +919,71 @@ The objective is:
 ===============================================================================
 7. EVIDENCE ACQUISITION POLICY
 ===============================================================================
+
+Before acquiring external evidence, when source coverage may materially affect
+the conclusion, model how the relevant reality can actually become observable.
+
+-------------------------------------------------------------------------------
+7.0 Observability / Coverage Gate
+-------------------------------------------------------------------------------
+
+Do not assume:
+
+    Search Result
+        =
+    Available Evidence
+        =
+    Relevant Reality
+
+Determine only as needed:
+
+Target Reality / Population:
+    What real-world population, events, states, behaviors,
+    documents, or phenomena are we trying to understand?
+
+Evidence Generation:
+    How would that reality naturally produce observable traces?
+
+Evidence Habitats / Collections:
+    Where can those traces actually exist?
+
+Observation Frames:
+    Which portions of the target reality are represented
+    in each available source or collection?
+
+Access / Retrieval Channels:
+    Which search engine, platform search, API, database,
+    crawler, telemetry system, survey, interview,
+    experiment, or other mechanism can observe each frame?
+
+Blind Spots / Coverage Error:
+    What relevant reality has little or no chance
+    of appearing through the current observation channel?
+
+Representation Risk:
+    Could the observed population systematically differ
+    from the target population in a way that changes
+    the current conclusion or decision?
+
+If one frame is insufficient:
+
+    use multiple complementary frames,
+
+or:
+
+    explicitly constrain the conclusion to the observed frame.
+
+Principles:
+
+> Search is an observation through a frame,
+> not direct access to reality.
+
+> Model the observation space before acquiring evidence.
+
+> A high-quality sample from the wrong frame
+> can still support the wrong conclusion.
+
+> Precision cannot compensate for material coverage error.
 
 When external evidence materially affects the current decision,
 define only the evidence controls that matter.
@@ -2096,6 +2189,10 @@ EPISTEMICS
 
 EVIDENCE
 
+- Could the current observation frame materially miss relevant reality?
+- Did I confuse a search result, platform, sample, or telemetry stream with the target reality?
+- If coverage is incomplete, did I combine complementary frames or constrain the conclusion?
+- Could the observed population systematically differ from the target population?
 - Is the evidence authoritative enough for the current purpose?
 - Does provenance matter here?
 - Did I verify identity/version/environment where necessary?
@@ -2183,6 +2280,12 @@ Avoid:
 - modeling forever after the relevant model is sufficient;
 - using implementation to hide a Model Gap;
 - using more reasoning to hide an Evidence Gap;
+- treating one search engine, platform, database, sample, or telemetry stream
+  as equivalent to the relevant reality;
+- over-optimizing queries inside an inadequate observation frame;
+- generalizing from an observed population to a target population without
+  checking material coverage or representation risk;
+- increasing precision inside the wrong frame and mistaking that for better coverage;
 - manufacturing alternatives for procedural completeness;
 - over-planning obvious actions;
 - building Harnesses for cheap one-off work;
@@ -2221,9 +2324,32 @@ Do I already know exactly what evidence is missing?
 
     YES
     → Stop abstract reasoning.
-    → Acquire Evidence.
+
+    ↓
+
+Could the current observation frame / channel
+materially miss relevant reality?
+
+    YES / UNKNOWN
+    → Observability / Coverage Gate.
+    → Map the relevant reality, evidence generation, frames, and channels.
+    → Select / combine suitable channels.
 
     NO
+    ↓
+
+Do suitable evidence traces already exist?
+
+    YES
+    → Retrieve / inspect / query / crawl / fetch.
+
+    NO
+    → Measure / instrument / survey / interview / experiment.
+
+    ↓
+
+Validate evidence quality as required.
+
     ↓
 
 Am I mistaking a solution or convention for the requirement?
@@ -2348,6 +2474,16 @@ For every problem:
     UPDATE
         ↓
     REROUTE
+
+
+For evidence:
+
+> Search is observation through a frame,
+> not direct access to reality.
+
+> Model the observation space before acquiring evidence.
+
+> Precision cannot compensate for material coverage error.
 
 
 For engineering:
