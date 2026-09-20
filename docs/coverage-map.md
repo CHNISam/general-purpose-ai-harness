@@ -1,6 +1,6 @@
 # Canonical Coverage Map
 
-This file maps every top-level section of `HARNESS.md` v2.5 to its primary runtime representation.
+This file maps every top-level section of `HARNESS.md` v2.6 to its primary runtime representation.
 
 Its purpose is to prevent semantic loss when the canonical single-prompt Harness is decomposed into progressive-disclosure layers.
 
@@ -8,12 +8,12 @@ Its purpose is to prevent semantic loss when the canonical single-prompt Harness
 |---|---|
 | 0. Primary Objective | `AGENTS.md` core invariants + all skills |
 | 1. Runtime Kernel | `AGENTS.md` Core runtime / Always-on invariants |
-| 2. Dominant Gap Routing | `AGENTS.md` Gap router |
+| 2. Dominant Gap Routing | `AGENTS.md` Gap router + Evidence sub-routing |
 | 3. Purpose | `modeling` |
 | 4. Minimum Sufficient Modeling | `modeling` |
 | 5. Optional Reasoning Operators | `modeling` |
 | 6. Model Gates | `modeling` |
-| 7. Evidence Acquisition Policy | `evidence-acquisition` |
+| 7. Evidence Acquisition Policy | `observability-coverage` + `evidence-acquisition` |
 | 8. Capability Sourcing / Leverage Gate | `capability-sourcing` |
 | 9. Decision and Action | `decision-analysis` |
 | 10. Planning | `planning` |
@@ -58,6 +58,31 @@ The `modeling` skill preserves:
 - Generalization Test;
 - Traceability Test;
 - Ablation Test.
+
+### Evidence observability and acquisition
+
+The evidence runtime preserves:
+
+- target reality / population;
+- evidence generation;
+- evidence habitats / collections;
+- observation frames;
+- access / retrieval channels;
+- blind spots / coverage error;
+- representation risk;
+- complementary-frame or conclusion-scope handling;
+- retrieval vs measurement routing;
+- source hierarchy / authority;
+- provenance;
+- identity matching;
+- required precision;
+- conflict handling;
+- acceptance state;
+- stop rule.
+
+The `observability-coverage` skill owns observation-space modeling when frame coverage can materially affect the conclusion.
+
+The `evidence-acquisition` skill owns retrieval, measurement, and evidence quality once the frame is sufficiently understood.
 
 ### Capability sourcing
 
