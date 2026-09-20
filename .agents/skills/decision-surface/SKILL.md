@@ -32,7 +32,7 @@ State one highest-leverage next action.
 
 If no single action is justified, state the next decision or evidence needed.
 
-If a Capability Gap exists, state the capability decision rather than prematurely naming an implementation.
+If a Capability Gap is relevant, state the capability decision rather than prematurely naming an implementation.
 
 ### Proof
 
