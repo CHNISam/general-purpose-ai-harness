@@ -36,6 +36,41 @@ They do not replace Modeling, Capability Sourcing, Decision Analysis, or Plannin
 
 For production, migration, release, destructive, expensive, irreversible, or high-risk work, make the relevant constraints, authority, capability source, and evidence explicit.
 
+## General-purpose AI → Coding Agent handoff
+
+When this Protocol is being used by a general-purpose AI to prepare work for a Coding Agent, keep responsibility split:
+
+```text
+General-purpose AI
+  → understand / model / research / decide
+  → compile the minimum sufficient validated task slice
+
+Coding Agent
+  → inspect the target code repository
+  → implement the requested change
+  → run the target repository's required verification
+```
+
+Do **not** automatically instruct the Coding Agent to read this Protocol repository.
+
+The Coding Agent should normally receive:
+
+- Objective
+- Current Problem
+- target repository / Source of Truth
+- Constraints
+- Acceptance Criteria
+- Evidence / required proof
+
+It should follow the target repository's own `AGENTS.md`, code, tests, documentation, and local instructions.
+
+Pass Protocol material downstream only when:
+
+- the Protocol itself is the implementation target;
+- the user explicitly requests it;
+- a methodology rule cannot be safely represented in the execution contract; or
+- the Coding Agent is deliberately being asked to perform upstream modeling rather than implementation.
+
 ## Prompt compilation
 
 A prompt is one deployment format for an action.
