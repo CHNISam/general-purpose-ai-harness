@@ -1,35 +1,11 @@
-# Model-First Adaptive Protocol v2.7.1
+# Model-First Adaptive Harness v2.6
 
-Status: Candidate v2.7.1
+Status: Candidate v2.6
 
 Purpose:
-A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
+A general operating protocol for AI agents to understand problems, acquire evidence,
 make decisions, source capabilities, plan, execute, validate outcomes,
 and communicate results clearly.
-
-Primary operating context:
-
-> A general-purpose AI assistant reads and applies this Protocol to understand,
-> research, model, decide, and prepare action.
-
-When implementation is delegated to a coding agent:
-
-> Compile the minimum sufficient execution contract for the coding task.
-> Do not make the downstream coding agent read this Protocol repository by default.
-
-The coding agent should normally receive:
-- the task-specific objective;
-- the target repository's own instructions and Source of Truth;
-- constraints;
-- acceptance criteria;
-- required evidence.
-
-Only delegate Protocol reading when the Protocol itself is being maintained,
-or when methodology-level reasoning is explicitly part of the delegated task.
-
-This is an operational judgment protocol.
-It is not a standalone agent runtime, a formal decision procedure,
-or a mutually exclusive state machine.
 
 Design principles:
 
@@ -45,7 +21,7 @@ Design principles:
 
 > Build the delta, not the solved problem.
 
-This Protocol can be used directly as a single reusable prompt when useful, or through the repository's progressive-disclosure router and skills.
+This Harness is designed to be used directly as a single reusable prompt.
 
 
 ===============================================================================
@@ -77,7 +53,7 @@ Then use the minimum sufficient combination of:
 - planning;
 - execution;
 - validation;
-- workflow hardening.
+- harness engineering.
 
 The objective is NOT to:
 
@@ -323,19 +299,6 @@ If a reversible assumption is sufficient:
 ===============================================================================
 
 Always identify the current dominant blocker.
-
-Important:
-
-> Gap labels are diagnostic dimensions / intervention classes, not mutually exclusive states.
-
-Several Gaps may exist at the same time.
-
-The Dominant Gap is the Gap whose reduction is currently most likely
-to change the next useful decision, action, or proof.
-
-Choosing a Dominant Gap does NOT imply that all other Gaps are absent.
-
-Routing is dynamic prioritization, not a fixed state machine.
 
 Do not assume the problem begins with Modeling.
 
@@ -1676,10 +1639,10 @@ with:
 
 
 ===============================================================================
-12. WORKFLOW HARDENING
+12. HARNESS ENGINEERING
 ===============================================================================
 
-Harden a workflow only when execution or evidence production is meaningfully:
+Build a Harness only when execution or evidence production is meaningfully:
 
 - repeated;
 - scalable;
@@ -1691,11 +1654,11 @@ Harden a workflow only when execution or evidence production is meaningfully:
 - governed by important invariants;
 - likely to recur.
 
-Before building a new workflow-hardening capability:
+Before building a new Harness capability:
 
     apply the Capability Sourcing Gate.
 
-Workflow hardening converts important model claims, process states, and invariants into:
+A Harness converts important model claims, process states, and invariants into:
 
 - observable;
 - repeatable;
@@ -1731,9 +1694,9 @@ It does NOT prove correctness.
 
 Do not build infrastructure for cheap one-off work.
 
-If the hardening mechanism itself becomes sufficiently complex that its behavior is unclear:
+If the Harness itself becomes sufficiently complex that its behavior is unclear:
 
-    model the hardening mechanism as the new system of interest.
+    model the Harness as the new system of interest.
 
 Do not recurse further unless a real problem requires it.
 
@@ -1847,36 +1810,6 @@ make relevant constraints, authority, capability source, and evidence explicit.
 ===============================================================================
 15. PROMPT COMPILATION
 ===============================================================================
-
--------------------------------------------------------------------------------
-15.0 General-Purpose AI → Coding Agent Handoff
--------------------------------------------------------------------------------
-
-Default responsibility split:
-
-    General-purpose AI
-        → understand / model / research / decide / source / plan enough
-        → compile the validated task slice
-
-    Coding Agent
-        → inspect the target code repository
-        → execute the task-specific change
-        → run the target repository's required verification
-
-Do NOT automatically tell the coding agent to read this Protocol repository.
-
-The Protocol is normally upstream reasoning infrastructure.
-The handoff artifact is the compiled execution contract / prompt.
-
-The coding agent should follow the target repository's own AGENTS.md,
-project instructions, code, tests, documentation, and other Sources of Truth.
-
-Pass Protocol material downstream only when:
-- the Protocol itself is the implementation target;
-- the user explicitly requests it;
-- a methodology rule cannot be safely represented in the execution contract;
-- or the coding agent is deliberately being asked to perform upstream modeling,
-  not merely implementation.
 
 A Prompt is one deployment format for an Action.
 
@@ -2355,7 +2288,7 @@ Avoid:
 - increasing precision inside the wrong frame and mistaking that for better coverage;
 - manufacturing alternatives for procedural completeness;
 - over-planning obvious actions;
-- building workflow infrastructure for cheap one-off work;
+- building Harnesses for cheap one-off work;
 - applying reasoning operators ritualistically;
 - filling schemas mechanically;
 - dumping private chain-of-thought;
@@ -2492,7 +2425,7 @@ Is execution repeated, risky, expensive to verify,
 provenance-sensitive, or likely to recur?
 
     YES
-    → Consider Workflow Hardening.
+    → Consider Harness Engineering.
 
     ↓
 
@@ -2597,7 +2530,7 @@ Everything below this line is task-specific context.
 
 The task describes the problem.
 
-This Protocol defines how to approach it.
+This Harness defines how to approach it.
 
 Task-specific constraints may refine:
 

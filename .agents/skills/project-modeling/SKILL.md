@@ -63,7 +63,7 @@ rather than Current Work.
 
 ## Coordination with other skills
 
-- Understanding Gap in project reality → `modeling`;
+- unclear project reality → `modeling`;
 - missing external/project facts → `evidence-acquisition`;
 - multiple directions → `decision-analysis`;
 - capability source unresolved → `capability-sourcing`;

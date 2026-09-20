@@ -27,7 +27,7 @@ examples/routing-cases.md
 
 `PROTOCOL.md` defines the conceptual model, core guards, and operating doctrine.
 
-It should remain compact enough to be understandable as one coherent protocol.
+It should remain understandable as one coherent protocol without sacrificing deliberately preserved methods or tests.
 
 Canonical changes are justified when they alter:
 - the conceptual layers;
@@ -36,7 +36,7 @@ Canonical changes are justified when they alter:
 - action / proof discipline;
 - communication contract.
 
-Do not add detail merely because a useful technique exists.
+Do not promote every useful technique into an always-on primitive. Preserve useful detail in the appropriate progressive layer.
 
 ### Layer 1 — Router
 
@@ -120,8 +120,24 @@ Runtime files may be reorganized for activation quality or progressive disclosur
 When doing so:
 - do not change the canonical Protocol silently;
 - keep `AGENTS.md` small;
-- prefer deletion or consolidation over compensating rules;
+- prefer relocation or deduplication only when semantic coverage is preserved;
 - do not call examples "evals" unless model behavior is actually measured.
+
+## Preservation policy
+
+Progressive disclosure is a **loading strategy**, not permission to erase semantics.
+
+- Do not delete or rewrite a deliberately preserved named test, method, distinction, or rule solely to make the Protocol shorter.
+- If material is too detailed for the router, move it to a Skill or reference.
+- If a refactor changes terminology, preserve the old semantics first and apply the smallest explicit transformation.
+- When unsure whether a rewrite is equivalent, restore the known version from Git history and patch it rather than regenerating it.
+- Major conceptual revisions should preserve a historical snapshot under `docs/history/`.
+
+## Responsibility boundary
+
+This repository is normally consumed by the upstream general-purpose AI.
+
+A downstream Coding Agent should normally receive a compiled execution contract and operate on the target code repository. It should not be required to read this Protocol repository unless methodology-level reasoning is explicitly part of its task.
 
 ## Skill authoring
 

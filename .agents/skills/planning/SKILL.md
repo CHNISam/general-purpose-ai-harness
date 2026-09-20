@@ -1,6 +1,6 @@
 ---
 name: planning
-description: Plan execution when the direction is already chosen but multiple dependent actions, ordering constraints, coordination, gates, or feedback points must be resolved. Do not use planning to hide an unresolved Understanding, Evidence, Decision, or Capability Gap, and do not produce planning artifacts when one obvious action exists.
+description: Plan execution when the direction is already chosen but multiple dependent actions, ordering constraints, coordination, gates, or feedback points must be resolved. Do not use planning to hide an unresolved Model, Evidence, Decision, or Capability Gap, and do not produce planning artifacts when one obvious action exists.
 ---
 
 # Planning

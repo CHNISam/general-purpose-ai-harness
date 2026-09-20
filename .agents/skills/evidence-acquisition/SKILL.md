@@ -70,8 +70,8 @@ Evidence may:
 
 - close the gap;
 - contradict the working model;
-- expose a new Understanding Gap;
-- make a Decision Gap dominant;
+- expose a new Model Gap;
+- create a Decision Gap;
 - show that execution can proceed.
 
 Reroute accordingly.

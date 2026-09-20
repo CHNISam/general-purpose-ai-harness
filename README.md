@@ -2,13 +2,13 @@
 
 A progressively disclosed operating protocol for general-purpose AI assistants and agents.
 
-The repository packages the **Model-First Adaptive Protocol** as a small router plus on-demand skills. It is designed to guide judgment inside existing AI runtimes rather than replace them.
+The repository packages the **Model-First Adaptive Protocol** as a versioned canonical methodology, a small router, and on-demand skills. It is designed to guide judgment inside existing AI runtimes rather than replace them.
 
 ## What this is
 
 This project provides:
 
-- a compact operating protocol for non-trivial problem solving;
+- a preserved canonical operating protocol for non-trivial problem solving;
 - a small `AGENTS.md` router;
 - progressively disclosed `SKILL.md` methods;
 - explicit evidence, capability, decision, and validation discipline;
@@ -37,12 +37,36 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.7**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.7.1**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
 - [docs/runtime-map.md](docs/runtime-map.md) — descriptive mapping from canonical concepts to runtime files.
 - [examples/routing-cases.md](examples/routing-cases.md) — expected routing examples, not an automated benchmark.
+
+## Recommended operating pattern
+
+The primary reader is normally a **general-purpose AI assistant** such as a chat-oriented frontier model.
+
+```text
+User problem
+    ↓
+General-purpose AI reads AGENTS.md + relevant skills
+    ↓
+understand / research / model / decide
+    ↓
+compile minimum sufficient execution contract
+    ↓
+Coding Agent reads the TARGET code repository
+    ↓
+implement + verify
+```
+
+Do **not** make the Coding Agent read this Protocol repository by default.
+
+The Coding Agent should normally receive the task-specific prompt and follow the target repository's own `AGENTS.md`, code, tests, documentation, constraints, and acceptance criteria.
+
+Pass Protocol material downstream only when the Protocol itself is being maintained, the user explicitly requests it, or methodology-level reasoning is intentionally delegated.
 
 ## Conceptual model
 
@@ -100,6 +124,19 @@ Frontier models already possess substantial general reasoning ability. The Proto
 OpenAI's current guidance similarly favors concise, outcome-oriented instructions for capable models, and its Agent Skills design loads skill metadata first and full instructions only when the skill is selected.
 
 The repository therefore keeps `AGENTS.md` small and moves conditional procedures into skills.
+
+## Preservation policy
+
+Progressive disclosure means **move detail out of always-on context**, not delete accumulated methodology.
+
+Named methods, tests, distinctions, and decision rules that have been deliberately retained should not be silently collapsed into "equivalent" prose merely to shorten the repository.
+
+When a concept is too detailed for `AGENTS.md`:
+- keep it in the relevant Skill or canonical Protocol;
+- move supporting detail into a reference if needed;
+- preserve historical versions under `docs/history/` when making major conceptual changes.
+
+When semantic equivalence is uncertain, prefer restoring the known version from Git history and applying a minimal diff over regenerating it from memory.
 
 ## Canonical vs derived content
 

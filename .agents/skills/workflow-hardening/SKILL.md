@@ -1,55 +1,54 @@
 ---
 name: workflow-hardening
-description: Strengthen repeated, risky, failure-prone, provenance-sensitive, hard-to-reproduce, or expensive-to-verify workflows with reusable or mechanical controls when ad hoc execution is no longer sufficient. Use only when repeated failure, scale, risk, or verification cost justifies the added ownership burden. Do not automate cheap one-off work for completeness.
+description: Design observable, repeatable, and where useful blocking mechanisms for repeated, scalable, risky, failure-prone, provenance-sensitive, hard-to-reproduce, or expensive-to-verify execution. Use when manual verification or ad hoc prompting is no longer sufficient. Do not build a hardening mechanism for cheap one-off low-risk work.
 ---
 
 # Workflow Hardening
 
-Use this task mode when repeated execution needs stronger reliability than ad hoc prompting or manual checking provides.
+Use when execution or evidence production is meaningfully:
 
-Typical triggers:
+- repeated;
+- scalable;
+- risky;
+- failure-prone;
+- provenance-sensitive;
+- expensive to verify manually;
+- difficult to reproduce;
+- governed by important invariants;
+- likely to recur.
 
-- the same class of failure recurs;
-- execution is repeated or scaled;
-- mistakes are expensive or hard to detect;
-- provenance or reproducibility matters;
-- important invariants must be enforced;
-- manual verification has become a meaningful cost.
+Before building a new workflow-hardening capability, apply **capability-sourcing**.
 
-## First source the capability
+## Objective
 
-Before building new infrastructure, inspect whether the host runtime, existing scripts, tests, CI, services, or other tools already provide the needed capability.
+Convert important model claims, process states, and invariants into observable, repeatable, inspectable, and where useful blocking evidence.
 
-Use `capability-sourcing` when the sourcing choice matters.
+Possible components:
 
-## Choose the lightest useful mechanism
-
-Possible mechanisms include:
-
-- reusable procedures;
-- controlled inputs or fixtures;
-- scripts;
-- source policies;
+- controlled inputs;
+- fixtures / environment;
+- source policy;
+- runner / procedure;
 - state tracking;
 - guards;
-- logs;
-- provenance capture;
+- provenance;
+- logging;
 - sanity checks;
-- tests;
-- acceptance oracles;
+- validation rules;
+- oracle / acceptance logic;
 - retries;
 - exception handling;
-- human-review gates;
-- CI or other mechanical enforcement.
+- human-review queues;
+- evidence capture.
 
-Prefer a cheap rejection mechanism when it catches the important failure.
+Prefer cheap rejection mechanisms before expensive verification.
 
-A sanity check can reject obvious failure; it does not prove correctness.
+A sanity check can show that something is obviously wrong. It does not prove correctness.
 
 ## Restraint
 
 Do not build infrastructure for a cheap one-off task.
 
-Do not add CI, validators, or automation merely to make a repository look more engineered.
+If the hardening mechanism itself becomes sufficiently complex that its behavior is unclear, treat the hardening mechanism as the new system of interest and model it.
 
-If the hardening mechanism itself becomes costly or unclear, reassess whether it still reduces total burden.
+Do not recurse further unless a real problem requires it.

@@ -9,14 +9,14 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Purpose / orientation | `AGENTS.md` core loop + `modeling` when unclear |
 | Diagnostic dimensions | `AGENTS.md` Gap router |
 | Minimum sufficient judgment | `AGENTS.md` guards + relevant skills |
-| Understanding | `modeling` |
+| Model Gap / minimum sufficient modeling | `modeling` |
 | Evidence coverage | `observability-coverage` |
 | Evidence retrieval / measurement / quality | `evidence-acquisition` |
 | Decision | `decision-analysis` |
 | Capability sourcing | `capability-sourcing` |
 | Planning | `planning` |
-| Execution | direct action through the host AI/runtime |
-| Proof / verification / validation | `validation` |
+| Reality Gap / execution | direct action through the host AI/runtime |
+| Verification / Validation Gap + proof | `validation` |
 | Workflow hardening | `workflow-hardening` |
 | Project work | `project-modeling` |
 | Delegation / prompt compilation | `delegation` |
@@ -51,7 +51,7 @@ The repository itself does not claim to provide those mechanisms generically.
 When a canonical concept changes:
 - update this map if its runtime representation changes;
 - update only affected skills;
-- remove stale names and aliases rather than preserving them indefinitely.
+- preserve deliberately retained semantics; retire or rename concepts only through an explicit change, with historical recovery available when useful.
 
 When a runtime refactor does not change canonical meaning:
 - do not edit `PROTOCOL.md`;

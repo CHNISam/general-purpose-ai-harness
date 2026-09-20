@@ -1,13 +1,13 @@
 ---
 name: capability-sourcing
-description: Decide how to obtain a required capability before committing to custom implementation. Use when a Capability Gap matters and internal/external sourcing could materially change cost, time, reliability, ownership burden, risk, or differentiation. Do not run a broad landscape study for a trivial commodity choice.
+description: Decide how to obtain a required capability before committing to custom implementation. Use when execution needs a capability that is unavailable, unlocated, unevaluated, or has materially different internal/external sources. Consider reuse, standards, libraries, APIs, services, workflows, datasets, models, composition, extension, and custom build. Do not run a large landscape study for trivial commodity choices.
 ---
 
 # Capability Sourcing
 
-Use this skill when a **Capability Gap** is important enough to affect the next action or decision.
+Use this skill for a **Capability Gap**.
 
-Keep the distinction:
+Core distinctions:
 
 ```text
 Need
@@ -21,70 +21,128 @@ Implementation
 
 > Source the capability before deciding to build it.
 
-> Build the unresolved delta, not the solved problem.
+> Build the delta, not the solved problem.
 
-## 1. Check what already exists
+## Trigger
 
-First inspect relevant:
+Use this skill when sourcing could materially change cost, schedule, risk, reliability, maintenance/ownership burden, reproducibility, interoperability, or strategic differentiation.
 
-- project or organizational capabilities;
-- installed dependencies and infrastructure;
-- standards, protocols, libraries, APIs, services, datasets, models, or workflows.
+Use proportional rigor. Do not turn a commodity choice into a research project.
 
-Do not duplicate a sufficiently suitable capability merely because custom implementation is possible.
+## Existing capability check
 
-## 2. Search proportionally
+First ask whether the capability already exists in:
 
-Inspect alternatives only when the sourcing choice can materially affect the outcome.
+- the current project or adjacent modules;
+- organizational systems or infrastructure;
+- current workflows or automation;
+- installed dependencies;
+- existing APIs or data.
 
-The useful landscape usually includes some combination of:
+Prefer extending or composing an existing suitable capability over creating a duplicate.
 
-- reuse / configure;
-- adopt / integrate;
-- compose / extend;
-- custom build.
+## Existing solution landscape
 
-The exact categories do not matter. The unresolved task-specific delta does.
+When the choice matters, inspect plausible sources:
 
-## 3. Ask a few decision questions
+1. existing internal capability;
+2. established standard / protocol;
+3. mature library / framework;
+4. CLI / SDK / API;
+5. managed or external service;
+6. existing workflow / automation;
+7. existing dataset;
+8. existing model;
+9. composition of proven capabilities;
+10. custom implementation.
 
-Compare only dimensions capable of changing the choice:
+Custom Build is neither automatically first nor automatically last.
 
-**Fit**
-- Does it satisfy the important requirements and invariants?
-- What task-specific delta remains?
+## Maturity and differentiation
 
-**Adoption burden**
-- How much time and integration work is required to obtain useful capability?
+Estimate only as precisely as useful whether the capability is closer to:
 
-**Operating burden and risk**
-- What maintenance, reliability, security/privacy, interoperability, failure, or lifecycle burden matters here?
+- Genesis — novel, uncertain, rapidly changing;
+- Custom — understood but context-specific;
+- Product — commonly solved by established solutions;
+- Commodity / Utility — standardized and routinely available.
 
-**Strategic ownership**
-- Does custom ownership create meaningful differentiation?
-- Would reuse create material lock-in or opportunity cost?
+More commoditized capability creates a stronger reason to reuse/adopt/integrate.
 
-Do not score every possible criterion.
+More novel or strategically differentiating capability creates a stronger reason to experiment/customize/build.
 
-## 4. Use a cheap spike when needed
+This is a bias, not an absolute rule.
 
-When fit is uncertain and consequential, run the cheapest representative test that can change the sourcing decision.
+Ask:
 
-Test only the uncertain property that matters: API fit, representative output quality, performance, deployment, compatibility, observability, or failure behavior.
+**Does custom ownership of this capability materially create the outcome or differentiation we care about?**
 
-## 5. Choose and stop
+Even when the differentiating layer is custom, reuse commodity capabilities underneath it where possible.
 
-Possible outcomes include reuse, configure, adopt, integrate, compose, extend, or build.
+## Fit-gap
 
-Prefer the source that creates the best total outcome, not merely the least code.
+For credible candidates classify requirements as:
 
-Custom implementation is reasonable when credible existing sources fail essential requirements, create unacceptable burden or risk, or when ownership itself is strategically important.
+- Supported
+- Configurable
+- Extensible
+- Missing
+- Incompatible
 
-Stop sourcing when:
+The important question is:
 
-- one option is sufficiently suitable;
-- remaining alternatives are unlikely to change the decision;
-- a cheap spike resolves the important uncertainty; or
-- further search costs more than its expected decision value.
+**How much unresolved task-specific delta remains?**
 
-Capability sourcing exists to reduce total work and ownership burden, not create analysis paralysis.
+## Cheap spike
+
+When fit is uncertain and the decision matters, run the cheapest useful representative spike before full integration or custom replacement.
+
+Test only what can change the sourcing decision: installation, representative input, API fit, performance, output quality, observability, deployment, compatibility, or failure behavior.
+
+## Source decision
+
+When multiple materially different sources remain, reroute into a Decision Gap.
+
+Use only criteria that can change the choice:
+
+- fit for purpose;
+- maturity / project or vendor health;
+- time to usable capability;
+- adoption and integration cost;
+- custom delta;
+- maintenance burden;
+- total ownership cost;
+- reliability;
+- observability;
+- reproducibility;
+- interoperability;
+- security / privacy;
+- licensing / legal;
+- switching cost / lock-in;
+- failure surface;
+- strategic differentiation;
+- opportunity cost.
+
+Possible outcomes:
+
+- Reuse
+- Configure
+- Adopt
+- Integrate
+- Compose
+- Extend
+- Build
+
+Prefer the source producing the best total outcome, not merely the least code.
+
+## Custom build
+
+Custom implementation can be correct when existing options fail essential requirements or invariants, create unacceptable security/privacy/licensing/lock-in risk, miss required performance/observability/reliability, create excessive integration complexity, cost more over the relevant lifetime, or block strategically important differentiation.
+
+Do not force reuse merely because reuse exists.
+
+## Stop rule
+
+Stop sourcing research when a sufficiently suitable source is established, remaining alternatives are unlikely to change the decision, search cost exceeds expected decision value, a spike gives enough evidence, or custom implementation is demonstrably cheaper and sufficiently safe.
+
+Capability sourcing exists to reduce work, not create analysis paralysis.
