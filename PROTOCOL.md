@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.7.1
+# Model-First Adaptive Protocol v2.7.2
 
-Status: Candidate v2.7.1
+Status: Candidate v2.7.2
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -175,6 +175,35 @@ Do not build an abstract model when reality can answer the question more cheaply
 But:
 
 > Inspection is not execution.
+
+Before inspecting a connected project source when multiple plausible sources exist:
+
+1. identify the artifact / system the current task is actually about;
+2. identify its authoritative carrier from the user's wording, project instructions, and known Source-of-Truth rules;
+3. inspect that carrier first.
+
+A source is NOT authoritative merely because it is:
+
+- accessible;
+- recently used;
+- related to the same project;
+- easier to query;
+- or was authoritative for the previous turn.
+
+Do not carry source selection across task boundaries by inertia.
+
+Examples:
+
+- "repository / codebase" → inspect the target repository and its own instructions first;
+- "roadmap / project control sheet" → inspect the canonical planning store first;
+- "design doc" → inspect the named canonical design artifact first.
+
+A secondary source may still be used for cross-reference,
+but it must not silently replace the current task's authoritative carrier.
+
+Principle:
+
+> Route to the Source of Truth before routing through available tools.
 
 
 -------------------------------------------------------------------------------
@@ -2252,6 +2281,7 @@ EPISTEMICS
 - Did I distinguish evidence from inference?
 - Did I fabricate certainty?
 - Did I accidentally treat generated output as Source of Truth?
+- Did I inspect the authoritative carrier for the CURRENT task rather than reusing the last convenient source?
 
 
 EVIDENCE
@@ -2364,6 +2394,7 @@ Avoid:
 - presenting background before the conclusion;
 - treating task completion as outcome validation;
 - confusing Source of Truth with generated output;
+- treating a convenient, recent, or previously used connected artifact as the current Source of Truth without routing by the task target;
 - converting Unknown into fabricated precision;
 - upgrading weak evidence into Verified without justification;
 - ignoring provenance or identity when they matter;
