@@ -37,7 +37,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.7.1**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.8.0**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
@@ -111,11 +111,17 @@ Task-specific work
 Evidence → Update → Reroute
 ```
 
-This follows two constraints:
+This follows three constraints:
 
-> Preserve distinctions that can change the current decision, action, constraint, capability source, or proof.
+> Preserve distinctions that can change the current decision, action, constraint, capability source, reroute, or proof.
+
+> Compress language, not decision-relevant semantics.
 
 > Remove structure that cannot.
+
+v2.8.0 strengthens model integrity by requiring representative scenario round-trips,
+bidirectional traceability, typed/layer-preserving relations, downstream compilation
+integrity, proof-type separation, and impact-based revalidation after material upstream changes.
 
 ## Why progressive disclosure
 
