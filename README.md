@@ -37,11 +37,12 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.8.0**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.9.0**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
 - [docs/runtime-map.md](docs/runtime-map.md) — descriptive mapping from canonical concepts to runtime files.
+- [docs/method-registry.md](docs/method-registry.md) — non-canonical pointers to mature external methods and standards that can be sourced when useful.
 - [examples/routing-cases.md](examples/routing-cases.md) — expected routing examples, not an automated benchmark.
 
 ## Recommended operating pattern
@@ -119,9 +120,10 @@ This follows three constraints:
 
 > Remove structure that cannot.
 
-v2.8.0 strengthens model integrity by requiring representative scenario round-trips,
-bidirectional traceability, typed/layer-preserving relations, downstream compilation
-integrity, proof-type separation, and impact-based revalidation after material upstream changes.
+v2.9.0 builds on v2.8 model integrity with intended-use / schema selection,
+model-use envelopes, explicit separation of representative scenarios from evidence,
+claim–evidence fit, sufficient alternative / solution-space coverage, and sourcing
+of mature external methods before inventing custom methodology.
 
 ## Why progressive disclosure
 
@@ -172,6 +174,9 @@ real failure
 over speculative framework growth.
 
 ## Design references
+
+See [docs/method-registry.md](docs/method-registry.md) for non-canonical external
+methods and standards that may be sourced when relevant.
 
 - OpenAI — Harness engineering: short repository maps, structured knowledge, progressive disclosure, and mechanical enforcement only where useful.
 - OpenAI — Codex customization: concise `AGENTS.md`, repository-local skills, and task-specific instructions.

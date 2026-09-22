@@ -58,6 +58,22 @@ When the choice matters, inspect plausible sources:
 
 Custom Build is neither automatically first nor automatically last.
 
+For consequential sourcing choices, check **solution-space coverage**:
+
+- cover materially different source classes, not only several familiar vendors,
+  libraries, or models from the same family;
+- include current-state / no-new-capability when the Goal can genuinely be met by
+  removing, reframing, or avoiding the need;
+- include materially different workflow, service, standard, integration,
+  composition, extension, and custom approaches when relevant;
+- record why an important source class was pruned when that rationale may matter
+  later.
+
+Several vendors in one class are not several fundamentally different solutions.
+
+Do not search exhaustively. Stop expanding the landscape when omitted source
+classes are unlikely to change the decision at reasonable search cost.
+
 ## Maturity and differentiation
 
 Estimate only as precisely as useful whether the capability is closer to:

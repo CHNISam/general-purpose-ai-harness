@@ -19,6 +19,34 @@ When materially relevant, also distinguish Outcome Owner, Decision Owner, Risk O
 
 Do not automatically treat the user's proposed feature, task, implementation, workflow, technology, library, service, or terminology as the real Goal.
 
+## Select the model for the intended use
+
+Before building an important model, determine what the model must support:
+
+- question / decision / action / prediction / proof;
+- relevant boundary, population, environment, version, or time horizon;
+- required fidelity, precision, and uncertainty;
+- materially different semantic layers that must remain visible.
+
+Choose the minimum sufficient model kind / schema for that use.
+
+Do not force a project hierarchy onto a decision problem, a causal model onto a
+pure retrieval problem, or an architecture schema onto a user-research question
+merely because the schema is familiar.
+
+For a complex cross-layer model, make the semantic spine explicit enough that
+missing decision-relevant layers are detectable. Once selected, do not silently
+drop such a layer; if it is merged or omitted, know why doing so cannot change
+the decision, reroute, sourcing choice, risk, or proof.
+
+Where a mature domain method, standard, framework, or model kind is likely to
+exist and the choice matters, source and tailor it before inventing a new one.
+
+Treat important model PASS results as scoped to an intended-use envelope:
+included boundary/population/environment/version, exclusions, assumptions,
+evidence basis, and material uncertainty. Reassess model fit when the proposed
+use materially exceeds that envelope.
+
 ## Build the minimum sufficient model
 
 Preserve distinctions capable of changing a relevant prediction, decision, action, capability source, constraint, or acceptance result.
@@ -83,7 +111,7 @@ Use another established method when it is better suited.
 
 Apply rigor proportional to consequence, uncertainty, novelty, irreversibility, cost, and complexity.
 
-- **Scenario / Run Test** — instantiate a representative concrete case, run it to a concrete result, then trace the important result back to the abstract model. For important cross-layer models distinguish Abstract Pass, Scenario Pass, and Reverse Pass.
+- **Scenario / Run Test** — instantiate a representative concrete case, run it to a concrete result, then trace the important result back to the abstract model. For important cross-layer models distinguish Abstract Pass, Scenario Pass, and Reverse Pass. A scenario is an instantiation / test fixture, not evidence by itself; evidence begins when the scenario is executed, observed, measured, inspected, or otherwise grounded in reality.
 - **Separation Test** — can the model distinguish cases that should differ?
 - **Counterfactual Test** — if one important condition changes, what should change and remain unchanged?
 - **Coverage Test** — check decision-relevant boundaries, exceptions, and failure modes.
@@ -96,6 +124,7 @@ Apply rigor proportional to consequence, uncertainty, novelty, irreversibility, 
 - **Compilation Integrity Test** — when the model becomes a milestone, plan, task, prompt, or contract, does the downstream form preserve upstream semantics and separable failure modes?
 - **Proof-Type Test** — distinguish model structure coherence, implementation verification, real-world validation, and unknown/untested evidence where materially relevant.
 - **Change-Impact / Revalidation Test** — after a decision-relevant upstream change, identify affected dependents and revalidate only the affected scope before relying on prior PASS.
+- **Claim–Evidence / Model-Use Fit Test** — confirm that evidence supports the actual claim scope and that the model is being used within the population, environment, version, assumptions, and intended-use envelope for which it is sufficiently supported.
 
 ## Exit
 

@@ -70,8 +70,8 @@ The Protocol is also being applied poorly if the agent:
 
 ## Model-integrity regression cases
 
-These cases are representative maintenance checks for v2.8.0. They are still
-examples, not automated model-behavior evals.
+These cases are representative maintenance checks introduced in v2.8.0. They
+are still examples, not automated model-behavior evals.
 
 | Failure pattern | Expected behavior |
 |---|---|
@@ -80,3 +80,17 @@ examples, not automated model-behavior evals.
 | An upstream dependency changes from `BLOCKS` to `COUPLED`, but a derived execution plan still contains the old relation. | Change-Impact identifies the plan as `REVALIDATION_REQUIRED`; the stale copied fact cannot remain an active execution authority. |
 | Integration tests pass for an Agent/provider path, but no target user has experienced the intended product value. | Record `VERIFICATION PASS` only; product `VALIDATION PASS` remains unsupported. |
 | An abstract cross-layer model looks coherent, but no representative concrete scenario can be run end-to-end without inventing missing behavior. | Scenario / Run Test fails; do not call the model sufficiently trustworthy until the missing state, relation, precondition, or rule is modeled. |
+
+
+## Model-fit and credibility regression cases
+
+These cases are representative maintenance checks for v2.9.0.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| The user asks whether to buy one of three subscriptions, but the agent forces the project-delivery hierarchy `Goal → Capability → Milestone → Work Item`. | Model Purpose / Schema Selection rejects the mismatch; use a decision model with Goal, criteria, alternatives, evidence, decision, and review trigger at the minimum sufficient depth. |
+| A representative gameplay scenario can be narrated end-to-end, so the agent marks the product hypothesis validated without a real playtest or observation. | Scenario / Run Test allows a conceptual Scenario Pass only; the scenario design is not evidence and cannot produce a product VALIDATION PASS by itself. |
+| A capability-sourcing analysis compares three LLM vendors and concludes the solution landscape was covered even though script, rule-based, hybrid, existing internal, and no-new-capability approaches could materially change the decision. | Solution-space coverage fails; inspect materially different source classes before comparing variants inside one class. |
+| A model validated on one population / environment / version is reused to justify a materially different use. | Model Use Envelope + Claim–Evidence Fit require reassessing transferability and revalidation before relying on the prior PASS. |
+| A clean causal chain is built from one anecdotal source and is presented as broadly verified. | Claim–Evidence Fit narrows the claim or reopens the Evidence Gap; structural coherence cannot upgrade weak or narrow evidence. |
+| The agent invents a new custom requirements or architecture checklist even though a mature domain method would likely fit. | Method sourcing first inspects and tailors an established method / standard; invent only the unresolved delta. |

@@ -7,6 +7,23 @@ description: Choose among materially different viable actions when the choice ca
 
 Use this skill for a **Decision Gap**.
 
+## Check alternative-space sufficiency
+
+Before ranking, make sure the candidate set covers the materially different
+action classes implied by the decision.
+
+Where consequential:
+
+- include status quo / do-nothing when it is genuinely viable;
+- do not mistake several variants or vendors of one approach for broad coverage;
+- consider operational, design, sourcing, timing, and scope alternatives when
+  those dimensions can change the outcome;
+- use a trade tree or equivalent structured pruning when the space is large;
+- stop expanding the set when omitted alternatives are unlikely to change the
+  decision.
+
+The purpose is sufficient decision-space coverage, not exhaustive ideation.
+
 ## First remove non-options
 
 Reject alternatives that violate mandatory constraints.
