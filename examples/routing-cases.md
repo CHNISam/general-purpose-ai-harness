@@ -67,3 +67,16 @@ The Protocol is also being applied poorly if the agent:
 - turns a capability need directly into custom implementation;
 - declares success from a command or artifact without relevant proof;
 - ignores evidence that contradicts the working model.
+
+## Model-integrity regression cases
+
+These cases are representative maintenance checks for v2.8.0. They are still
+examples, not automated model-behavior evals.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| A complex model is explained as `Need → Capability → Work Item` even though the capability-source/solution choice changes risk and proof. | Layer-Preservation Test rejects the simplification; keep `Need → Required Capability → Capability Source / Solution → Implementation / Work` at the simplest faithful level. |
+| Two claims share one gameplay scenario, but failure of Claim A requires fixing motivation while failure of Claim B requires fixing consequence/agency. | Separation + Compilation Integrity require separate judgments even if one Work Item or scenario contributes evidence to both. |
+| An upstream dependency changes from `BLOCKS` to `COUPLED`, but a derived execution plan still contains the old relation. | Change-Impact identifies the plan as `REVALIDATION_REQUIRED`; the stale copied fact cannot remain an active execution authority. |
+| Integration tests pass for an Agent/provider path, but no target user has experienced the intended product value. | Record `VERIFICATION PASS` only; product `VALIDATION PASS` remains unsupported. |
+| An abstract cross-layer model looks coherent, but no representative concrete scenario can be run end-to-end without inventing missing behavior. | Scenario / Run Test fails; do not call the model sufficiently trustworthy until the missing state, relation, precondition, or rule is modeled. |

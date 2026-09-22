@@ -10,6 +10,9 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Diagnostic dimensions | `AGENTS.md` Gap router |
 | Minimum sufficient judgment | `AGENTS.md` guards + relevant skills |
 | Model Gap / minimum sufficient modeling | `modeling` |
+| Scenario round-trip / layer preservation / compilation integrity | `modeling` |
+| Bidirectional project trace / capability-source layer | `project-modeling` |
+| Proof-type separation / impact-based revalidation | `validation` |
 | Evidence coverage | `observability-coverage` |
 | Evidence retrieval / measurement / quality | `evidence-acquisition` |
 | Decision | `decision-analysis` |
@@ -49,9 +52,13 @@ The repository itself does not claim to provide those mechanisms generically.
 ## Maintenance rule
 
 When a canonical concept changes:
+- impact-analyze which runtime files depend on the changed meaning;
+- mark affected derived representations as requiring revalidation until synchronized;
 - update this map if its runtime representation changes;
 - update only affected skills;
 - preserve deliberately retained semantics; retire or rename concepts only through an explicit change, with historical recovery available when useful.
+
+A prior runtime mapping is not evidence that it remains semantically valid after an upstream canonical change.
 
 When a runtime refactor does not change canonical meaning:
 - do not edit `PROTOCOL.md`;

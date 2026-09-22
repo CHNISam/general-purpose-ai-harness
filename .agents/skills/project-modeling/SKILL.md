@@ -12,7 +12,9 @@ Goal
   ↓
 Outcome
   ↓
-Capability
+Required Capability
+  ↓
+[Capability Source / Solution, when materially decision-relevant]
   ↓
 Dependency
   ↓
@@ -22,35 +24,57 @@ Gap
   ↓
 Work Item
   ↓
+Implementation
+  ↓
 Evidence
 ```
+
+Square brackets mean the layer is conditional only when its separate representation
+cannot change the current decision, risk, reroute, sourcing choice, or proof.
 
 Keep this distinction explicit:
 
 ```text
-Capability
+Need
   ≠
-Tool
+Required Capability
   ≠
-Vendor
+Capability Source / Solution
   ≠
 Implementation
+  ≠
+Evidence
 ```
 
-A Capability states what the project must be able to do.
+A Required Capability states what the project must be able to do.
 
-Only after the Capability is justified should its source be selected.
+Only after the Required Capability is justified should its source be selected.
+Do not jump directly from Capability to Implementation when the capability-source
+or solution choice is materially unresolved.
 
 Tasks are interventions against project Gaps. They are not the fundamental structure of the project.
 
-## Work-item traceability
+## Bidirectional traceability and compilation integrity
 
 A current Work Item should normally answer:
 
 - Which Gap does it close?
-- Which Dependency or Capability does that affect?
+- Which Dependency or Required Capability does that affect?
 - Which Outcome does that support?
 - Which Goal does that ultimately serve?
+
+An important Goal / Outcome / Claim should also be able to trace downward to:
+
+- required capability;
+- selected capability source / solution where material;
+- milestone/gate;
+- gap/work;
+- evidence owner or closure proof.
+
+When compiling an upstream project model into a release outcome, task, prompt,
+or implementation contract, preserve the upstream meaning. If two claims can
+fail for different reasons and require different reroutes, keep their judgments
+separable even when they share one implementation surface or representative case.
 
 If it cannot, consider:
 

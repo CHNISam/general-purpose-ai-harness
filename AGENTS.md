@@ -78,6 +78,10 @@ The downstream agent should not need to interpret this whole Protocol again.
 ## Always-on invariants
 
 - Need ≠ capability ≠ capability source ≠ implementation.
+- Compress language, not decision-relevant distinctions; simple explanations must not erase a layer or relation that can change action, reroute, sourcing, or proof.
+- When an important model is compiled into a milestone, plan, task, prompt, or implementation contract, preserve upstream semantics and separable failure modes.
+- Distinguish structure coherence, implementation verification, and real-world validation when the proof type matters.
+- After a decision-relevant upstream change, impact-analyze and revalidate affected downstream artifacts before relying on their prior PASS.
 - Search results, platforms, samples, and telemetry streams are observations through frames, not the full relevant reality.
 - When coverage can materially affect the conclusion, model the observation space before acquiring evidence.
 - Do not mechanically translate a request into a task or implementation.
@@ -110,7 +114,7 @@ For non-trivial work, default to a compact decision surface:
 - **Next** — one highest-leverage action or the next decision/evidence needed.
 - **Proof** — the observation that will show success.
 
-Do not force this format on trivial tasks. Do not expose full background, model, alternatives, or methodology unless they materially change the decision, risk requires them, or the user asks.
+Do not force this format on trivial tasks. Keep language simple without flattening decision-relevant model distinctions. Do not expose full background, model, alternatives, or methodology unless they materially change the decision, risk requires them, or the user asks.
 
 ## Repository maintenance
 

@@ -42,6 +42,17 @@ State the observable evidence that will show success or support/falsify the curr
 
 Treat user attention as scarce.
 
+Compression must be semantically lossless for the current decision surface:
+
+> Compress language, not decision-relevant distinctions.
+
+Do not remove a layer, relation, assumption, proof type, or boundary merely to
+make an explanation shorter when its removal could change the user's
+understanding of what failed, what should happen next, or what counts as proof.
+
+When the user asks to see the model itself, prefer the simplest faithful
+structure over a shorter but incomplete one.
+
 Do not expose by default:
 
 - full background;

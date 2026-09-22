@@ -108,10 +108,12 @@ Do not attempt to force the Gap set into a mutually exclusive state machine.
 When intentionally changing `PROTOCOL.md`:
 
 1. make the conceptual change explicitly;
-2. identify affected router / skill behavior;
-3. update only those derived files that need to change;
-4. update `docs/runtime-map.md` if the mapping changes;
-5. update examples when expected routing changes.
+2. identify affected router / skill / example behavior through change-impact analysis;
+3. treat affected derived representations as requiring revalidation until synchronized;
+4. update only those derived files that need to change;
+5. update `docs/runtime-map.md` if the mapping changes;
+6. update examples when expected routing or model-integrity behavior changes;
+7. re-check that the derived runtime preserves the canonical distinction and proof type rather than only matching terminology.
 
 ### Runtime-only changes
 
@@ -160,3 +162,9 @@ Do not add automation merely to make the repository look more engineered.
 ## Repository principle
 
 > Use the least structure that reliably improves the current decision, action, or proof.
+
+> Compress language, not decision-relevant semantics.
+
+A derived artifact that copies mutable canonical facts should either be regenerated
+from the authoritative source or carry explicit staleness/revalidation semantics.
+Do not maintain a silent second live truth.
