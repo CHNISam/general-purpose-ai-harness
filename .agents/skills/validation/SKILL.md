@@ -49,8 +49,6 @@ Do not confuse:
 
 ## Post-action update
 
-Compare Intended State vs Observed State.
-
 If a decision-relevant upstream requirement, model, source, dependency, or
 assumption changed, impact-analyze which prior verification/validation results
 depend on it. Mark only the affected scope as requiring revalidation; do not
