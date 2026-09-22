@@ -35,6 +35,34 @@ Where useful, classify evidence as:
 
 Do not upgrade Candidate or Approximate evidence to Verified for convenience.
 
+Evidence state is scoped to the current claim and intended use.
+"Verified" for one population, version, environment, time range, or question does
+not automatically transfer to another.
+
+## Claim–evidence fit and credibility
+
+Before using evidence to support an important claim, check only the dimensions
+that could change the conclusion:
+
+- exact claim scope;
+- target population / system / environment;
+- identity and version;
+- source / input pedigree and provenance;
+- observation coverage and selection effects;
+- measurement quality and precision;
+- uncertainty and sensitivity;
+- transferability from the observed case to the proposed use;
+- independence / corroboration when one source family may share the same bias.
+
+Do not let the claim become broader than the evidence.
+
+A representative scenario is a model instantiation or test fixture. It becomes
+evidence only when it is executed, observed, measured, inspected, interviewed,
+tested, or otherwise grounded through an appropriate channel.
+
+If evidence supports only a narrower statement, narrow the statement or acquire
+additional evidence.
+
 ## Source of Truth
 
 Prefer reality or an authoritative external artifact:
