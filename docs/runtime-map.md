@@ -10,13 +10,15 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Diagnostic dimensions | `AGENTS.md` Gap router |
 | Minimum sufficient judgment | `AGENTS.md` guards + relevant skills |
 | Model Gap / minimum sufficient modeling | `modeling` |
+| Model purpose / schema selection / intended-use envelope | `modeling` |
 | Scenario round-trip / layer preservation / compilation integrity | `modeling` |
+| Claim–evidence / model-use fit | `modeling` + `evidence-acquisition` + `validation` |
 | Bidirectional project trace / capability-source layer | `project-modeling` |
 | Proof-type separation / impact-based revalidation | `validation` |
 | Evidence coverage | `observability-coverage` |
 | Evidence retrieval / measurement / quality | `evidence-acquisition` |
-| Decision | `decision-analysis` |
-| Capability sourcing | `capability-sourcing` |
+| Decision / alternative-space sufficiency | `decision-analysis` |
+| Capability sourcing / solution-space coverage | `capability-sourcing` |
 | Planning | `planning` |
 | Reality Gap / execution | direct action through the host AI/runtime |
 | Verification / Validation Gap + proof | `validation` |
@@ -24,6 +26,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Project work | `project-modeling` |
 | Delegation / prompt compilation | `delegation` |
 | Human-facing compression | `decision-surface` |
+| External method / standard pointers (non-canonical) | `docs/method-registry.md` |
 
 ## Concept boundaries
 
