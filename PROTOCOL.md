@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.7.1
+# Model-First Adaptive Protocol v2.8.0
 
-Status: Candidate v2.7.1
+Status: Candidate v2.8.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -35,6 +35,11 @@ Design principles:
 
 > Internal reasoning may be complex.
 > Human-facing understanding should be simple.
+
+> Compress language, not decision-relevant distinctions.
+> A simpler explanation must not erase a layer, relation, assumption, proof type,
+> or boundary that can change a prediction, decision, action, reroute, constraint,
+> capability source, or acceptance result.
 
 > Source a capability before deciding to build it.
 
@@ -780,21 +785,53 @@ Simple, low-risk work may pass these gates implicitly.
 
 
 -------------------------------------------------------------------------------
-6.1 Run Test
+6.1 Scenario / Run Test
 -------------------------------------------------------------------------------
 
-Use a concrete case.
+Use a concrete representative case, not only abstract definitions.
 
-Can the model transform a specific state/input into a concrete:
+For an important cross-layer model, run a round trip:
 
-- prediction;
-- decision;
-- action;
-- acceptance result?
+    Abstract Model
+        ↓ instantiate
+    Concrete Scenario
+        ↓
+    Concrete states / decisions / actions / results
+        ↓
+    Evidence / acceptance
+        ↓ trace back
+    Abstract Model
 
-If not:
+Ask:
 
-    identify the missing variable, relation, rule, or observation.
+- Can a specific state/input produce a concrete prediction, decision, action,
+  constraint, or acceptance result?
+- Can each decision-relevant part of the concrete result be explained by the
+  abstract model rather than by unstated intuition?
+- Does the scenario expose the entry conditions and handoff boundaries between
+  materially different model elements?
+- Where practical, does at least one materially different or off-nominal case
+  produce the expected different result?
+
+Treat these as distinct checks:
+
+    Abstract Pass
+        the model is internally coherent for the current purpose;
+
+    Scenario Pass
+        a concrete representative case can actually run through it;
+
+    Reverse Pass
+        the important concrete states, actions, and results trace back to the
+        model without inventing missing semantics.
+
+Do not call an important model sufficiently validated merely because its
+definitions look coherent.
+
+If the round trip fails:
+
+    identify the missing variable, relation, layer, rule, state transition,
+    precondition, or observation.
 
 
 -------------------------------------------------------------------------------
@@ -901,26 +938,50 @@ with:
 
 
 -------------------------------------------------------------------------------
-6.8 Traceability Test
+6.8 Bidirectional Traceability Test
 -------------------------------------------------------------------------------
 
-For every important model element, ask:
+For every important model element, ask both:
 
 > Why does this exist?
 
-Where relevant, trace upward:
+and:
+
+> What downstream element realizes, constrains, closes, verifies, or validates it?
+
+Trace upward where relevant:
 
     Element / Work Item
-        ↓
+        ↑
     Gap
-        ↓
+        ↑
     Dependency / Capability
-        ↓
+        ↑
     Outcome
-        ↓
+        ↑
     Goal
 
-Elements with no meaningful upward trace should be questioned.
+Trace downward where relevant:
+
+    Goal / Outcome / Claim
+        ↓
+    Required Capability
+        ↓
+    Capability Source / Solution when materially relevant
+        ↓
+    Dependency / Gap
+        ↓
+    Work Item / Implementation
+        ↓
+    Evidence / Proof
+
+The exact layers depend on the domain. Do not manufacture layers that cannot
+change the current decision, action, risk, or proof.
+
+Question elements with:
+- no meaningful upward justification;
+- no downstream realization or proof where one should exist;
+- ambiguous ownership of final evidence.
 
 Possible outcomes:
 
@@ -928,7 +989,8 @@ Possible outcomes:
 - compress;
 - defer;
 - reclassify;
-- remove.
+- remove;
+- add the missing downstream closure or proof.
 
 
 -------------------------------------------------------------------------------
@@ -950,6 +1012,174 @@ The objective is not the shortest model.
 The objective is:
 
 > the minimal sufficient model.
+
+
+-------------------------------------------------------------------------------
+6.10 Typed-Relation / Layer-Preservation Test
+-------------------------------------------------------------------------------
+
+Do not treat every arrow as the same relationship.
+
+Where the relation can change interpretation, ownership, rerouting, or proof,
+state its type explicitly enough to prevent semantic collapse.
+
+Useful generic relation types include:
+
+    DERIVES_FROM
+        why a lower-level model element follows from an upstream one;
+
+    REQUIRES
+        which capability, condition, or invariant a result depends on;
+
+    PROVIDED_BY
+        which capability source / solution is expected to supply a capability;
+
+    DEPENDS_ON
+        execution, state, or prerequisite dependency;
+
+    CLOSES
+        which Gap a Work Item or intervention is intended to close;
+
+    VERIFIES
+        evidence that the specified model / implementation was realized correctly;
+
+    VALIDATES
+        evidence that the resulting real system satisfies the intended purpose,
+        need, or outcome.
+
+These labels are illustrative, not a mandatory ontology.
+
+Preserve any materially different layer even when simplifying the explanation.
+
+In particular:
+
+    Need
+        ≠
+    Required Capability
+        ≠
+    Capability Source / Solution
+        ≠
+    Implementation
+        ≠
+    Evidence
+
+If removing a layer or relation type could change a decision, reroute, risk,
+capability-source choice, or acceptance result:
+
+    do not simplify it away.
+
+
+-------------------------------------------------------------------------------
+6.11 Compilation Integrity Test
+-------------------------------------------------------------------------------
+
+When an upstream model is translated into a downstream:
+
+- milestone;
+- release outcome;
+- plan;
+- task;
+- prompt;
+- specification;
+- implementation contract;
+- view;
+- report;
+
+check that the translation preserves the decision-relevant meaning.
+
+For each important downstream element, ask:
+
+- Which upstream claim or requirement is this compiling?
+- Is it still proving or satisfying the same thing?
+- Were two separable claims merged merely for execution convenience?
+- Was a precondition silently converted into part of the claim?
+- Was a solution mechanism silently promoted into a need or outcome?
+- Was a proof requirement weakened, strengthened, or substituted?
+- If this downstream element fails, does the reroute match the upstream model?
+
+Strong separation rule:
+
+> If two claims can fail for materially different reasons and their failures
+> require materially different next actions, do not collapse them into one
+> indistinguishable judgment merely because they share one scenario or Work Item.
+
+One implementation surface may contribute evidence to several claims.
+
+That does not make those claims semantically identical.
+
+
+-------------------------------------------------------------------------------
+6.12 Proof-Type Test
+-------------------------------------------------------------------------------
+
+Do not use an unqualified PASS where different proof meanings matter.
+
+Distinguish as needed:
+
+    STRUCTURE PASS
+        the model is internally coherent for the current purpose;
+
+    VERIFICATION PASS
+        the implementation / integration / artifact satisfies the specified model
+        or contract;
+
+    VALIDATION PASS
+        the resulting real system satisfies the intended purpose, need, or outcome;
+
+    EVIDENCE UNKNOWN / UNTESTED
+        sufficient evidence does not yet exist.
+
+A higher-level proof cannot be inferred merely from a lower-level one.
+
+Examples:
+
+    coherent model
+        ≠
+    validated outcome
+
+    passing integration test
+        ≠
+    validated user value
+
+    successful provider call
+        ≠
+    validated product hypothesis
+
+Use the weakest proof label actually supported by the evidence.
+
+
+-------------------------------------------------------------------------------
+6.13 Change-Impact / Revalidation Test
+-------------------------------------------------------------------------------
+
+A prior PASS is scoped to the model, assumptions, sources, version, and upstream
+conditions under which it was obtained.
+
+When a decision-relevant upstream element changes:
+
+    Upstream Change
+        ↓
+    identify affected relations / dependents
+        ↓
+    Impact Analysis
+        ↓
+    affected downstream = REVALIDATION_REQUIRED
+        ↓
+    recompile / re-check / retest only the affected scope
+        ↓
+    rebaseline
+
+Do not invalidate unrelated work merely because something changed.
+
+Do not keep relying on an affected derived model, plan, view, prompt, or
+acceptance result merely because it was previously marked PASS.
+
+Where a derived artifact copies live canonical facts, either:
+
+- regenerate / recompile them from the Source of Truth; or
+- make its staleness and revalidation semantics explicit.
+
+Prefer one live authority over duplicated mutable truth.
 
 
 ===============================================================================
@@ -1747,7 +1977,9 @@ For project work, derive work through:
         ↓
     Outcome
         ↓
-    Capability
+    Required Capability
+        ↓
+    [Capability Source / Solution, when materially decision-relevant]
         ↓
     Dependency
         ↓
@@ -1757,23 +1989,31 @@ For project work, derive work through:
         ↓
     Work Item
         ↓
+    Implementation
+        ↓
     Evidence
 
 
 Important:
 
-    Capability
+    Need
         ≠
-    Tool
+    Required Capability
         ≠
-    Vendor
+    Capability Source / Solution
         ≠
     Implementation
+        ≠
+    Evidence
 
 
-A Capability states what the project must be able to do.
+A Required Capability states what the project must be able to do.
 
-Only after the Capability is justified should its source be selected.
+The Capability Source / Solution layer is conditional only in the sense that it
+need not be separately modeled when its choice cannot change the current
+decision, risk, reroute, or proof. When it can, preserve it explicitly.
+
+Only after the Required Capability is justified should its source be selected.
 
 Tasks are interventions against project Gaps.
 
@@ -2184,6 +2424,10 @@ Then:
         ↓
     Update
         ↓
+    Impact Analysis for decision-relevant upstream changes
+        ↓
+    Revalidate affected downstream only
+        ↓
     Reroute
 
 When evidence conflicts with the model:
@@ -2270,8 +2514,14 @@ EVIDENCE
 MODEL QUALITY
 
 - Did I check important boundary cases?
+- Did I run a representative concrete scenario for an important cross-layer model?
+- Can the concrete result trace back to the abstract model without invented semantics?
 - Did I test generalization where necessary?
-- Can important elements trace upward to a real purpose?
+- Can important elements trace upward to a real purpose and downward to realization/proof?
+- Did I preserve materially different relation types and layers?
+- Did downstream milestone/task/prompt compilation preserve upstream meaning?
+- Did I distinguish STRUCTURE PASS, VERIFICATION PASS, VALIDATION PASS, and UNKNOWN where needed?
+- Did I assess affected dependents after a decision-relevant upstream change?
 - Did I keep unnecessary model elements?
 
 
@@ -2330,6 +2580,10 @@ If an important check fails:
 Avoid:
 
 - converting user language directly into tasks;
+- simplifying away a decision-relevant layer or relation merely to make the explanation shorter;
+- collapsing separable claims whose failures require materially different reroutes;
+- treating STRUCTURE PASS or VERIFICATION PASS as VALIDATION PASS;
+- relying on affected derived artifacts after a decision-relevant upstream change without impact analysis / revalidation;
 - converting a required capability directly into custom code;
 - assuming Reality Gap means Build;
 - rebuilding sufficiently solved commodity capabilities without reason;
