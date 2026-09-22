@@ -78,6 +78,10 @@ The downstream agent should not need to interpret this whole Protocol again.
 ## Always-on invariants
 
 - Need ≠ capability ≠ capability source ≠ implementation.
+- Choose models and methods for their intended use; do not force one familiar schema onto every non-trivial problem.
+- A representative case is a model instantiation / test fixture, not evidence until grounded through real or test observation.
+- Scope claims and prior PASS results to the population, environment, version, assumptions, and use actually supported by evidence.
+- For consequential decisions or sourcing choices, cover materially different alternative/source classes rather than only familiar variants or vendors.
 - Compress language, not decision-relevant distinctions; simple explanations must not erase a layer or relation that can change action, reroute, sourcing, or proof.
 - When an important model is compiled into a milestone, plan, task, prompt, or implementation contract, preserve upstream semantics and separable failure modes.
 - Distinguish structure coherence, implementation verification, and real-world validation when the proof type matters.
