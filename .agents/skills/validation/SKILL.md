@@ -26,6 +26,19 @@ Ask:
 
 **Does the resulting real system actually satisfy the intended purpose or need?**
 
+### Proof type
+
+Where the distinction can change interpretation or completion, label the strongest
+proof actually supported:
+
+- **STRUCTURE PASS** — the model is internally coherent for the current purpose.
+- **VERIFICATION PASS** — the implementation/integration/artifact satisfies the specified model or contract.
+- **VALIDATION PASS** — the resulting real system satisfies the intended purpose, need, or outcome.
+- **UNKNOWN / UNTESTED** — sufficient evidence does not yet exist.
+
+Do not promote a lower proof type into a higher one merely because the lower-level
+test passed.
+
 Prefer evidence from the real Source of Truth.
 
 Do not confuse:
@@ -35,6 +48,13 @@ Do not confuse:
 - Tool returned success → Real state is correct
 
 ## Post-action update
+
+Compare Intended State vs Observed State.
+
+If a decision-relevant upstream requirement, model, source, dependency, or
+assumption changed, impact-analyze which prior verification/validation results
+depend on it. Mark only the affected scope as requiring revalidation; do not
+silently rely on its prior PASS and do not invalidate unrelated evidence.
 
 Compare Intended State vs Observed State.
 
