@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.8.0
+# Model-First Adaptive Protocol v2.9.0
 
-Status: Candidate v2.8.0
+Status: Candidate v2.9.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -40,6 +40,15 @@ Design principles:
 > A simpler explanation must not erase a layer, relation, assumption, proof type,
 > or boundary that can change a prediction, decision, action, reroute, constraint,
 > capability source, or acceptance result.
+
+> Select the model and method for the intended use.
+> A model, schema, scenario, or proof that is sufficient for one question,
+> boundary, population, environment, or decision is not automatically sufficient
+> for another.
+
+> A representative scenario is an instantiation and test fixture.
+> It becomes evidence only when executed, observed, measured, or otherwise
+> grounded in reality.
 
 > Source a capability before deciding to build it.
 
@@ -645,6 +654,81 @@ Do not fill a schema mechanically.
 Do not create information merely because a field exists.
 
 
+-------------------------------------------------------------------------------
+4.1 Model Purpose / Schema Selection
+-------------------------------------------------------------------------------
+
+Before building or relying on an important model, determine its intended use.
+
+Ask only what can change the current work:
+
+- What question, decision, action, prediction, or proof must this model support?
+- What boundary, population, environment, version, or time horizon matters?
+- What fidelity, precision, or uncertainty is sufficient for that use?
+- What materially different semantic layers must remain visible?
+
+Choose the minimum sufficient model kind / schema for that use.
+
+Do not force a familiar project, architecture, decision, causal, or research
+schema onto a problem merely because the schema already exists.
+
+For a complex cross-layer model, make the semantic spine explicit enough that
+decision-relevant omissions are detectable.
+
+Once a schema / semantic spine has been selected:
+
+- do not silently omit a layer whose absence could change the decision,
+  reroute, capability source, risk, or proof;
+- do not fill a layer mechanically when it has no decision-relevant meaning;
+- if a materially expected layer is merged or omitted, know why doing so is safe.
+
+When a mature domain method, model kind, standard, or framework is likely to
+exist and the choice is consequential:
+
+> source and tailor the established method before inventing a new one.
+
+The objective is not conformity to a framework.
+
+The objective is a model fit for the current intended use.
+
+
+-------------------------------------------------------------------------------
+4.2 Model Use Envelope / Permissible Use
+-------------------------------------------------------------------------------
+
+An important model is valid only relative to the use for which it is sufficiently
+supported.
+
+Where material, keep its use envelope legible:
+
+Intended Use:
+    what question, decision, action, prediction, or proof it supports.
+
+Included Scope:
+    which entities, states, populations, environments, versions, and time ranges
+    are represented.
+
+Exclusions / Abstractions:
+    what the model deliberately leaves out.
+
+Assumptions:
+    what must remain true for the model to be relied on.
+
+Evidence Basis:
+    what observations or sources support the model.
+
+Uncertainty / Fidelity Limits:
+    where precision, coverage, or transferability is limited.
+
+A prior model PASS does not imply universal validity.
+
+If a proposed use materially exceeds the model's supported envelope:
+
+    re-check model fit,
+    acquire additional evidence if needed,
+    and revalidate before relying on the old PASS.
+
+
 ===============================================================================
 5. OPTIONAL REASONING OPERATORS
 ===============================================================================
@@ -763,6 +847,21 @@ Examples:
 - total-cost analysis;
 - ecosystem / solution-landscape analysis.
 
+Treat mature external methods, standards, frameworks, and model kinds as
+capability sources.
+
+When a consequential domain problem is likely to have an established method:
+
+- inspect credible established methods before inventing a custom schema,
+  checklist, ontology, or process;
+- adopt only the part that fits the current intended use;
+- preserve the Protocol's evidence honesty, minimum-sufficient-method,
+  capability-sourcing, and validation rules;
+- do not cargo-cult a full framework merely because it is authoritative.
+
+The repository may maintain non-canonical pointers to useful external methods in
+`docs/method-registry.md`.
+
 Do not force a familiar method onto a problem when another method is better.
 
 
@@ -789,6 +888,25 @@ Simple, low-risk work may pass these gates implicitly.
 -------------------------------------------------------------------------------
 
 Use a concrete representative case, not only abstract definitions.
+
+A scenario is not evidence by itself.
+
+Distinguish where material:
+
+    Construction Scenario
+        a concrete case used to build or explain the model;
+
+    Challenge / Validation Scenario
+        a case chosen to test whether the model survives representative or
+        off-nominal conditions;
+
+    Evidence
+        observations produced by executing, measuring, inspecting, interviewing,
+        testing, or otherwise grounding the scenario in reality.
+
+An imagined scenario that "works" demonstrates conceptual executability only.
+It does not by itself prove real-world behavior, user value, prevalence, or
+causal truth.
 
 For an important cross-layer model, run a round trip:
 
@@ -1182,6 +1300,42 @@ Where a derived artifact copies live canonical facts, either:
 Prefer one live authority over duplicated mutable truth.
 
 
+-------------------------------------------------------------------------------
+6.14 Claim–Evidence / Model-Use Fit Test
+-------------------------------------------------------------------------------
+
+Before relying on an important claim or model for a real decision, ask:
+
+- What exact claim is being supported?
+- What intended use is the model serving now?
+- Does the evidence observe the relevant population, environment, version,
+  state, time range, and boundary?
+- Is the source / input pedigree sufficient for this use?
+- Could coverage, selection, measurement, or transfer error change the result?
+- Is uncertainty characterized well enough for the decision?
+- Is the claim stronger, broader, or more general than the evidence actually
+  supports?
+- Is a model being reused outside the envelope for which it was previously
+  verified or validated?
+
+If the evidence supports only a narrower statement:
+
+    narrow the claim.
+
+If the use exceeds the supported model envelope:
+
+    revalidate the use.
+
+If the evidence itself is insufficient:
+
+    reopen the Evidence Gap.
+
+A representative scenario can become evidence when it is actually executed or
+observed through a suitable real or test system.
+
+The scenario design alone is not evidence.
+
+
 ===============================================================================
 7. EVIDENCE ACQUISITION POLICY
 ===============================================================================
@@ -1285,8 +1439,12 @@ Stop rule:
 
 Where useful, classify evidence as:
 
+Evidence state is scoped to the current claim and intended use.
+A result that is Verified for one population, version, environment, or question
+does not automatically transfer to another.
+
 Verified:
-    Sufficiently supported for the current purpose.
+    Sufficiently supported for the current claim and purpose within the stated scope.
 
 Candidate:
     Plausible evidence that still needs confirmation.
@@ -1422,6 +1580,25 @@ Possible sources include:
 8. Existing model
 9. Composition of several proven capabilities
 10. Custom implementation
+
+For consequential sourcing decisions, check solution-space coverage before
+committing:
+
+- cover materially different source classes, not merely several familiar
+  vendors or products from the same class;
+- include the current-state / no-new-capability option when it can genuinely
+  satisfy the Goal by removing, reframing, or avoiding the need;
+- consider materially different operational, architectural, workflow, service,
+  integration, composition, extension, and build approaches where relevant;
+- record why an important class was pruned when that rationale may matter later.
+
+Several vendors in one category do not demonstrate that the solution space was
+meaningfully explored.
+
+Coverage need not be exhaustive.
+
+It is sufficient when omitted source classes are unlikely to change the current
+decision at reasonable search cost.
 
 Do not assume Custom Build belongs first in this list.
 
@@ -1769,6 +1946,18 @@ Do not create alternatives for procedural completeness.
 -------------------------------------------------------------------------------
 
 Use formal Decision Analysis only when several materially different actions compete.
+
+Before ranking alternatives, check whether the candidate set is sufficient for
+the current decision space.
+
+Where consequential:
+
+- include materially different action / design / operational classes;
+- include status quo / do-nothing when it is genuinely viable;
+- do not mistake several variants or vendors of one approach for broad coverage;
+- use a trade tree or equivalent structured pruning when the space is large;
+- stop expanding the set when omitted alternatives are unlikely to change the
+  decision.
 
 First reject alternatives violating mandatory constraints.
 
@@ -2484,7 +2673,13 @@ ROUTING
 
 MODELING
 
+- Did I choose a model / schema fit for the current intended use?
+- If a complex semantic spine was selected, did I silently omit a materially
+  relevant layer?
 - Did I preserve decision-relevant distinctions?
+- Did I treat a representative scenario as a test fixture rather than evidence
+  by itself?
+- Am I relying on a model outside the use envelope for which it is supported?
 - Did I avoid unnecessary structure?
 - Did I avoid treating the proposed solution as automatically equal to the Goal?
 - Did I distinguish Capability from Implementation?
@@ -2499,6 +2694,9 @@ EPISTEMICS
 
 EVIDENCE
 
+- Does the evidence support the exact scope of the claim being made?
+- Could provenance / pedigree, population, environment, version, time range,
+  uncertainty, or transferability materially change the conclusion?
 - Could the current observation frame materially miss relevant reality?
 - Did I confuse a search result, platform, sample, or telemetry stream with the target reality?
 - If coverage is incomplete, did I combine complementary frames or constrain the conclusion?
@@ -2528,6 +2726,9 @@ MODEL QUALITY
 CAPABILITY SOURCING
 
 - Does execution require a capability not currently available?
+- For a consequential sourcing decision, did I cover materially different
+  source classes rather than only familiar tools or vendors?
+- Did I consider current-state / no-new-capability when it was genuinely viable?
 - Did I check whether we already possess it?
 - If sourcing materially matters, did I inspect credible existing solutions?
 - Did I distinguish commodity capability from strategic differentiation?
@@ -2611,6 +2812,14 @@ Avoid:
 - building workflow infrastructure for cheap one-off work;
 - applying reasoning operators ritualistically;
 - filling schemas mechanically;
+- forcing a familiar schema onto a problem with a different intended use;
+- inventing a custom method, ontology, or checklist when a mature fit-for-purpose
+  method could be sourced and tailored more cheaply;
+- treating an imagined representative scenario as empirical evidence;
+- reusing a model outside its supported use envelope without reassessment;
+- treating several vendors or variants from one solution class as adequate
+  solution-space coverage;
+- making a broader claim than the observed evidence supports;
 - dumping private chain-of-thought;
 - dumping the entire model to the user;
 - repeating the same conclusion;
