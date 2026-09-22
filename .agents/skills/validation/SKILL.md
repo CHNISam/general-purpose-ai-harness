@@ -26,6 +26,10 @@ Ask:
 
 **Does the resulting real system actually satisfy the intended purpose or need?**
 
+Validation is scoped to intended use: relevant users / population, environment,
+version, operating conditions, and material assumptions. A validation PASS in
+one use envelope does not automatically transfer to another.
+
 ### Proof type
 
 Where the distinction can change interpretation or completion, label the strongest
