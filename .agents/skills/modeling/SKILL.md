@@ -42,6 +42,15 @@ Possible dimensions:
 
 These are tools, not mandatory headings.
 
+Preserve any materially different layer or relation that can change a prediction,
+decision, action, reroute, capability-source choice, risk, or acceptance result.
+Simplify wording, not semantics.
+
+When relation meaning matters, type it explicitly enough to avoid collapse.
+Useful generic meanings include derives-from, requires, provided-by, depends-on,
+closes, verifies, and validates. These labels are illustrative rather than a
+mandatory ontology.
+
 Do not create information merely because a schema contains a field.
 
 ## Optional operators
@@ -74,15 +83,19 @@ Use another established method when it is better suited.
 
 Apply rigor proportional to consequence, uncertainty, novelty, irreversibility, cost, and complexity.
 
-- **Run Test** — can a concrete input/state produce a concrete result?
+- **Scenario / Run Test** — instantiate a representative concrete case, run it to a concrete result, then trace the important result back to the abstract model. For important cross-layer models distinguish Abstract Pass, Scenario Pass, and Reverse Pass.
 - **Separation Test** — can the model distinguish cases that should differ?
 - **Counterfactual Test** — if one important condition changes, what should change and remain unchanged?
 - **Coverage Test** — check decision-relevant boundaries, exceptions, and failure modes.
 - **Grounding Test** — connect important claims to code, data, documents, logs, measurements, behavior, tests, observations, or authoritative sources.
 - **Falsification Test** — what evidence would make the model wrong?
-- **Generalization Test** — test a materially different case where practical.
-- **Traceability Test** — why does each important element exist; what Gap / Capability / Outcome / Goal does it serve?
+- **Generalization Test** — test a materially different or off-nominal case where practical.
+- **Bidirectional Traceability Test** — why does each important element exist, and what downstream realization/evidence closes or proves it?
 - **Ablation Test** — if an element were removed, could any relevant result change?
+- **Typed-Relation / Layer-Preservation Test** — do not flatten materially different meanings such as requirement, capability, solution, implementation, verification, or validation into one arrow.
+- **Compilation Integrity Test** — when the model becomes a milestone, plan, task, prompt, or contract, does the downstream form preserve upstream semantics and separable failure modes?
+- **Proof-Type Test** — distinguish model structure coherence, implementation verification, real-world validation, and unknown/untested evidence where materially relevant.
+- **Change-Impact / Revalidation Test** — after a decision-relevant upstream change, identify affected dependents and revalidate only the affected scope before relying on prior PASS.
 
 ## Exit
 
