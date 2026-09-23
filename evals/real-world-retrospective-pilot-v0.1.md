@@ -258,16 +258,135 @@ The cognitive budget, no-duplication rule, and Bottom Line / Now / Next / Proof 
 
 ---
 
+## R009 — A guard was nearly bypassed before repository reality was checked
+
+**Date:** 2026-09-21
+
+**Real task context**
+
+A repository guard/review capability appeared stale or missing during an engineering-governance task.
+
+**Observed failure**
+
+The assistant initially treated the capability as absent/stale and moved toward bypass/removal before establishing the canonical upstream state.
+
+**User correction**
+
+Inspect the real source first. The capability did exist upstream; the actual problem was local distribution drift plus an overly broad trigger. Preserve the capability and repair the routing/distribution defect instead of bypassing it.
+
+**Expected Protocol behavior**
+
+- Treat repository state as an **Evidence Gap** before changing governance.
+- Inspect authoritative upstream/current state.
+- Distinguish “capability missing” from “capability present but not distributed/routed correctly.”
+- Do not weaken an invariant merely to make execution pass.
+- Apply the smallest repair at the lowest incorrect layer.
+
+**Current v2.9 coverage:** **PASS**
+
+Source-of-Truth discipline, evidence acquisition, capability distinction, and the anti-pattern against bypassing reality through implementation all cover this failure.
+
+---
+
+## R010 — An execution adapter started becoming a second operating system
+
+**Date:** 2026-09-21
+
+**Real task context**
+
+A concise launch kit was being refined to help a coding agent execute an already-modeled project.
+
+**Observed failure**
+
+The assistant proposed a growing set of session/stability/execution rules, risking duplication of the canonical Operation Protocol and the target repository's own authority.
+
+**User correction**
+
+Keep the launch adapter minimal. Do not create a third bootstrap or duplicate project Source of Truth. Preserve the authority boundary: outcome contract, execution adapter, and repository truth each have separate roles.
+
+**Expected Protocol behavior**
+
+- Use the minimum sufficient method/structure.
+- Preserve authority boundaries and Source of Truth.
+- Do not manufacture workflow infrastructure without a demonstrated repeated failure that requires it.
+- Compile only the execution-relevant delta downstream.
+
+**Current v2.9 coverage:** **PASS**
+
+Minimum-sufficient-method, workflow-hardening restraint, delegation, and Source-of-Truth rules cover the failure.
+
+---
+
+## R011 — A task tool risked swallowing the upstream product model
+
+**Date:** 2026-09-22
+
+**Real task context**
+
+A lightweight task/dependency tool had been adopted for active execution.
+
+**Observed failure**
+
+There was a risk of treating the task tool as the whole project-management model, even though it did not natively own Goal / Job / Opportunity / Product Hypothesis semantics.
+
+**User correction**
+
+Keep upstream product semantics in their existing authority. Let the task tool own execution state only. Fill capability gaps around orchestration/verification rather than replacing the entire lifecycle with a heavier platform or duplicating state.
+
+**Expected Protocol behavior**
+
+- Model the intended capability and authority boundary before choosing a tool.
+- Run fit-gap rather than assuming a tool's schema defines the problem.
+- Keep Need / Capability / Source / Implementation distinct.
+- Avoid parallel Sources of Truth.
+- Build/integrate only the missing delta.
+
+**Current v2.9 coverage:** **PASS**
+
+Model-purpose/schema-selection, capability sourcing, authority discipline, and project-modeling rules directly cover this failure.
+
+---
+
+## R012 — Branch cleanup risked deleting valuable unmerged work
+
+**Date:** 2026-09-21 to 2026-09-22
+
+**Real task context**
+
+A repository had accumulated many short-lived branches/worktrees after multiple agent sessions.
+
+**Observed failure**
+
+“Clean everything up” could easily become mechanical deletion even though some branches contained valuable unique implementations or evidence that had not reached the canonical branch.
+
+**User correction**
+
+Re-observe each retained branch's actual state. Merge or graduate valid unique work, archive/reject obsolete work with concrete reasons, preserve blocked-but-valuable work, and only delete when canonical equivalence or obsolescence is demonstrated.
+
+**Expected Protocol behavior**
+
+- Inspect before acting.
+- Treat uniqueness/equivalence as evidence questions.
+- Define proof for safe deletion.
+- Preserve decision-relevant unique code/evidence.
+- Do not let cleanup convenience override Source of Truth or validation.
+
+**Current v2.9 coverage:** **PASS**
+
+Inspection-before-action, evidence honesty, proof-before-action, and completion/validation rules cover the failure.
+
+---
+
 # Pilot finding
 
-This first real-world retrospective set contains eight distinct historical failure patterns.
+This first real-world retrospective set contains twelve distinct historical failure patterns.
 
-- Seven are **clearly represented** in the current v2.9 rules.
+- Eleven are **clearly represented** in the current v2.9 rules.
 - One is **partially represented**: staged top-down auditing of an existing semantic chain.
 
-This is evidence that the current Protocol has meaningful coverage of failures that actually occurred in practice.
+This is evidence that the current Protocol has meaningful **coverage** of failures that actually occurred in practice.
 
-It is **not** evidence that an AI reading the Protocol will reliably behave better.
+It is **not** evidence that an AI reading the Protocol will reliably behave better, nor that the Protocol caused the corrected historical behavior.
 
 The next validation step is a controlled behavioral eval:
 
