@@ -30,13 +30,13 @@ IDENTIFY DOMINANT GAP
     ↓
 LOAD THE MINIMUM SUFFICIENT SKILL
     ↓
-IDENTIFY REQUIRED INTERVENTION
+IDENTIFY REQUIRED CHANGE / OUTCOME
     ↓
-CHECK REQUIRED CAPABILITY
+INSPECT RELEVANT CAPABILITY SURFACE WHEN MATERIAL
     ↓
-SOURCE CAPABILITY IF NEEDED
+SOURCE / SELECT CAPABILITY IF NEEDED
     ↓
-CHOOSE NEXT ACTION
+CHOOSE INTERVENTION / NEXT ACTION
     ↓
 DEFINE PROOF
     ↓
@@ -60,7 +60,7 @@ most likely to change the next useful decision, action, or proof.
 - **Model Gap** — relevant reality is not understood well enough to predict, decide, act, or verify. Load `modeling`.
 - **Evidence Gap** — relevant evidence is missing. If the current observation frame/channel may materially miss relevant reality, load `observability-coverage` first; otherwise load `evidence-acquisition` for retrieval, measurement, and evidence quality.
 - **Decision Gap** — materially different viable actions remain. Load `decision-analysis`.
-- **Capability Gap** — the intervention is understood but a required capability is unavailable, unlocated, unevaluated, or has materially different sources. Load `capability-sourcing`.
+- **Capability Gap** — the required change is understood but a required capability is unavailable, undiscoverable/unlocated in the current execution context, unevaluated for the required production envelope, or has materially different sources. Load `capability-sourcing`.
 - **Planning Gap** — the direction is chosen but dependent execution structure is unclear. Load `planning`.
 - **Reality Gap** — the change is sufficiently understood and the required capability is available. Execute the smallest sufficient intervention.
 - **Verification / Validation Gap** — something changed, but correctness or usefulness is not demonstrated. Load `validation`.
@@ -78,6 +78,8 @@ The downstream agent should not need to interpret this whole Protocol again.
 ## Always-on invariants
 
 - Need ≠ capability ≠ capability source ≠ implementation.
+- Capability exists ≠ capability is discoverable / usable by the current executor. When source choice materially affects the outcome, inspect the relevant capability surface before selecting implementation.
+- Do not choose an implementation merely because it matches the executor's native modality or most salient tool; judge sources against the required quality / production envelope.
 - Choose models and methods for their intended use; do not force one familiar schema onto every non-trivial problem.
 - A representative case is a model instantiation / test fixture, not evidence until grounded through real or test observation.
 - Scope claims and prior PASS results to the population, environment, version, assumptions, and use actually supported by evidence.
