@@ -3,9 +3,54 @@
 [![Protocol Conformance](https://github.com/CHNISam/general-purpose-ai-operating-protocol/actions/workflows/conformance.yml/badge.svg)](https://github.com/CHNISam/general-purpose-ai-operating-protocol/actions/workflows/conformance.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CHNISam/general-purpose-ai-operating-protocol/badge)](https://securityscorecards.dev/viewer/?uri=github.com/CHNISam/general-purpose-ai-operating-protocol)
 
-A progressively disclosed operating protocol for general-purpose AI assistants and agents.
+A **model-agnostic behavioral engineering protocol** for general-purpose AI assistants and agents: diagnose the real blocker, source capabilities before building, preserve evidence/proof semantics, and mechanically enforce the subset that can be checked deterministically.
 
-The repository packages the **Model-First Adaptive Protocol** as a versioned canonical methodology, a small router, and on-demand skills. It is designed to guide judgment inside existing AI runtimes rather than replace them.
+The repository packages the **Model-First Adaptive Protocol** as a versioned canonical methodology, a small router, on-demand skills, real-world failure evals, and executable conformance policy. It is designed to improve behavior inside existing AI runtimes rather than replace them.
+
+## 60-second example
+
+A real historical failure pattern:
+
+> **Task:** obtain reliable structured information from a web source.
+
+**Without the Protocol discipline**, the assistant jumped directly from the need to a custom implementation: browser automation → DOM extraction → OCR/model choice → bespoke pipeline.
+
+**With the Protocol model**, the task routes differently:
+
+```text
+Need
+↓
+Required capability
+↓
+Capability Gap
+↓
+inspect existing/internal/standard/library/API/workflow sources
+↓
+fit-gap + cheap representative spike
+↓
+select the source
+↓
+define proof
+↓
+build only the unresolved delta
+```
+
+The important change is not more prompting. It is preventing **Need → Implementation** collapse before the capability source and proof are known.
+
+This failure is recorded as [R001](evals/real-world-retrospective-pilot-v0.1.md). The same failure class is now represented in the runtime skills and executable policy where deterministic checks are possible.
+
+## Evidence at a glance
+
+| Evidence layer | Current public state |
+|---|---|
+| Real historical failure patterns | **12** sanitized retrospective cases |
+| Deterministic conformance | **8/8** public fixtures passing |
+| Mechanical policy | JSON Schema + OPA/Rego |
+| Portable enforcement | CI-built OPA WebAssembly bundle |
+| Repository engineering signal | Protocol Conformance CI + OpenSSF Scorecard |
+| Controlled Protocol OFF vs ON behavioral eval | **Specified, not yet run** |
+
+This table deliberately separates what is already demonstrated from what remains unproven.
 
 ## What this is
 
@@ -28,14 +73,16 @@ The repository now also includes a **reference executable enforcement layer** fo
 
 The Protocol supports model judgment. It does not replace judgment.
 
-## Start here
+## Quick start
 
-### AI systems
+### AI systems — minimal path
 
 1. Read [AGENTS.md](AGENTS.md).
-2. Diagnose the current blocker.
-3. Load only the relevant skill from [`.agents/skills/`](.agents/skills/).
-4. Read [PROTOCOL.md](PROTOCOL.md) only when canonical wording, unusual edge cases, or Protocol maintenance require it.
+2. Load only the skill it routes you to.
+3. Use [PROTOCOL.md](PROTOCOL.md) only for canonical wording, edge cases, or methodology maintenance.
+4. When the task produces a supported machine-readable decision envelope, run the [executable enforcement](enforcement/) as an additional gate.
+
+For precise canonical navigation without loading the whole document, use [docs/protocol-index.md](docs/protocol-index.md).
 
 Codex can discover repository `AGENTS.md` instructions and repository-local skills automatically. Other AI systems that can read repository files can use the same structure by starting from `AGENTS.md`.
 
@@ -48,6 +95,9 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 - [docs/runtime-map.md](docs/runtime-map.md) — descriptive mapping from canonical concepts to runtime files.
 - [docs/method-registry.md](docs/method-registry.md) — non-canonical pointers to mature external methods and standards that can be sourced when useful.
 - [examples/routing-cases.md](examples/routing-cases.md) — expected routing examples, not an automated benchmark.
+- [docs/protocol-index.md](docs/protocol-index.md) — exact canonical section navigator for selective loading.
+- [CHANGELOG.md](CHANGELOG.md) — public semantic and engineering change history.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — failure-driven contribution process.
 
 ## Recommended operating pattern
 
