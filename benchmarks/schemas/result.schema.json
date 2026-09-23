@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "treatment",
+    "model",
+    "runtime",
+    "output"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^R[0-9]{3}$"
+    },
+    "treatment": {
+      "enum": [
+        "OFF",
+        "ON"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_version": {
+      "type": "string"
+    },
+    "effort": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "prompt_hash": {
+      "type": "string"
+    },
+    "protocol_commit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "timestamp": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
