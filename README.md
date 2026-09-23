@@ -43,7 +43,7 @@ This failure is recorded as [R001](evals/real-world-retrospective-pilot-v0.1.md)
 
 | Evidence layer | Current public state |
 |---|---|
-| Real historical failure patterns | **12** sanitized retrospective cases |
+| Real historical failure patterns | **13** sanitized retrospective cases |
 | Deterministic conformance | **8/8** public fixtures passing |
 | Mechanical policy | JSON Schema + OPA/Rego |
 | Portable enforcement | CI-built OPA WebAssembly bundle |
@@ -108,7 +108,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.9.1**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.10.0**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
@@ -194,10 +194,12 @@ This follows three constraints:
 
 > Remove structure that cannot.
 
-v2.9.1 builds on v2.9.0 model integrity with a staged-audit rule for existing
-layered models: downstream material may be inspected to test consistency, but
-layers are accepted and derived in order rather than being prematurely treated
-as validated.
+v2.10.0 builds on v2.9.1 by making the **Capability Surface** explicit: when
+the means can materially affect the outcome, the Agent should discover relevant
+available capabilities before choosing an implementation. It also guards against
+executor-native modality bias and adds quality/production ceiling to capability
+source selection. A capability that exists but is invisible to the executor is
+not operationally available.
 
 ## Executable enforcement
 
@@ -219,9 +221,10 @@ A mechanical PASS is deliberately weaker than a real-world VALIDATION PASS. The 
 
 This Protocol is iterated from real task failures, not only speculative framework design.
 
-The first public retrospective pilot records **12 sanitized historical failure patterns**
+The public retrospective pilot records **13 sanitized historical failure patterns**
 from real AI-assisted work. Eleven were already directly covered by v2.9.0; one exposed
-a missing staged-audit rule and produced the v2.9.1 correction.
+a missing staged-audit rule and produced the v2.9.1 correction; the newest exposed
+capability discoverability / executor-native modality bias and produced v2.10.0.
 
 See:
 
