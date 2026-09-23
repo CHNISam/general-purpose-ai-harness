@@ -59,15 +59,7 @@ jobs:
             enforcement/policies/protocol.rego \
             -o dist/protocol-policy.tar.gz
           tar -tzf dist/protocol-policy.tar.gz > "${RUNNER_TEMP}/bundle-contents.txt"
-          grep -q '/policy.wasm
-      - name: Upload Wasm policy bundle
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: protocol-policy-wasm
-          path: dist/protocol-policy.tar.gz
-          if-no-files-found: error
-          retention-days: 14
- "${RUNNER_TEMP}/bundle-contents.txt"
+          grep -q '/policy.wasm$' "${RUNNER_TEMP}/bundle-contents.txt"
 
       - name: Upload Wasm policy bundle
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
