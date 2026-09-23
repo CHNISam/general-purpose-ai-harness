@@ -1,0 +1,34 @@
+{
+  "task_id": "C003-generated-verified",
+  "action": {
+    "changes_reality": true,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": true,
+    "single_obvious_source": false,
+    "source_selected": "existing-library",
+    "source_classes_considered": [
+      "internal",
+      "library"
+    ]
+  },
+  "evidence": [
+    {
+      "id": "EV-3",
+      "state": "VERIFIED",
+      "kind": "supporting",
+      "source_type": "generated",
+      "provenance": "model-output",
+      "decision_relevant": true,
+      "resolved": true
+    }
+  ],
+  "completion": {
+    "claimed": false,
+    "proof_type": "STRUCTURE_PASS",
+    "validation_required": false,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}
