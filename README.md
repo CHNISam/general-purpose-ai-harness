@@ -37,7 +37,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.9.0**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.9.1**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
@@ -120,10 +120,28 @@ This follows three constraints:
 
 > Remove structure that cannot.
 
-v2.9.0 builds on v2.8 model integrity with intended-use / schema selection,
-model-use envelopes, explicit separation of representative scenarios from evidence,
-claim–evidence fit, sufficient alternative / solution-space coverage, and sourcing
-of mature external methods before inventing custom methodology.
+v2.9.1 builds on v2.9.0 model integrity with a staged-audit rule for existing
+layered models: downstream material may be inspected to test consistency, but
+layers are accepted and derived in order rather than being prematurely treated
+as validated.
+
+## Evidence and behavioral evals
+
+This Protocol is iterated from real task failures, not only speculative framework design.
+
+The first public retrospective pilot records **12 sanitized historical failure patterns**
+from real AI-assisted work. Eleven were already directly covered by v2.9.0; one exposed
+a missing staged-audit rule and produced the v2.9.1 correction.
+
+See:
+
+- [evals/real-world-retrospective-pilot-v0.1.md](evals/real-world-retrospective-pilot-v0.1.md) — real historical failures, user corrections, expected Protocol behavior, and coverage results.
+- [evals/controlled-pilot-spec.md](evals/controlled-pilot-spec.md) — a frozen Protocol OFF vs ON behavioral pilot design.
+- [evals/README.md](evals/README.md) — evidence policy and scoring rules.
+
+The retrospective pilot demonstrates **coverage of real observed failure modes**.
+It does not by itself prove causal effectiveness; controlled behavioral and
+real-world outcome validation remain separate evidence stages.
 
 ## Why progressive disclosure
 
