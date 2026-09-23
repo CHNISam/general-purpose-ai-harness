@@ -27,6 +27,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Delegation / prompt compilation | `delegation` |
 | Human-facing compression | `decision-surface` |
 | External method / standard pointers (non-canonical) | `docs/method-registry.md` |
+| Mechanically checkable Protocol invariants | `enforcement/` + `conformance/` + CI |
 
 ## Concept boundaries
 
@@ -50,7 +51,9 @@ Always-on guards stay in `AGENTS.md` only when they are cheap, broadly applicabl
 
 The Protocol can recommend scripts, tests, CI, linters, or other blocking mechanisms when a real workflow justifies them.
 
-The repository itself does not claim to provide those mechanisms generically.
+This repository now provides a **reference mechanical enforcement subset** for stable invariants that can be checked deterministically. The current policy covers evidence provenance, generated-vs-observed evidence, proof-before-action, capability-source readiness, unresolved conflicts, and proof-type/completion discipline.
+
+The enforcement layer is intentionally not generic proof of correctness. Its PASS means only that the supplied decision envelope satisfies the encoded policy. It cannot by itself establish model correctness or real-world validation.
 
 ## Maintenance rule
 
