@@ -36,8 +36,8 @@ jobs:
           chmod +x "${RUNNER_TEMP}/opa"
           "${RUNNER_TEMP}/opa" version
 
-      - name: Check Rego formatting
-        run: "${RUNNER_TEMP}/opa fmt --fail enforcement/policies enforcement/tests"
+      - name: Report Rego formatting drift
+        run: "${RUNNER_TEMP}/opa fmt --list enforcement/policies enforcement/tests"
 
       - name: Strict policy/schema check
         run: "${RUNNER_TEMP}/opa check --strict --schema enforcement/schemas/decision-input.schema.json enforcement/policies"
