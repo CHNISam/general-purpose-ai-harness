@@ -84,13 +84,6 @@ The Protocol supports model judgment. It does not replace judgment.
 
 For precise canonical navigation without loading the whole document, use [docs/protocol-index.md](docs/protocol-index.md).
 
-### AI systems
-
-1. Read [AGENTS.md](AGENTS.md).
-2. Diagnose the current blocker.
-3. Load only the relevant skill from [`.agents/skills/`](.agents/skills/).
-4. Read [PROTOCOL.md](PROTOCOL.md) only when canonical wording, unusual edge cases, or Protocol maintenance require it.
-
 Codex can discover repository `AGENTS.md` instructions and repository-local skills automatically. Other AI systems that can read repository files can use the same structure by starting from `AGENTS.md`.
 
 ### Humans
@@ -102,6 +95,9 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 - [docs/runtime-map.md](docs/runtime-map.md) — descriptive mapping from canonical concepts to runtime files.
 - [docs/method-registry.md](docs/method-registry.md) — non-canonical pointers to mature external methods and standards that can be sourced when useful.
 - [examples/routing-cases.md](examples/routing-cases.md) — expected routing examples, not an automated benchmark.
+- [docs/protocol-index.md](docs/protocol-index.md) — exact canonical section navigator for selective loading.
+- [CHANGELOG.md](CHANGELOG.md) — public semantic and engineering change history.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — failure-driven contribution process.
 
 ## Recommended operating pattern
 
