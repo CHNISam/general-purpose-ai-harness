@@ -1,0 +1,33 @@
+{
+  "task_id": "C002-missing-provenance",
+  "action": {
+    "changes_reality": true,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": true,
+    "single_obvious_source": false,
+    "source_selected": "existing-library",
+    "source_classes_considered": [
+      "internal",
+      "library"
+    ]
+  },
+  "evidence": [
+    {
+      "id": "EV-2",
+      "state": "VERIFIED",
+      "kind": "verification",
+      "source_type": "test",
+      "decision_relevant": true,
+      "resolved": true
+    }
+  ],
+  "completion": {
+    "claimed": true,
+    "proof_type": "VERIFICATION_PASS",
+    "validation_required": false,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}
