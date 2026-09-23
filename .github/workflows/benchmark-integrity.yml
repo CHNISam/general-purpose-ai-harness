@@ -1,0 +1,59 @@
+name: Benchmark Integrity
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Validate frozen benchmark cases
+        run: python benchmarks/validate.py
+
+      - name: Exercise pair preparation
+        run: |
+          python benchmarks/prepare_pair.py --case R001 --mode repo --out /tmp/protocol-bench/work
+          python benchmarks/prepare_pair.py --case R001 --mode portable --out /tmp/protocol-bench/work-portable
+          test -s /tmp/protocol-bench/work/R001/OFF_PROMPT.md
+          test -s /tmp/protocol-bench/work/R001/ON_PROMPT.md
+
+      - name: Exercise portable runtime bundle generation
+        run: |
+          python benchmarks/export_runtime_bundle.py > /tmp/protocol-runtime-bundle.md
+          grep -q "## AGENTS.md" /tmp/protocol-runtime-bundle.md
+          grep -q ".agents/skills" /tmp/protocol-runtime-bundle.md
+
+      - name: Smoke-test capture, blinding, and aggregation
+        run: |
+          mkdir -p /tmp/protocol-bench-smoke
+          printf 'baseline output\n' > /tmp/protocol-bench-smoke/off.txt
+          printf 'protocol output\n' > /tmp/protocol-bench-smoke/on.txt
+          python benchmarks/prepare_pair.py --case R001 --mode repo --out /tmp/protocol-bench-smoke/work
+          python benchmarks/capture_result.py --case R001 --treatment OFF --model smoke-model --runtime smoke-runtime --prompt-file /tmp/protocol-bench-smoke/work/R001/OFF_PROMPT.md --output-file /tmp/protocol-bench-smoke/off.txt --out /tmp/protocol-bench-smoke/raw
+          python benchmarks/capture_result.py --case R001 --treatment ON --model smoke-model --runtime smoke-runtime --prompt-file /tmp/protocol-bench-smoke/work/R001/ON_PROMPT.md --output-file /tmp/protocol-bench-smoke/on.txt --protocol-commit "${GITHUB_SHA}" --out /tmp/protocol-bench-smoke/raw
+          python benchmarks/blind.py --raw /tmp/protocol-bench-smoke/raw --out /tmp/protocol-bench-smoke/blind --seed smoke-seed
+          python benchmarks/create_score_sheet.py --blind-case /tmp/protocol-bench-smoke/blind/R001.json --judge-id smoke-judge --out /tmp/protocol-bench-smoke/scores
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/protocol-bench-smoke/scores/R001-smoke-judge.json')
+          x=json.loads(p.read_text())
+          for side in ('A','B'):
+              for k in x['scores'][side]:
+                  x['scores'][side][k]='PASS'
+          p.write_text(json.dumps(x,indent=2)+'\n')
+          PY
+          python benchmarks/aggregate.py --mapping /tmp/protocol-bench-smoke/blind/_PRIVATE_MAPPING.json --scores /tmp/protocol-bench-smoke/scores --out /tmp/protocol-bench-smoke/summary.json
+          test -s /tmp/protocol-bench-smoke/summary.json
