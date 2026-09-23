@@ -27,9 +27,13 @@
         },
         "proof_defined": {
           "type": "boolean"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "capability": {
       "type": "object",
@@ -53,10 +57,15 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "evidence": {
       "type": "array",
@@ -103,16 +112,21 @@
             ]
           },
           "provenance": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "decision_relevant": {
             "type": "boolean"
           },
           "resolved": {
             "type": "boolean"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
           }
         },
-        "additionalProperties": true
+        "additionalProperties": false
       }
     },
     "completion": {
@@ -144,10 +158,18 @@
         },
         "outcome_validated": {
           "type": "boolean"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
         }
       },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
       "additionalProperties": true
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
