@@ -1,0 +1,34 @@
+{
+  "task_id": "C007-unresolved-conflict",
+  "action": {
+    "changes_reality": true,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": true,
+    "single_obvious_source": false,
+    "source_selected": "existing-library",
+    "source_classes_considered": [
+      "internal",
+      "library"
+    ]
+  },
+  "evidence": [
+    {
+      "id": "EV-7",
+      "state": "CONFLICTING",
+      "kind": "validation",
+      "source_type": "external",
+      "provenance": "two-credible-sources-disagree",
+      "decision_relevant": true,
+      "resolved": false
+    }
+  ],
+  "completion": {
+    "claimed": true,
+    "proof_type": "VERIFICATION_PASS",
+    "validation_required": false,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}
