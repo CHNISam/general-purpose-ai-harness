@@ -375,13 +375,48 @@ Inspection-before-action, evidence honesty, proof-before-action, and completion/
 
 ---
 
+## R013 — An available production capability was invisible to the executor
+
+**Date:** 2026-09-23
+
+**Real task context**
+
+A visual-production agent in a realtime 3D project needed to improve an obviously weak distant-world silhouette. The repository already had a qualified DCC/3D asset pipeline and multiple production routes, while the coding agent also had direct procedural terrain tools.
+
+**Observed failure**
+
+The agent correctly diagnosed the visible gap and produced a technically sound procedural terrain solution, but it did not first surface the project's broader production capability set. The implementation route was therefore strongly shaped by the executor's native coding context and immediately visible tools.
+
+The result was testable and useful, but the process risked a local optimum: a capability source with a higher artistic-control or production-quality ceiling could have been omitted simply because it was outside the executor's immediate modality.
+
+**User correction**
+
+Do not hard-code one tool as the answer. Make the project's available means discoverable, then let the agent choose among terrain authoring, DCC modeling, existing assets, generators, specialist tooling, or specialist escalation according to the actual blocker and required quality. Complex character/humanoid production should not default to a general agent hand-modeling from scratch merely because a DCC tool exists.
+
+**Expected Protocol behavior**
+
+- Identify the required visual outcome before committing to an implementation form.
+- Inspect the relevant **Capability Surface** when source choice can materially change quality, speed, cost, or maintainability.
+- Treat a capability that exists but is not discoverable to the executor as operationally unavailable.
+- Guard against executor-native modality bias.
+- Compare quality / production ceiling and executor fit, not only implementation convenience and testability.
+- Preserve the selected source or available-means surface when delegating the work downstream.
+- For repeated multi-tool domains, expose a lightweight capability-routing entry rather than relying on operator memory.
+
+**Current v2.10.0 coverage:** **PASS**
+
+This case exposed a real gap in v2.9.1. Capability sourcing existed, but capability discoverability and executor-native modality bias were not explicit runtime semantics. v2.10.0 adds those semantics to the canonical runtime, capability-sourcing, and delegation layers.
+
+---
+
 # Pilot finding
 
-This first real-world retrospective set contains twelve distinct historical failure patterns.
+This real-world retrospective set contains thirteen distinct historical failure patterns.
 
 - Eleven were already **clearly represented** in v2.9.0.
-- One exposed a real gap: staged top-down auditing of an existing semantic chain.
-- That gap produced the v2.9.1 staged-audit correction; all twelve are now represented by current rules.
+- One exposed the staged top-down audit gap and produced the v2.9.1 correction.
+- One exposed the capability-discoverability / executor-native-modality gap and produced the v2.10.0 correction.
+- All thirteen are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 

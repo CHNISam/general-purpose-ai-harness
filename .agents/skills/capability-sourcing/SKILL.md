@@ -17,27 +17,40 @@ Capability
 Capability Source
   ≠
 Implementation
+
+Capability exists
+  ≠
+Capability is discoverable / usable by this executor
 ```
 
 > Source the capability before deciding to build it.
+
+> Do not let the executor's native modality choose the implementation.
 
 > Build the delta, not the solved problem.
 
 ## Trigger
 
-Use this skill when sourcing could materially change cost, schedule, risk, reliability, maintenance/ownership burden, reproducibility, interoperability, or strategic differentiation.
+Use this skill when sourcing could materially change output quality, quality ceiling, fit for the intended production role, cost, schedule, risk, reliability, maintenance/ownership burden, reproducibility, interoperability, or strategic differentiation.
 
 Use proportional rigor. Do not turn a commodity choice into a research project.
 
-## Existing capability check
+## Capability-surface / existing-capability check
 
-First ask whether the capability already exists in:
+First ask whether the capability already exists **and is discoverable to the current executor** in:
 
 - the current project or adjacent modules;
 - organizational systems or infrastructure;
-- current workflows or automation;
-- installed dependencies;
-- existing APIs or data.
+- current workflows, automation, or specialist routes;
+- installed tools and dependencies;
+- existing APIs, datasets, assets, or models;
+- repository-local capability maps / routing docs.
+
+For repeated multi-tool domains, prefer one lightweight discoverable routing entry that points to authoritative detailed sources. Do not duplicate full tool documentation.
+
+A capability can exist technically yet be operationally absent when it is hidden in scattered documentation, operator memory, another agent's context, or an unadvertised specialist workflow.
+
+When source choice could materially change the result, inspect enough of the relevant capability surface to avoid omitting an important source class merely because it is outside the executor's native modality.
 
 Prefer extending or composing an existing suitable capability over creating a duplicate.
 
@@ -122,6 +135,8 @@ When multiple materially different sources remain, reroute into a Decision Gap.
 Use only criteria that can change the choice:
 
 - fit for purpose;
+- quality / production ceiling — whether the source can reach the required fidelity, controllability, and final production role rather than only a prototype or intermediate artifact;
+- executor fit — whether the current executor can use it effectively or should route through a different tool, workflow, model, or specialist;
 - maturity / project or vendor health;
 - time to usable capability;
 - adoption and integration cost;
@@ -149,7 +164,7 @@ Possible outcomes:
 - Extend
 - Build
 
-Prefer the source producing the best total outcome, not merely the least code.
+Prefer the source producing the best total outcome, not merely the least code, the fewest tool changes, or the closest match to the executor's native modality.
 
 ## Custom build
 

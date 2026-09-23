@@ -23,7 +23,9 @@ Possible fields:
 When materially relevant:
 
 - Required Capability
+- Relevant Capability Surface / Available Means
 - Existing Capability / Selected Source
+- Capability-choice freedom retained by the downstream executor, when the source is intentionally not fixed upstream
 - Priority / Trade-off Policy
 - Decision Rights
 - Escalation Conditions
@@ -81,7 +83,10 @@ Do not:
 
 - copy the entire world model into every prompt;
 - compile an unverified capability assumption into an implementation mandate;
+- compress away a decision-relevant capability surface and leave the downstream executor to choose by native-tool bias;
 - preserve information that cannot change judgment, choice, capability sourcing, implementation, boundary, constraints, or acceptance.
+
+When capability-source choice remains open and materially affects the outcome, preserve either the selected source or enough discoverable available means for the downstream executor to choose correctly.
 
 Adapt instructions to the actual agent, model, tool, repository, runtime, and environment.
 

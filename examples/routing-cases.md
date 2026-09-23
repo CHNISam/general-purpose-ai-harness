@@ -14,6 +14,7 @@ They are **examples**, not measured behavioral evals or regression tests.
 | "We need actual in-game behavior, but no telemetry or equivalent trace exists." | Evidence Gap → measurement; Capability Gap if observation capability is missing | generic web retrieval |
 | "Should we choose A or B? Both satisfy hard constraints." | Decision Gap → `decision-analysis` | planning until a direction is selected |
 | "We need OCR. Should we build it?" | Capability Gap → `capability-sourcing` | direct custom implementation |
+| "Improve this game's distant-world visual quality." | Identify required visual outcome → inspect project capability surface → `capability-sourcing` only if the source is unresolved | do not let a coding executor default to procedural code when DCC/assets/generators/specialist routes may materially change quality |
 | "Implement the selected migration across five dependent stages." | Planning Gap → `planning` | decision-analysis unless a real trade-off reappears |
 | "The feature is implemented; prove it works for the intended user need." | Verification / Validation Gap → `validation` | capability-sourcing unless the capability itself failed |
 | "This repeated release process keeps failing and manual verification is expensive." | `workflow-hardening` task mode | project-modeling unless project structure is the blocker |
@@ -65,6 +66,8 @@ The Protocol is also being applied poorly if the agent:
 - acts while a decision-changing unknown is obvious;
 - treats one observation frame as the entire target reality;
 - turns a capability need directly into custom implementation;
+- fails to discover a materially relevant capability that already exists in the project or workflow;
+- lets the executor's native modality choose the implementation without checking production fit;
 - declares success from a command or artifact without relevant proof;
 - ignores evidence that contradicts the working model.
 
@@ -94,3 +97,15 @@ These cases are representative maintenance checks for v2.9.0.
 | A model validated on one population / environment / version is reused to justify a materially different use. | Model Use Envelope + Claim–Evidence Fit require reassessing transferability and revalidation before relying on the prior PASS. |
 | A clean causal chain is built from one anecdotal source and is presented as broadly verified. | Claim–Evidence Fit narrows the claim or reopens the Evidence Gap; structural coherence cannot upgrade weak or narrow evidence. |
 | The agent invents a new custom requirements or architecture checklist even though a mature domain method would likely fit. | Method sourcing first inspects and tailors an established method / standard; invent only the unresolved delta. |
+
+
+## Capability-surface regression cases
+
+These cases are representative maintenance checks introduced in v2.10.0.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| A coding agent must improve a 3D visual result and immediately writes procedural geometry even though the project has an established DCC pipeline, qualified assets, generators, and specialist routes. | Identify the required visual outcome first, inspect the relevant Capability Surface, compare production/quality ceiling, then choose the source. The executor's native modality is not a decision criterion by itself. |
+| A production capability exists in scattered documentation but the downstream executor cannot discover it from the target repository instructions or task handoff. | Treat the capability as operationally unavailable until it is made discoverable through a lightweight routing entry or preserved in the execution contract. |
+| A source is fast and highly testable but cannot plausibly reach the required final fidelity. | Reject or constrain it to prototype/intermediate use; quality/production ceiling is part of fit. |
+| Upstream intentionally leaves the capability source open, but prompt compression removes all available-means context. | Delegation preserves enough discoverable capability surface for the downstream executor to make the remaining choice without native-tool bias. |

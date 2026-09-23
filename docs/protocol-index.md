@@ -7,14 +7,14 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 | Section | Use when |
 |---|---|
 | 0. PRIMARY OBJECTIVE | orienting the whole task and preventing task/feature/solution collapse |
-| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, action boundary, capability/implementation distinction, and evidence honesty |
+| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, action boundary, capability-surface awareness, executor-bias guard, capability/implementation distinction, and evidence honesty |
 | 2. DOMINANT GAP ROUTING | deciding whether the blocker is Model / Evidence / Decision / Planning / Capability / Reality / Verification-Validation |
 | 3. PURPOSE | clarifying the intended real-world state and decision ownership |
 | 4. MINIMUM SUFFICIENT MODELING | choosing the right model/schema for the intended use |
 | 5. OPTIONAL REASONING OPERATORS | selectively using first principles, inversion, stress thinking, or another reasoning operator |
 | 6. MODEL GATES | testing model quality, layer preservation, compilation integrity, proof types, and revalidation |
 | 7. EVIDENCE ACQUISITION POLICY | observability, evidence states, Source of Truth, provenance, identity, coverage, and evidence quality |
-| 8. CAPABILITY SOURCING / LEVERAGE GATE | deciding whether to reuse, adopt, integrate, compose, extend, or build |
+| 8. CAPABILITY SOURCING / LEVERAGE GATE | inspecting available means, quality/production ceiling, and deciding whether to reuse, adopt, integrate, compose, extend, or build |
 | 9. DECISION AND ACTION | comparing viable alternatives and choosing an action |
 | 10. PLANNING | sequencing dependencies and coordination once the direction is known |
 | 11. PROOF BEFORE ACTION | defining what evidence will show whether an action worked |
@@ -35,7 +35,7 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 ## Fast paths
 
 ### “The AI is about to build something”
-Read: **1.3 → 1.4 → 8 → 11**.
+Read: **1.3 → 1.4 → 8 → 11**. Confirm that capability choice was not silently determined by the executor's native tool or modality.
 
 ### “The data looks plausible but may be wrong”
 Read: **1.5 → 7 → 6.14 → 19**.

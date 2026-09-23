@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.10.0
+# Model-First Adaptive Protocol v2.9.1
 
-Status: Candidate v2.10.0
+Status: Candidate v2.9.1
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -51,14 +51,6 @@ Design principles:
 > grounded in reality.
 
 > Source a capability before deciding to build it.
-
-> A capability that exists but is not discoverable to the executor is operationally unavailable.
-> When capability choice can materially affect quality, cost, speed, risk, or maintainability,
-> inspect the relevant capability surface before selecting an implementation.
-
-> Do not let the executor's native modality silently choose the implementation.
-> A coding agent should not default to code, a visual tool should not default to visual authoring,
-> and a familiar tool should not redefine the required capability.
 
 > Model the observation space before acquiring evidence.
 
@@ -129,13 +121,13 @@ For every non-trivial task:
         ↓
     USE MINIMUM SUFFICIENT METHOD
         ↓
-    IDENTIFY REQUIRED CHANGE / OUTCOME
+    IDENTIFY REQUIRED INTERVENTION
         ↓
-    INSPECT RELEVANT CAPABILITY SURFACE WHEN MATERIAL
+    CHECK REQUIRED CAPABILITIES
         ↓
-    SOURCE / SELECT CAPABILITY IF NEEDED
+    SOURCE CAPABILITY IF NEEDED
         ↓
-    CHOOSE INTERVENTION / NEXT ACTION
+    CHOOSE NEXT ACTION
         ↓
     DEFINE PROOF
         ↓
@@ -226,13 +218,10 @@ the Agent MUST know:
 
 1. what state it is trying to create;
 2. what currently blocks that state;
-3. what change or outcome is required;
-4. what capability the change requires;
-5. when capability choice can materially affect the result, what relevant capability sources are actually available or discoverable;
-6. why the selected capability source and intervention fit the required quality / production envelope rather than merely the executor's preferred modality;
-7. what evidence will show whether the action worked.
-
-Use proportional rigor. Obvious low-stakes actions do not require a catalog exercise.
+3. why the intervention addresses that blocker;
+4. what capability the intervention requires;
+5. whether that capability already exists or must be sourced;
+6. what evidence will show whether the action worked.
 
 Do not cross the action boundary without this.
 
@@ -274,40 +263,6 @@ Keep these distinctions separate:
     Capability Source
         ≠
     Implementation
-
-A further operational distinction matters:
-
-    Capability Exists
-        ≠
-    Capability Is Discoverable / Usable By This Executor
-
-When the sourcing choice can materially change the outcome, inspect the relevant
-**Capability Surface**: the internal tools, workflows, assets, libraries, models,
-services, specialist routes, automation, and other means that could provide the
-required capability.
-
-Do not require exhaustive inventories. The purpose is to prevent a material source
-from being omitted merely because it is outside the current executor's native
-modality or immediate context.
-
-Executor-bias guard:
-
-> Do not select an implementation merely because it is the easiest thing for the
-> current executor to produce.
-
-Examples:
-
-- a coding agent must not silently turn a visual-production problem into procedural code;
-- a spreadsheet-capable agent must not force a database problem into a sheet;
-- a familiar library must not redefine the requirement;
-- a specialist tool must not be invoked merely because it exists.
-
-Choose the capability source against the intended result and production envelope,
-then choose the implementation.
-
-When a project repeatedly depends on a broad capability set, make that set
-discoverable through a lightweight project capability map / routing entry rather
-than relying on operator memory or ad hoc prompting.
 
 
 -------------------------------------------------------------------------------
@@ -480,12 +435,12 @@ The direction is known, but execution requires:
 CAPABILITY GAP
 -------------------------------------------------------------------------------
 
-The required change is sufficiently understood,
+The required intervention is sufficiently understood,
 but execution depends on a capability that:
 
 - is not currently available;
-- exists but is not discoverable / located in the current execution context;
-- has not yet been evaluated for the required production envelope;
+- has not yet been located;
+- has not yet been evaluated;
 - or has multiple materially different possible sources.
 
 This is an execution-readiness gap.
@@ -1580,9 +1535,6 @@ Principle:
 Run this Gate when the next action requires a capability and the sourcing choice
 could materially change:
 
-- output / production quality;
-- quality ceiling;
-- fit for the intended use;
 - cost;
 - schedule;
 - risk;
@@ -1604,7 +1556,7 @@ The rigor of sourcing analysis should be proportional to the decision.
 
 First ask:
 
-> Do we already possess this capability, and can the current executor discover and use it?
+> Do we already possess this capability?
 
 Inspect where relevant:
 
@@ -1612,20 +1564,11 @@ Inspect where relevant:
 - adjacent modules;
 - organization systems;
 - existing infrastructure;
-- existing workflows and specialist routes;
-- currently installed tools and dependencies;
+- existing workflows;
+- currently installed dependencies;
 - existing APIs;
-- existing data / assets / models;
-- existing automation;
-- repository-local capability maps, routing docs, or tool registries.
-
-A capability hidden in scattered documentation, operator memory, or another
-specialist workflow can be technically present yet operationally absent for the
-current executor.
-
-For repeated multi-tool work, prefer one lightweight discoverable routing entry
-that points to authoritative detailed sources. Do not duplicate every tool's
-documentation into a second catalog.
+- existing data;
+- existing automation.
 
 Prefer extending or composing an existing suitable capability
 over creating a duplicate capability.
@@ -1828,14 +1771,6 @@ Possible criteria:
 Fit for purpose:
     Does it satisfy the actual capability requirement?
 
-Quality / Production Ceiling:
-    Can it reach the required final quality, fidelity, controllability, and production role,
-    or is it only suitable for a prototype / diagnostic / intermediate artifact?
-
-Executor Fit:
-    Can the current executor use it safely and effectively, or should execution route
-    through a different tool, workflow, model, or specialist?
-
 Maturity:
     How proven and stable is it?
 
@@ -1904,8 +1839,7 @@ Use only criteria capable of changing the choice.
 -------------------------------------------------------------------------------
 
 Prefer the capability source that produces the best total outcome,
-not the source involving the least code, the fewest tool changes,
-or the closest match to the current executor's native modality.
+not the source involving the least code.
 
 Possible outcomes:
 
@@ -2319,9 +2253,7 @@ Evidence
 When materially relevant, also include:
 
 Required Capability
-Relevant Capability Surface / Available Means
 Existing Capability / Selected Source
-Capability-choice freedom retained by the executor, when upstream has not fixed the source
 Priority / Trade-off Policy
 Decision Rights
 Escalation Conditions
@@ -2399,11 +2331,6 @@ Prompt =
 Do NOT copy the entire world model into every Prompt.
 
 Do NOT compile an unverified capability assumption into an implementation mandate.
-
-When capability-source choice remains decision-relevant, do not compress away the
-available means and leave the downstream executor to infer them from its own native
-tool bias. Preserve either the selected source or enough discoverable capability
-surface for the executor to make the remaining choice correctly.
 
 Preserve information only when it can change the executor's:
 
@@ -2872,9 +2799,6 @@ Avoid:
 - treating STRUCTURE PASS or VERIFICATION PASS as VALIDATION PASS;
 - relying on affected derived artifacts after a decision-relevant upstream change without impact analysis / revalidation;
 - converting a required capability directly into custom code;
-- treating a technically existing but undiscoverable capability as operationally available;
-- choosing an implementation mainly because it matches the executor's native modality or most salient tool;
-- using a prototype-friendly capability whose quality ceiling cannot satisfy the required production role;
 - assuming Reality Gap means Build;
 - rebuilding sufficiently solved commodity capabilities without reason;
 - adopting a tool merely because it exists;
@@ -2996,21 +2920,8 @@ Are materially different interventions competing?
 
     ↓
 
-Do I understand the required change / outcome?
-
-    YES
-    ↓
-
-Could the means materially affect quality, cost, speed, risk, or maintainability?
-
-    YES / POSSIBLY
-    → Inspect the relevant Capability Surface.
-    → Include internal tools/workflows/assets/models/services/specialist routes.
-    → Guard against executor-native modality bias.
-
-    ↓
-
-Do I lack, fail to locate, or still need to evaluate a required capability?
+Do I know the required intervention,
+but lack a required capability?
 
     YES
     → Capability Gap.
@@ -3088,13 +2999,13 @@ For every problem:
         ↓
     IDENTIFY GAP
         ↓
-    IDENTIFY REQUIRED CHANGE / OUTCOME
+    IDENTIFY REQUIRED INTERVENTION
         ↓
-    INSPECT RELEVANT CAPABILITY SURFACE
+    IDENTIFY REQUIRED CAPABILITY
         ↓
-    SOURCE / SELECT CAPABILITY
+    SOURCE BEFORE BUILDING
         ↓
-    CHOOSE INTERVENTION
+    CHOOSE
         ↓
     DEFINE PROOF
         ↓
@@ -3120,10 +3031,6 @@ For engineering:
 > Need does not imply implementation.
 
 > Capability does not imply custom code.
-
-> A capability that the executor cannot discover is operationally unavailable.
-
-> Do not let executor modality choose the implementation.
 
 > Source the capability before deciding to build it.
 

@@ -18,7 +18,8 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Evidence coverage | `observability-coverage` |
 | Evidence retrieval / measurement / quality | `evidence-acquisition` |
 | Decision / alternative-space sufficiency | `decision-analysis` |
-| Capability sourcing / solution-space coverage | `capability-sourcing` |
+| Capability surface awareness / discoverability / executor-bias guard | `AGENTS.md` + `capability-sourcing` + `delegation` |
+| Capability sourcing / solution-space coverage / quality ceiling | `capability-sourcing` |
 | Planning | `planning` |
 | Reality Gap / execution | direct action through the host AI/runtime |
 | Verification / Validation Gap + proof | `validation` |
