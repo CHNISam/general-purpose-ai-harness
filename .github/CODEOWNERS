@@ -1,0 +1,9 @@
+# Canonical methodology and runtime
+/PROTOCOL.md @CHNISam
+/AGENTS.md @CHNISam
+/.agents/ @CHNISam
+
+# Executable policy and conformance
+/enforcement/ @CHNISam
+/conformance/ @CHNISam
+/.github/workflows/ @CHNISam
