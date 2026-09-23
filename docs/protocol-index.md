@@ -1,0 +1,66 @@
+# Protocol Index
+
+Use this file to navigate the canonical `PROTOCOL.md` without loading it wholesale.
+
+The section numbers below are stable semantic landmarks. Search the exact heading in `PROTOCOL.md`, then read only the local section needed for the current question.
+
+| Section | Use when |
+|---|---|
+| 0. PRIMARY OBJECTIVE | orienting the whole task and preventing task/feature/solution collapse |
+| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, action boundary, capability/implementation distinction, and evidence honesty |
+| 2. DOMINANT GAP ROUTING | deciding whether the blocker is Model / Evidence / Decision / Planning / Capability / Reality / Verification-Validation |
+| 3. PURPOSE | clarifying the intended real-world state and decision ownership |
+| 4. MINIMUM SUFFICIENT MODELING | choosing the right model/schema for the intended use |
+| 5. OPTIONAL REASONING OPERATORS | selectively using first principles, inversion, stress thinking, or another reasoning operator |
+| 6. MODEL GATES | testing model quality, layer preservation, compilation integrity, proof types, and revalidation |
+| 7. EVIDENCE ACQUISITION POLICY | observability, evidence states, Source of Truth, provenance, identity, coverage, and evidence quality |
+| 8. CAPABILITY SOURCING / LEVERAGE GATE | deciding whether to reuse, adopt, integrate, compose, extend, or build |
+| 9. DECISION AND ACTION | comparing viable alternatives and choosing an action |
+| 10. PLANNING | sequencing dependencies and coordination once the direction is known |
+| 11. PROOF BEFORE ACTION | defining what evidence will show whether an action worked |
+| 12. WORKFLOW HARDENING | adding repeatability, guards, automation, tests, or blocking mechanisms when justified |
+| 13. PROJECT MODE | maintaining cross-layer project semantics and execution traceability |
+| 14. DELEGATION / EXECUTION CONTRACT | handing work to a downstream executor without exporting the whole Protocol |
+| 15. PROMPT COMPILATION | compiling upstream judgment into a task-specific prompt while preserving semantics |
+| 16. HUMAN OUTPUT CONTRACT — DECISION SURFACE | minimizing operator attention while keeping decision-relevant state visible |
+| 17. OPTIONAL DEEP-DIVE FORMAT | expanding analysis only when a deeper explanation is useful |
+| 18. POST-ACTION UPDATE | observing reality, updating the model, and rerouting after action |
+| 19. COMPLETION CONTRACT | deciding what “done” means and avoiding false completion |
+| 20. SILENT COMPLIANCE AUDIT | performing a final internal protocol audit without dumping chain-of-thought |
+| 21. ANTI-PATTERNS | checking common protocol violations and failure modes |
+| 22. RUNTIME CHEATSHEET | compact canonical runtime reminder |
+| 23. FINAL RULE | final operating principle |
+| 24. CURRENT TASK | task-local application slot in the reusable canonical prompt |
+
+## Fast paths
+
+### “The AI is about to build something”
+Read: **1.3 → 1.4 → 8 → 11**.
+
+### “The data looks plausible but may be wrong”
+Read: **1.5 → 7 → 6.14 → 19**.
+
+### “Several solutions look viable”
+Read: **2 Decision Gap → 8 → 9**.
+
+### “Tests pass but I do not know whether the product actually works”
+Read: **6.12 → 11 → 18 → 19**.
+
+### “The project model is losing meaning as it becomes tasks/prompts”
+Read: **6.10 → 6.11 → 6.13 → 13 → 15**.
+
+### “The workflow keeps failing in the same way”
+Read: **12**, then apply **8** before building new hardening infrastructure.
+
+## Runtime-first rule
+
+For ordinary tasks, do **not** start here unless the compact router or selected skill needs canonical detail.
+
+Normal loading path remains:
+
+```text
+AGENTS.md
+→ relevant .agents/skills/*/SKILL.md
+→ this index when canonical navigation is needed
+→ local PROTOCOL.md section only
+```
