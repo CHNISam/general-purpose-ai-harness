@@ -4,7 +4,7 @@
 
 Make the Model-First Adaptive Protocol usable by general-purpose AI without loading the full canonical document into every context window.
 
-The repository is a **knowledge and instruction layer**, not an agent runtime.
+The repository is primarily a **knowledge and instruction layer**, not an agent runtime. It also provides a narrow reference enforcement layer for deterministic invariants that are justified by repeated real failures.
 
 ## Layers
 
@@ -21,6 +21,11 @@ Layer 2 — Progressive methods
 Layer 3 — Maintenance aids
 docs/runtime-map.md
 examples/routing-cases.md
+
+Layer 4 — Executable enforcement
+enforcement/*
+conformance/*
+.github/workflows/conformance.yml
 ```
 
 ### Layer 0 — Canonical protocol
@@ -75,6 +80,16 @@ It helps maintain traceability, but it is **not mechanical verification**.
 `examples/routing-cases.md` contains representative routing examples and expected behavior.
 
 It is **not an automated eval or regression test** until an actual runner measures model behavior.
+
+### Layer 4 — Executable enforcement
+
+`enforcement/` contains the machine-checkable subset of Protocol invariants.
+
+`conformance/` contains deterministic fixtures and a portable runner.
+
+This layer is intentionally narrower than the canonical Protocol. It may reject structurally invalid evidence/completion states, but it must not pretend to mechanize contextual judgment such as whether a model is actually correct or whether a real-world outcome is genuinely useful.
+
+The same policy is compiled to WebAssembly in CI so compatible hosts can embed it without depending on an always-on service.
 
 ## Concept classes
 
@@ -153,9 +168,16 @@ A downstream Coding Agent should normally receive a compiled execution contract 
 
 ## Automation policy
 
-Scripts, tests, CI, validators, or mechanical enforcement are optional capability sources.
+Scripts, tests, CI, validators, or mechanical enforcement are capability sources, not substitutes for judgment.
 
-Add them when repeated failure, scale, risk, or verification cost justifies ownership.
+This repository now owns a small reference enforcement layer because repeated real failures exposed stable invariants around evidence provenance, proof-before-action, capability sourcing, conflict handling, and proof-type discipline.
+
+Add new mechanical rules only when:
+
+- the invariant is deterministic enough to check reliably;
+- a real failure, recurring risk, or verification burden justifies ownership;
+- a fixture can show what should pass and fail;
+- the rule does not silently upgrade a policy PASS into model or outcome validation.
 
 Do not add automation merely to make the repository look more engineered.
 

@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CHNISam/general-purpose-ai-operating-protocol/enforcement/schemas/decision-input.schema.json",
+  "title": "Protocol Enforcement Decision Input",
+  "type": "object",
+  "required": [
+    "task_id",
+    "action",
+    "capability",
+    "evidence",
+    "completion"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action": {
+      "type": "object",
+      "required": [
+        "changes_reality",
+        "proof_defined"
+      ],
+      "properties": {
+        "changes_reality": {
+          "type": "boolean"
+        },
+        "proof_defined": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "capability": {
+      "type": "object",
+      "required": [
+        "sourcing_required",
+        "single_obvious_source",
+        "source_selected",
+        "source_classes_considered"
+      ],
+      "properties": {
+        "sourcing_required": {
+          "type": "boolean"
+        },
+        "single_obvious_source": {
+          "type": "boolean"
+        },
+        "source_selected": {
+          "type": "string"
+        },
+        "source_classes_considered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "state",
+          "kind",
+          "source_type",
+          "decision_relevant",
+          "resolved"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "enum": [
+              "VERIFIED",
+              "CANDIDATE",
+              "APPROXIMATE",
+              "CONFLICTING",
+              "UNRESOLVED"
+            ]
+          },
+          "kind": {
+            "enum": [
+              "structure",
+              "verification",
+              "validation",
+              "supporting"
+            ]
+          },
+          "source_type": {
+            "enum": [
+              "authoritative",
+              "observed",
+              "measured",
+              "test",
+              "external",
+              "generated"
+            ]
+          },
+          "provenance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decision_relevant": {
+            "type": "boolean"
+          },
+          "resolved": {
+            "type": "boolean"
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "completion": {
+      "type": "object",
+      "required": [
+        "claimed",
+        "proof_type",
+        "validation_required",
+        "validation_observed",
+        "outcome_validated"
+      ],
+      "properties": {
+        "claimed": {
+          "type": "boolean"
+        },
+        "proof_type": {
+          "enum": [
+            "STRUCTURE_PASS",
+            "VERIFICATION_PASS",
+            "VALIDATION_PASS",
+            "UNKNOWN"
+          ]
+        },
+        "validation_required": {
+          "type": "boolean"
+        },
+        "validation_observed": {
+          "type": "boolean"
+        },
+        "outcome_validated": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

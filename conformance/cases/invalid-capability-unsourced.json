@@ -1,0 +1,31 @@
+{
+  "task_id": "C006-unsourced-capability",
+  "action": {
+    "changes_reality": true,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": true,
+    "single_obvious_source": false,
+    "source_selected": "",
+    "source_classes_considered": []
+  },
+  "evidence": [
+    {
+      "id": "EV-1",
+      "state": "VERIFIED",
+      "kind": "validation",
+      "source_type": "observed",
+      "provenance": "real-user-observation",
+      "decision_relevant": true,
+      "resolved": true
+    }
+  ],
+  "completion": {
+    "claimed": false,
+    "proof_type": "STRUCTURE_PASS",
+    "validation_required": false,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}

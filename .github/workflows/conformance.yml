@@ -1,0 +1,70 @@
+name: Protocol Conformance
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  OPA_VERSION: v1.20.2
+  OPA_SHA256: 69da5179ee403d10fa11bab6cfb4ffb0d23dba5f9b682fa977db772a1da5670f
+
+jobs:
+  conformance:
+    name: Mechanical policy gates
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install pinned OPA
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL \
+            "https://github.com/open-policy-agent/opa/releases/download/${OPA_VERSION}/opa_linux_amd64_static" \
+            -o "${RUNNER_TEMP}/opa"
+          echo "${OPA_SHA256}  ${RUNNER_TEMP}/opa" | sha256sum -c -
+          chmod +x "${RUNNER_TEMP}/opa"
+          "${RUNNER_TEMP}/opa" version
+
+      - name: Report Rego formatting drift
+        run: "${RUNNER_TEMP}/opa fmt --list enforcement/policies enforcement/tests"
+
+      - name: Strict policy/schema check
+        run: "${RUNNER_TEMP}/opa check --strict --schema enforcement/schemas/decision-input.schema.json enforcement/policies"
+
+      - name: Run Rego unit tests
+        run: "${RUNNER_TEMP}/opa test enforcement/policies enforcement/tests -v"
+
+      - name: Run public conformance fixtures
+        run: "python conformance/run.py --opa ${RUNNER_TEMP}/opa"
+
+      - name: Build portable Wasm policy bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          "${RUNNER_TEMP}/opa" build \
+            -t wasm \
+            -e protocol/enforcement/decision \
+            enforcement/policies/protocol.rego \
+            -o dist/protocol-policy.tar.gz
+          tar -tzf dist/protocol-policy.tar.gz > "${RUNNER_TEMP}/bundle-contents.txt"
+          grep -q '/policy.wasm$' "${RUNNER_TEMP}/bundle-contents.txt"
+
+      - name: Upload Wasm policy bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: protocol-policy-wasm
+          path: dist/protocol-policy.tar.gz
+          if-no-files-found: error
+          retention-days: 14

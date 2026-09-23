@@ -1,5 +1,8 @@
 # General-Purpose AI Operating Protocol
 
+[![Protocol Conformance](https://github.com/CHNISam/general-purpose-ai-operating-protocol/actions/workflows/conformance.yml/badge.svg)](https://github.com/CHNISam/general-purpose-ai-operating-protocol/actions/workflows/conformance.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/CHNISam/general-purpose-ai-operating-protocol/badge)](https://securityscorecards.dev/viewer/?uri=github.com/CHNISam/general-purpose-ai-operating-protocol)
+
 A progressively disclosed operating protocol for general-purpose AI assistants and agents.
 
 The repository packages the **Model-First Adaptive Protocol** as a versioned canonical methodology, a small router, and on-demand skills. It is designed to guide judgment inside existing AI runtimes rather than replace them.
@@ -19,8 +22,9 @@ It is **not**:
 - an agent runtime or SDK;
 - an executor or tool orchestration framework;
 - a formal decision procedure;
-- a claim that every routing decision can be mechanically proven;
-- a CI or benchmark suite.
+- a claim that every routing decision can be mechanically proven.
+
+The repository now also includes a **reference executable enforcement layer** for the subset of Protocol invariants that can be checked deterministically. That layer complements model judgment; it does not replace it.
 
 The Protocol supports model judgment. It does not replace judgment.
 
@@ -124,6 +128,22 @@ v2.9.1 builds on v2.9.0 model integrity with a staged-audit rule for existing
 layered models: downstream material may be inspected to test consistency, but
 layers are accepted and derived in order rather than being prematurely treated
 as validated.
+
+## Executable enforcement
+
+The repository contains a real mechanical policy layer in [`enforcement/`](enforcement/) and a public conformance suite in [`conformance/`](conformance/).
+
+The current reference implementation uses:
+
+- **JSON Schema** for the versioned machine-readable decision envelope;
+- **Open Policy Agent / Rego** for deterministic Protocol invariants;
+- **public fixtures** for allow/deny regression behavior;
+- **GitHub Actions** for automatic conformance checks;
+- **OPA WebAssembly builds** for portable embedding without an always-on server.
+
+Examples of mechanically blocked states include VERIFIED evidence without provenance, generated output promoted directly to VERIFIED evidence, reality-changing action without proof defined first, unresolved decision-relevant evidence conflicts at completion, and a claimed VALIDATION PASS without observed validation evidence.
+
+A mechanical PASS is deliberately weaker than a real-world VALIDATION PASS. The executable layer proves only the invariants it actually encodes.
 
 ## Evidence and behavioral evals
 

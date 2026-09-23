@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "C001",
+      "fixture": "conformance/cases/valid-complete-validation.json",
+      "expect_allow": true,
+      "expect_codes": []
+    },
+    {
+      "id": "C002",
+      "fixture": "conformance/cases/invalid-verified-without-provenance.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E001"
+      ]
+    },
+    {
+      "id": "C003",
+      "fixture": "conformance/cases/invalid-generated-as-verified.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E002"
+      ]
+    },
+    {
+      "id": "C004",
+      "fixture": "conformance/cases/invalid-validation-without-observation.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E003"
+      ]
+    },
+    {
+      "id": "C005",
+      "fixture": "conformance/cases/invalid-reality-change-without-proof.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E006"
+      ]
+    },
+    {
+      "id": "C006",
+      "fixture": "conformance/cases/invalid-capability-unsourced.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E007",
+        "E008"
+      ]
+    },
+    {
+      "id": "C007",
+      "fixture": "conformance/cases/invalid-unresolved-conflict.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E005"
+      ]
+    },
+    {
+      "id": "C008",
+      "fixture": "conformance/cases/invalid-required-validation-unobserved.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E012"
+      ]
+    }
+  ]
+}
