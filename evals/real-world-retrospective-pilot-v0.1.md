@@ -100,11 +100,9 @@ Start at the top. Check one layer and its relationship to the next before moving
 - Preserve materially different layers.
 - Do not compile or elaborate downstream layers before the upstream relation being audited is sufficiently trustworthy.
 
-**Current v2.9 coverage:** **PARTIAL**
+**Current v2.9.1 coverage:** **PASS**
 
-v2.9 clearly requires intended-use model selection, layer preservation, and bidirectional traceability. However, it does not yet state a strong **staged-audit rule**: when the purpose is to validate an existing top-down chain, do not reason ahead into downstream layers before the current upstream boundary is accepted.
-
-This case is a candidate Protocol improvement, but should be tested on more than one real task before adding a new general rule.
+This real failure exposed a missing staged-audit rule in v2.9.0. v2.9.1 now states that downstream material may be inspected to test consistency, but deeper layers must not be treated as accepted or compiled as though their upstream derivation had already passed.
 
 ---
 
@@ -381,10 +379,11 @@ Inspection-before-action, evidence honesty, proof-before-action, and completion/
 
 This first real-world retrospective set contains twelve distinct historical failure patterns.
 
-- Eleven are **clearly represented** in the current v2.9 rules.
-- One is **partially represented**: staged top-down auditing of an existing semantic chain.
+- Eleven were already **clearly represented** in v2.9.0.
+- One exposed a real gap: staged top-down auditing of an existing semantic chain.
+- That gap produced the v2.9.1 staged-audit correction; all twelve are now represented by current rules.
 
-This is evidence that the current Protocol has meaningful **coverage** of failures that actually occurred in practice.
+This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 
 It is **not** evidence that an AI reading the Protocol will reliably behave better, nor that the Protocol caused the corrected historical behavior.
 
