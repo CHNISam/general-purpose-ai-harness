@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "judge_id",
+    "scores"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^R[0-9]{3}$"
+    },
+    "judge_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "A",
+        "B"
+      ],
+      "properties": {
+        "A": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "PASS",
+              "PARTIAL",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          }
+        },
+        "B": {
+          "type": "object",
+          "additionalProperties": {
+            "enum": [
+              "PASS",
+              "PARTIAL",
+              "FAIL",
+              "UNKNOWN"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
