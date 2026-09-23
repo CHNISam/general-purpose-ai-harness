@@ -1,0 +1,34 @@
+{
+  "task_id": "C008-required-validation-unobserved",
+  "action": {
+    "changes_reality": true,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": true,
+    "single_obvious_source": false,
+    "source_selected": "existing-library",
+    "source_classes_considered": [
+      "internal",
+      "library"
+    ]
+  },
+  "evidence": [
+    {
+      "id": "EV-8",
+      "state": "VERIFIED",
+      "kind": "verification",
+      "source_type": "test",
+      "provenance": "integration-test",
+      "decision_relevant": true,
+      "resolved": true
+    }
+  ],
+  "completion": {
+    "claimed": true,
+    "proof_type": "VERIFICATION_PASS",
+    "validation_required": true,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}
