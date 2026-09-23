@@ -100,6 +100,7 @@ The downstream agent should not need to interpret this whole Protocol again.
 - Action completion is not outcome validation.
 - When evidence contradicts the model, update the model rather than defend the plan.
 - Stop when the current purpose has sufficient evidence; do not perform methodology for its own sake.
+- When a supported mechanical enforcement envelope exists for the artifact/result, use it as an additional gate; never promote a policy/conformance PASS into model correctness or real-world VALIDATION PASS.
 
 ## Progressive disclosure
 
@@ -123,6 +124,7 @@ Do not force this format on trivial tasks. Keep language simple without flatteni
 ## Repository maintenance
 
 - `PROTOCOL.md` is canonical.
+- `enforcement/` + `conformance/` implement only the deterministic subset; keep policy semantics traceable to canonical rules and real failure fixtures.
 - Runtime files are derived and must remain traceable to canonical sections.
 - Before changing routing or skill boundaries, update or check [docs/runtime-map.md](docs/runtime-map.md).
 - Use [examples/routing-cases.md](examples/routing-cases.md) as representative routing examples; they are not automated behavioral evals.
