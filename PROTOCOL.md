@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.9.0
+# Model-First Adaptive Protocol v2.9.1
 
-Status: Candidate v2.9.0
+Status: Candidate v2.9.1
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -1185,6 +1185,19 @@ If removing a layer or relation type could change a decision, reroute, risk,
 capability-source choice, or acceptance result:
 
     do not simplify it away.
+
+When the intended use is to **audit an existing layered model or derivation chain**,
+validate the current layer and its decision-relevant relationship to the next layer
+before treating deeper downstream structure as accepted.
+
+Read-only inspection of downstream material is allowed when it helps test the
+current relation, but do not prematurely elaborate, compile, or rely on deeper
+layers as if their upstream derivation had already passed.
+
+Principle:
+
+> Inspect ahead when useful.
+> Accept and derive in order.
 
 
 -------------------------------------------------------------------------------

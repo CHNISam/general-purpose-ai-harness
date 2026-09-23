@@ -39,6 +39,12 @@ missing decision-relevant layers are detectable. Once selected, do not silently
 drop such a layer; if it is merged or omitted, know why doing so cannot change
 the decision, reroute, sourcing choice, risk, or proof.
 
+When auditing an **existing layered model or derivation chain**, validate the
+current layer and its decision-relevant relation to the next layer before treating
+deeper downstream structure as accepted. Inspect downstream material when useful
+to test consistency, but do not prematurely elaborate, compile, or rely on it as
+though its upstream derivation had already passed.
+
 Where a mature domain method, standard, framework, or model kind is likely to
 exist and the choice matters, source and tailor it before inventing a new one.
 
