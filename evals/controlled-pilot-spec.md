@@ -6,6 +6,21 @@ Purpose: test whether loading the Protocol changes model behavior on real non-tr
 
 This is intentionally smaller than a benchmark suite. The first run should find gross failures before more infrastructure is built.
 
+## Executable replication kit
+
+The 12 pilot cases are frozen in [`../benchmarks/cases/retrospective-v1.json`](../benchmarks/cases/retrospective-v1.json).
+
+[`../benchmarks/README.md`](../benchmarks/README.md) provides a provider-neutral harness for:
+
+- ordinary web/app models with manual capture;
+- CLI/API model runners;
+- portable Protocol runtime export;
+- deterministic A/B blinding;
+- criterion-specific score sheets;
+- paired aggregation.
+
+This makes the experiment reproducible without claiming that the model runs have already occurred.
+
 ## Pilot size
 
 Start with the 12 real retrospective cases already recorded.

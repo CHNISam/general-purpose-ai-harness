@@ -48,9 +48,29 @@ This failure is recorded as [R001](evals/real-world-retrospective-pilot-v0.1.md)
 | Mechanical policy | JSON Schema + OPA/Rego |
 | Portable enforcement | CI-built OPA WebAssembly bundle |
 | Repository engineering signal | Protocol Conformance CI + OpenSSF Scorecard |
-| Controlled Protocol OFF vs ON behavioral eval | **Specified, not yet run** |
+| Controlled Protocol OFF vs ON behavioral eval | **12 frozen cases + provider-neutral replication harness; model runs not yet executed** |
 
 This table deliberately separates what is already demonstrated from what remains unproven.
+
+## Reproduce the behavioral eval
+
+The [`benchmarks/`](benchmarks/) kit supports both API/CLI models and ordinary web/app AI systems.
+
+For ChatGPT/Claude/Gemini/other web models, no API key is required:
+
+```text
+prepare same task pair
+→ fresh OFF session
+→ fresh ON session
+→ capture outputs
+→ anonymize as A/B
+→ blind criterion scoring
+→ aggregate paired results
+```
+
+The benchmark fixtures are sanitized historical reconstructions and explicitly record whether wording is near-verbatim or reconstructed.
+
+See [benchmarks/README.md](benchmarks/README.md).
 
 ## What this is
 
