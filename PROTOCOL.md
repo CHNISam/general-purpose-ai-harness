@@ -1,6 +1,6 @@
 # Model-First Adaptive Protocol v2.11.0
 
-Status: Candidate v2.10.0
+Status: Candidate v2.11.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
