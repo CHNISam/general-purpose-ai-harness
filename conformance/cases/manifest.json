@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "cases": [
     {
       "id": "C001",
@@ -62,6 +62,30 @@
       "expect_allow": false,
       "expect_codes": [
         "E012"
+      ]
+    },
+    {
+      "id": "C009",
+      "fixture": "conformance/cases/invalid-reopen-valid-closure.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E013"
+      ]
+    },
+    {
+      "id": "C010",
+      "fixture": "conformance/cases/invalid-false-closure.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E014"
+      ]
+    },
+    {
+      "id": "C011",
+      "fixture": "conformance/cases/invalid-required-closure-unmaterialized.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E015"
       ]
     }
   ]

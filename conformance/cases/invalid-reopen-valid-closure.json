@@ -1,0 +1,31 @@
+{
+  "task_id": "C009-invalid-reopen-valid-closure",
+  "action": {
+    "changes_reality": false,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": false,
+    "single_obvious_source": true,
+    "source_selected": "",
+    "source_classes_considered": []
+  },
+  "closure": {
+    "existing_valid_closure": true,
+    "current_scope_covered": true,
+    "reopened": true,
+    "reopen_justified": false,
+    "claiming_new_closure": false,
+    "proof_scope_matches_claim": true,
+    "capitalization_required": false,
+    "materialized": false
+  },
+  "evidence": [],
+  "completion": {
+    "claimed": false,
+    "proof_type": "STRUCTURE_PASS",
+    "validation_required": false,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}

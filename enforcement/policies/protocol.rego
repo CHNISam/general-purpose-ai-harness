@@ -14,6 +14,7 @@ allowed_proof_types := {
 evidence := object.get(input, "evidence", [])
 action := object.get(input, "action", {})
 capability := object.get(input, "capability", {})
+closure := object.get(input, "closure", {})
 completion := object.get(input, "completion", {})
 
 has_verified_validation_evidence if {
@@ -124,6 +125,33 @@ violations contains {
   object.get(completion, "claimed", false)
   object.get(completion, "validation_required", false)
   object.get(completion, "validation_observed", false) == false
+}
+
+violations contains {
+  "code": "E013",
+  "message": "An explicitly valid in-scope closure cannot be reopened without a recorded justification.",
+} if {
+  object.get(closure, "existing_valid_closure", false)
+  object.get(closure, "current_scope_covered", false)
+  object.get(closure, "reopened", false)
+  object.get(closure, "reopen_justified", false) == false
+}
+
+violations contains {
+  "code": "E014",
+  "message": "A new closure claim cannot exceed the declared proof scope.",
+} if {
+  object.get(closure, "claiming_new_closure", false)
+  object.get(closure, "proof_scope_matches_claim", false) == false
+}
+
+violations contains {
+  "code": "E015",
+  "message": "Completion cannot be claimed when closure capitalization is explicitly required but not materialized.",
+} if {
+  object.get(completion, "claimed", false)
+  object.get(closure, "capitalization_required", false)
+  object.get(closure, "materialized", false) == false
 }
 
 allow if {

@@ -169,6 +169,40 @@
     "metadata": {
       "type": "object",
       "additionalProperties": true
+    },
+    "closure": {
+      "type": "object",
+      "properties": {
+        "existing_valid_closure": {
+          "type": "boolean"
+        },
+        "current_scope_covered": {
+          "type": "boolean"
+        },
+        "reopened": {
+          "type": "boolean"
+        },
+        "reopen_justified": {
+          "type": "boolean"
+        },
+        "claiming_new_closure": {
+          "type": "boolean"
+        },
+        "proof_scope_matches_claim": {
+          "type": "boolean"
+        },
+        "capitalization_required": {
+          "type": "boolean"
+        },
+        "materialized": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

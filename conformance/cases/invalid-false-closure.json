@@ -1,0 +1,31 @@
+{
+  "task_id": "C010-invalid-false-closure",
+  "action": {
+    "changes_reality": false,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": false,
+    "single_obvious_source": true,
+    "source_selected": "",
+    "source_classes_considered": []
+  },
+  "closure": {
+    "existing_valid_closure": false,
+    "current_scope_covered": false,
+    "reopened": false,
+    "reopen_justified": false,
+    "claiming_new_closure": true,
+    "proof_scope_matches_claim": false,
+    "capitalization_required": false,
+    "materialized": false
+  },
+  "evidence": [],
+  "completion": {
+    "claimed": false,
+    "proof_type": "STRUCTURE_PASS",
+    "validation_required": false,
+    "validation_observed": false,
+    "outcome_validated": false
+  }
+}
