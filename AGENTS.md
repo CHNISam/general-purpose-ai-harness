@@ -112,11 +112,9 @@ The downstream agent should not need to interpret this whole Protocol again.
 4. Read `PROTOCOL.md` for canonical wording, unusual edge cases, or methodology maintenance.
 5. Do not load unrelated skills "just in case."
 
-## Runtime state visibility
+## Runtime context and visibility
 
-For non-trivial work, reuse already inspected context when its identity, relevance, and freshness remain sufficient. Do not mechanically re-fetch unchanged sources on every turn.
-
-Establish and surface a compact **Runtime Receipt** once for a newly established runtime state, and again only after a material state change:
+When work depends on state that can become stale, ambiguous, or executor-specific, maintain compact Runtime Context:
 
 - **Protocol** — source/version/ref when known, otherwise mark unknown.
 - **Method** — relevant loaded skill(s) or selected method.
@@ -124,9 +122,13 @@ Establish and surface a compact **Runtime Receipt** once for a newly established
 - **External Evidence** — inspected, not required, or unavailable.
 - **Dominant Gap** — the gap currently governing the next useful action.
 
-Re-locate or re-read state when a new session/agent lacks trustworthy loaded state, the source may be stale, decision-relevant upstream state changed, the task crosses to a new Source of Truth/environment/Gap, or the user asks for current/latest/freshly verified state.
+Prefer storing this in runtime/session/trace state when the host supports it. Do not mechanically re-fetch unchanged sources on every turn.
 
-If required access is unavailable, say so and narrow the claim. A Runtime Receipt reports the basis of work; it is not evidence by itself.
+Refresh on runtime-state boundaries: a new executor without trustworthy inherited state, unknown/plausibly stale sources, changed decision-relevant upstream state, a new Source of Truth/environment/Gap, or a request for current/latest/freshly verified state.
+
+A **Runtime Receipt** is only the operator-facing projection of this state. Surface it when requested, when a material state change affects the decision/action, when freshness/provenance/access limitations matter, or when consequential action warrants operator confirmation. Otherwise keep it in the runtime/trace and keep the answer focused.
+
+If required access is unavailable, say so and narrow the claim. A receipt reports the basis of work; it is not evidence by itself.
 
 ## Human communication
 
@@ -138,6 +140,8 @@ For non-trivial work, default to a compact decision surface:
 - **Proof** — the observation that will show success.
 
 Do not force this format on trivial tasks. Keep language simple without flattening decision-relevant model distinctions. Do not expose full background, model, alternatives, or methodology unless they materially change the decision, risk requires them, or the user asks.
+
+Runtime observability and human presentation are separate. Do not prepend runtime metadata merely to prove compliance. Before finalizing, check that the answer fits this Decision Surface; use host-supported structured-output or output-guardrail mechanisms for mechanically checkable presentation constraints when proportionate.
 
 ## Repository maintenance
 

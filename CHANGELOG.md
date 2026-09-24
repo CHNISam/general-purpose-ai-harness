@@ -2,6 +2,23 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.11.1 — 2026-09-24
+
+### Protocol
+
+- Refined Runtime State Observability into **Runtime Context + operator projection**: runtime/session/trace state is distinct from what should appear in the human-facing answer.
+- Replaced task-complexity-driven receipt display with **runtime-state boundary** refresh semantics: refresh when executor/source/environment/Gap/freshness changes make prior state unreliable.
+- Clarified that a **Runtime Receipt** is an on-demand or decision-relevant projection, not a mandatory banner for every complex task.
+- Separated runtime observability from the human **Output Contract**. Poor communication should be repaired by Decision Surface / output conformance, not by dumping more telemetry.
+- Added proportional use of host-supported structured-output / output-guardrail mechanisms for mechanically checkable presentation constraints.
+
+### Runtime / evidence
+
+- Updated the compact router, runtime map, Protocol index, README, and R014 retrospective wording.
+- Preserved v2.11.0 under `docs/history/`.
+- Kept the retrospective set at fourteen cases: this patch refines the semantics learned from R014 rather than inventing a new failure class.
+- No new deterministic enforcement claim is made; runtime freshness and decision relevance remain contextual judgments.
+
 ## v2.11.0 — 2026-09-24
 
 ### Protocol

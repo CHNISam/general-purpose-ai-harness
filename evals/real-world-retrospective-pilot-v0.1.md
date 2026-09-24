@@ -420,26 +420,29 @@ A general-purpose AI was repeatedly asked to work under a repository-hosted oper
 
 **Observed failure**
 
-The operator often could not tell whether the agent had actually read the current Protocol, which skill/method it had loaded, whether project state had been freshly inspected, or whether external evidence had been searched. The opposite workaround — requiring a fresh web/repository lookup every turn — would add latency and context churn even when the already-loaded state was still sufficient.
+The operator often could not tell whether the agent had actually read the current Protocol, which skill/method it had loaded, whether project state had been freshly inspected, or whether external evidence had been searched.
 
-This created a false choice between invisible stale assumptions and wasteful mechanical refreshes.
+An initial correction risked overcompensating by making a Runtime Receipt a visible banner for every complex task. That would conflate runtime observability with human-facing presentation and create unnecessary output noise.
 
 **User correction**
 
-Do not equate rigor with “always browse.” Reuse context when its identity, relevance, and freshness are sufficient; refresh when freshness is unknown or decision-relevant state may have changed. Make the basis visible so the operator does not have to guess.
+Do not equate rigor with “always browse” or “always print telemetry.” Reuse context when its identity, relevance, and freshness are sufficient; refresh when runtime-state boundaries make prior context unreliable. Keep the state observable, but project it to the operator only when it affects understanding, trust, authority, debugging, or the next action.
 
 **Expected Protocol behavior**
 
-- Maintain decision-relevant runtime state for non-trivial work.
+- Maintain decision-relevant Runtime Context when work depends on state that can become stale, ambiguous, or executor-specific.
+- Prefer runtime/session/trace storage when the host supports it.
 - Reuse already-inspected context when it remains sufficiently fresh for the current decision.
-- Re-locate state for a new/unknown runtime, plausibly stale source, changed upstream state, new Source of Truth/environment/Gap, or current/latest verification request.
-- Surface a compact Runtime Receipt when a new non-trivial runtime state is established or materially changes.
+- Refresh on runtime-state boundaries: new/untrusted executor state, plausibly stale source, changed upstream state, new Source of Truth/environment/Gap, or current/latest verification request.
+- Treat a Runtime Receipt as an operator-facing projection, not the runtime state itself.
+- Surface the receipt only when requested or when freshness/provenance/access/state changes are decision-relevant.
+- Keep runtime observability separate from human Output Contract conformance.
 - Distinguish external evidence as inspected / not required / unavailable rather than silently implying browsing occurred.
 - Treat the receipt as observability metadata, not proof that the underlying claim is correct.
 
-**Current v2.11.0 coverage:** **PASS**
+**Current v2.11.1 coverage:** **PASS**
 
-v2.11.0 adds canonical runtime-state freshness and observability semantics plus the compact router representation. The rule avoids mandatory per-turn re-fetching while removing the operator's need to infer whether the agent's working state is current.
+v2.11.0 introduced runtime-state freshness and observability. v2.11.1 refines that correction to match mature runtime/trace practice: record state continuously enough for execution, refresh on state boundaries, and project only the minimum operator-relevant subset. Human output conformance remains a separate Decision Surface / guardrail concern.
 
 ---
 
@@ -450,7 +453,7 @@ This real-world retrospective set contains fourteen distinct historical failure 
 - Eleven were already **clearly represented** in v2.9.0.
 - One exposed the staged top-down audit gap and produced the v2.9.1 correction.
 - One exposed the capability-discoverability / executor-native-modality gap and produced the v2.10.0 correction.
-- One exposed the runtime-state freshness / observability gap and produced the v2.11.0 correction.
+- One exposed the runtime-state freshness / observability gap and produced v2.11.0, refined by v2.11.1 to separate runtime context, refresh boundaries, operator projection, and output conformance.
 - All fourteen are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.

@@ -7,7 +7,7 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 | Section | Use when |
 |---|---|
 | 0. PRIMARY OBJECTIVE | orienting the whole task and preventing task/feature/solution collapse |
-| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, runtime-state freshness/visibility, action boundary, capability-surface awareness, executor-bias guard, capability/implementation distinction, and evidence honesty |
+| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, Runtime Context/freshness/operator visibility, action boundary, capability-surface awareness, executor-bias guard, capability/implementation distinction, and evidence honesty |
 | 2. DOMINANT GAP ROUTING | deciding whether the blocker is Model / Evidence / Decision / Planning / Capability / Reality / Verification-Validation |
 | 3. PURPOSE | clarifying the intended real-world state and decision ownership |
 | 4. MINIMUM SUFFICIENT MODELING | choosing the right model/schema for the intended use |
@@ -22,7 +22,7 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 | 13. PROJECT MODE | maintaining cross-layer project semantics and execution traceability |
 | 14. DELEGATION / EXECUTION CONTRACT | handing work to a downstream executor without exporting the whole Protocol |
 | 15. PROMPT COMPILATION | compiling upstream judgment into a task-specific prompt while preserving semantics |
-| 16. HUMAN OUTPUT CONTRACT — DECISION SURFACE | minimizing operator attention while keeping decision-relevant state visible |
+| 16. HUMAN OUTPUT CONTRACT — DECISION SURFACE | minimizing operator attention, separating runtime observability from presentation, and enforcing the human-facing output contract |
 | 17. OPTIONAL DEEP-DIVE FORMAT | expanding analysis only when a deeper explanation is useful |
 | 18. POST-ACTION UPDATE | observing reality, updating the model, and rerouting after action |
 | 19. COMPLETION CONTRACT | deciding what “done” means and avoiding false completion |
@@ -35,7 +35,10 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 ## Fast paths
 
 ### “I cannot tell whether the agent is using current Protocol/project/external state”
-Read: **1.1 → 1.1.1**. Reuse fresh identified context; refresh unknown or plausibly stale state; surface a compact Runtime Receipt instead of forcing blind re-fetching every turn.
+Read: **1.1 → 1.1.1**. Maintain Runtime Context, refresh it on state boundaries, and project a Runtime Receipt only when the operator needs that state to understand, trust, audit, or authorize the next action.
+
+### “The answer is correct but too long or hard to scan”
+Read: **16 → 20 COMMUNICATION**. Treat output conformance separately from runtime observability; compress to the Decision Surface and use a host-supported output guardrail when the presentation constraint is mechanically checkable.
 
 ### “The AI is about to build something”
 Read: **1.3 → 1.4 → 8 → 11**. Confirm that capability choice was not silently determined by the executor's native tool or modality.
