@@ -104,4 +104,15 @@ result should be capitalized into a discoverable or enforceable closure mechanis
 Record only the bounded claim actually supported, plus the conditions that would
 invalidate it.
 
+For recurring or consequential closure, do not stop at discoverability. Ask whether
+a violating state can still silently pass.
+
+- If mechanically decidable, use the cheapest reliable enforcement when hardening
+  is warranted and verify invalid-case rejection plus allowed-case acceptance.
+- If not mechanically decidable, define the Human/Product gate and observation surface.
+- If enforcement is intentionally deferred, record the debt and do not claim Operational Closure.
+
+A rule in AGENTS.md, a prompt, runbook, or architecture note proves legibility,
+not enforcement.
+
 Then finish or reroute.

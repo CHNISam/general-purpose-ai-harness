@@ -24,6 +24,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Verified Closure / managed variability / baseline reuse | `PROTOCOL.md` 1.4.1 + `capability-sourcing` + `validation` |
 | Recursive sourcing / no meta-layer exemption | `PROTOCOL.md` 1.4.2 + `AGENTS.md` + `capability-sourcing` + `workflow-hardening` + `delegation` |
 | Closure preservation / capitalization mechanisms | `workflow-hardening` + `validation` |
+| Enforcement Graduation / Operational Closure | `PROTOCOL.md` 1.4.3 + `workflow-hardening` + `validation` + executable policy where deterministically representable |
 | Planning | `planning` |
 | Reality Gap / execution | direct action through the host AI/runtime |
 | Verification / Validation Gap + proof | `validation` |
