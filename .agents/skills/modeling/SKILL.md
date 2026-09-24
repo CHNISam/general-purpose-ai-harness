@@ -9,15 +9,29 @@ Use this skill for a **Model Gap**.
 
 ## Purpose first
 
-When not already clear, determine only what can change the current work:
+For non-trivial work, do not assume the requested task / feature / requirement /
+component is itself necessary just because it is clearly stated.
+
+Determine only what can change the current work:
 
 - Goal — intended real-world state.
 - Current Question — what must be understood, chosen, changed, or verified now.
 - Success — observable resolution.
+- Necessity — whether the proposed work must exist to reach the Goal, or should be
+  kept, reframed, replaced, deleted, or deferred.
 
 When materially relevant, also distinguish Outcome Owner, Decision Owner, Risk Owner, and Priority / Trade-off Policy.
 
 Do not automatically treat the user's proposed feature, task, implementation, workflow, technology, library, service, or terminology as the real Goal.
+
+Before moving from Why to How, ask whether the proposed work is the problem, a
+symptom, an inherited means, or one local expression of a higher-level need. If
+removing or replacing it still satisfies the Goal better, reroute before
+implementation.
+
+Use Five Whys or another causal method only when the missing understanding is a
+causal chain. "Why before How" is a necessity / problem-framing rule, not a
+requirement to ask exactly five questions.
 
 ## Select the model for the intended use
 
