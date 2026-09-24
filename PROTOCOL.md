@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.11.0
+# Model-First Adaptive Protocol v2.11.1
 
-Status: Candidate v2.11.0
+Status: Candidate v2.11.1
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -174,10 +174,11 @@ Principle:
 
 
 -------------------------------------------------------------------------------
-1.1.1 Runtime State Observability and Freshness
+1.1.1 Runtime Context, Freshness, and Operator Visibility
 -------------------------------------------------------------------------------
 
-For every non-trivial task, maintain a compact runtime state sufficient to answer:
+When work depends on state that can become stale, ambiguous, or executor-specific,
+maintain a compact **Runtime Context** sufficient to answer:
 
 - which Protocol source / version / ref is being relied on, when applicable and known;
 - which relevant skill(s) or method were loaded or selected;
@@ -185,19 +186,40 @@ For every non-trivial task, maintain a compact runtime state sufficient to answe
 - whether external evidence was inspected, not required, or unavailable;
 - which Dominant Gap currently governs the next useful action.
 
+Runtime Context is operational state. It should normally live in the runtime,
+session, trace, or equivalent execution context when the host provides one.
+
 Do not require mechanical re-fetching on every turn.
 
-Previously inspected context may be reused when its identity, relevance, and freshness are still sufficient for the current decision. Re-locate or re-read state when:
+Previously inspected context may be reused when its identity, relevance, and
+freshness remain sufficient. Refresh or re-locate state when a **runtime-state
+boundary** makes prior context unreliable, including when:
 
-- a new session, agent, or executor does not have a trustworthy loaded state;
+- a new session, agent, or executor lacks trustworthy inherited state;
 - the relevant source / version / ref is unknown or plausibly stale;
 - decision-relevant upstream state may have changed;
 - the task crosses to a new Source of Truth, environment, or Gap whose state has not been established;
 - the user asks for current, latest, freshly verified, or otherwise time-sensitive state.
 
-If a required source or retrieval channel is unavailable, expose that limitation and constrain claims rather than implying that refresh occurred.
+If a required source or retrieval channel is unavailable, record that limitation
+and constrain claims rather than implying that refresh occurred.
 
-For a newly established non-trivial runtime state, or after a material runtime-state change, expose a compact **Runtime Receipt** once when the interface permits. It should make the decision-relevant state inspectable without dumping private reasoning. A useful receipt may include:
+A **Runtime Receipt** is the operator-facing projection of Runtime Context, not
+the Runtime Context itself and not a mandatory banner on every complex task.
+
+Expose a compact receipt when doing so changes operator understanding, trust,
+authority, or the next action; for example when:
+
+- the operator asks for it or is auditing/debugging execution;
+- a material runtime-state change affects the decision or action;
+- freshness, provenance, or access limitations are decision-relevant;
+- a consequential reality-changing action depends on runtime provenance that the operator should confirm.
+
+When a separate trace/session observability surface exists, prefer recording
+Runtime Context there and keep the human answer focused on the Decision Surface.
+In chat-only environments, project only the minimum decision-relevant subset.
+
+A useful receipt may include:
 
     Protocol: <source/version/ref or unknown>
     Method: <loaded skill(s) / selected method>
@@ -205,11 +227,12 @@ For a newly established non-trivial runtime state, or after a material runtime-s
     External Evidence: <inspected | not required | unavailable>
     Dominant Gap: <current gap>
 
-Do not repeat an unchanged receipt on every turn. Do not use a receipt as a substitute for evidence, inspection, or validation.
+Do not repeat unchanged runtime metadata. Do not use a receipt as a substitute
+for evidence, inspection, or validation.
 
 Principle:
 
-> Reuse fresh context; refresh uncertain context; make the basis observable.
+> Record runtime state; refresh on state boundaries; project it only when useful.
 
 -------------------------------------------------------------------------------
 1.2 Inspect Before Abstracting When Cheaper
@@ -2682,6 +2705,30 @@ Principle:
 
 > Explore freely.
 > Compress before presenting.
+
+
+-------------------------------------------------------------------------------
+16.8 Runtime Observability Is Not the Output Contract
+-------------------------------------------------------------------------------
+
+Keep execution observability and human presentation as separate surfaces.
+
+Runtime Context / traces answer:
+
+    What state and evidence basis is the Agent operating from?
+
+The Decision Surface answers:
+
+    What does the human need to understand or decide now?
+
+Do not repair poor communication by dumping more runtime metadata into the answer.
+
+When the host/runtime supports structured outputs, output guardrails, or another
+mechanical validation mechanism for checkable presentation constraints, use it
+when proportionate. Otherwise use the Silent Compliance Audit before finalizing.
+
+This does not require rigid headings for simple tasks. It requires the output
+contract to be checked independently from runtime observability.
 
 
 ===============================================================================
