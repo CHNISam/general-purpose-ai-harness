@@ -112,6 +112,22 @@ The downstream agent should not need to interpret this whole Protocol again.
 4. Read `PROTOCOL.md` for canonical wording, unusual edge cases, or methodology maintenance.
 5. Do not load unrelated skills "just in case."
 
+## Runtime state visibility
+
+For non-trivial work, reuse already inspected context when its identity, relevance, and freshness remain sufficient. Do not mechanically re-fetch unchanged sources on every turn.
+
+Establish and surface a compact **Runtime Receipt** once for a newly established runtime state, and again only after a material state change:
+
+- **Protocol** — source/version/ref when known, otherwise mark unknown.
+- **Method** — relevant loaded skill(s) or selected method.
+- **Source of Truth** — inspected source/current-state surface and freshness basis.
+- **External Evidence** — inspected, not required, or unavailable.
+- **Dominant Gap** — the gap currently governing the next useful action.
+
+Re-locate or re-read state when a new session/agent lacks trustworthy loaded state, the source may be stale, decision-relevant upstream state changed, the task crosses to a new Source of Truth/environment/Gap, or the user asks for current/latest/freshly verified state.
+
+If required access is unavailable, say so and narrow the claim. A Runtime Receipt reports the basis of work; it is not evidence by itself.
+
 ## Human communication
 
 For non-trivial work, default to a compact decision surface:

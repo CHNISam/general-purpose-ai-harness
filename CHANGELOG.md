@@ -2,6 +2,22 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.11.0 — 2026-09-24
+
+### Protocol
+
+- Added **Runtime State Observability and Freshness**: agents may reuse sufficiently identified, relevant, fresh context instead of mechanically re-fetching every turn.
+- Added explicit refresh conditions for new/unknown/stale runtime state, changed upstream state, new Sources of Truth/environments/Gaps, and current/latest verification requests.
+- Added a compact **Runtime Receipt** so Protocol source/version, selected method, Source of Truth/freshness basis, external-evidence status, and Dominant Gap can be inspected without exposing private reasoning.
+- Required agents to mark unavailable retrieval channels and constrain claims rather than silently implying that a refresh occurred.
+
+### Runtime / evidence
+
+- Updated the compact router, runtime map, Protocol index, README, and retrospective evidence set.
+- Added a fourteenth sanitized real-world retrospective case covering invisible protocol/current-state freshness and unnecessary “always browse” pressure.
+- Preserved v2.10.0 under `docs/history/`.
+- No deterministic enforcement claim is made for freshness judgment or Runtime Receipt truthfulness; these remain runtime/model behavior rules.
+
 ## v2.10.0 — 2026-09-23
 
 ### Protocol

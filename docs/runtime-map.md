@@ -7,6 +7,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Canonical concept | Primary runtime representation |
 |---|---|
 | Purpose / orientation | `AGENTS.md` core loop + `modeling` when unclear |
+| Runtime-state freshness / observable receipt | `PROTOCOL.md` 1.1.1 + `AGENTS.md` Runtime state visibility |
 | Diagnostic dimensions | `AGENTS.md` Gap router |
 | Minimum sufficient judgment | `AGENTS.md` guards + relevant skills |
 | Model Gap / minimum sufficient modeling | `modeling` |

@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.11.0
+# Model-First Adaptive Protocol v2.10.0
 
-Status: Candidate v2.11.0
+Status: Candidate v2.10.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -172,44 +172,6 @@ Principle:
 > Reasoning may remain internal.
 > Decision-relevant state must remain legible.
 
-
--------------------------------------------------------------------------------
-1.1.1 Runtime State Observability and Freshness
--------------------------------------------------------------------------------
-
-For every non-trivial task, maintain a compact runtime state sufficient to answer:
-
-- which Protocol source / version / ref is being relied on, when applicable and known;
-- which relevant skill(s) or method were loaded or selected;
-- which Source(s) of Truth or current-state surfaces were inspected, and why they are fresh enough for the current decision;
-- whether external evidence was inspected, not required, or unavailable;
-- which Dominant Gap currently governs the next useful action.
-
-Do not require mechanical re-fetching on every turn.
-
-Previously inspected context may be reused when its identity, relevance, and freshness are still sufficient for the current decision. Re-locate or re-read state when:
-
-- a new session, agent, or executor does not have a trustworthy loaded state;
-- the relevant source / version / ref is unknown or plausibly stale;
-- decision-relevant upstream state may have changed;
-- the task crosses to a new Source of Truth, environment, or Gap whose state has not been established;
-- the user asks for current, latest, freshly verified, or otherwise time-sensitive state.
-
-If a required source or retrieval channel is unavailable, expose that limitation and constrain claims rather than implying that refresh occurred.
-
-For a newly established non-trivial runtime state, or after a material runtime-state change, expose a compact **Runtime Receipt** once when the interface permits. It should make the decision-relevant state inspectable without dumping private reasoning. A useful receipt may include:
-
-    Protocol: <source/version/ref or unknown>
-    Method: <loaded skill(s) / selected method>
-    Source of Truth: <inspected source + freshness basis>
-    External Evidence: <inspected | not required | unavailable>
-    Dominant Gap: <current gap>
-
-Do not repeat an unchanged receipt on every turn. Do not use a receipt as a substitute for evidence, inspection, or validation.
-
-Principle:
-
-> Reuse fresh context; refresh uncertain context; make the basis observable.
 
 -------------------------------------------------------------------------------
 1.2 Inspect Before Abstracting When Cheaper
