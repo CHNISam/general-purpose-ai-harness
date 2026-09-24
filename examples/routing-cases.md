@@ -122,3 +122,12 @@ These maintenance examples were added in v2.12.0.
 | Climb tests pass on a ridge fixture, then trees/roofs expose stuck states. | Diagnose **False Closure** if the fixture PASS was generalized beyond its proof scope. Expand/invalidate only the affected geometry envelope and preserve unrelated movement closures. |
 | Vegetation repeatedly needs new local exclusions (water, road, platform, building). | Fix the escaped case, then consider closure capitalization: graduate the repeated local rule into the smallest shared spatial-placement invariant / mechanism that prevents the whole failure class. |
 | Quest lifecycle/persistence/reward correctness is proven, but players cannot tell where to go. | Keep the backend closure. Guidance was never closed; classify it as an OPEN product gap rather than a regression of the quest subsystem. |
+
+
+## Recursive-sourcing regression case
+
+This maintenance example was added in v2.12.1.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| The project needs a stronger coding-agent harness, so the assistant writes a detailed prompt instructing another agent to invent a Closure/Reference harness from scratch. | Reclassify the proposed harness as a **meta-capability**. Inspect the existing repository harness and mature harness-authoring / agent-customization sources first; select the closest baseline and delivery surfaces, then delegate only the unresolved project-specific delta. |

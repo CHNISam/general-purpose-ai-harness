@@ -31,6 +31,10 @@ Capability is discoverable / usable by this executor
 
 > Do not silently reopen a still-valid solved capability as free-form implementation choice.
 
+> Meta-capabilities are still capabilities. Harnesses, Skills, validators, schemas,
+> prompt systems, orchestration workflows, and agent configurations do not bypass
+> this sourcing gate.
+
 ## Trigger
 
 Use this skill when sourcing could materially change output quality, quality ceiling, fit for the intended production role, cost, schedule, risk, reliability, maintenance/ownership burden, reproducibility, interoperability, or strategic differentiation.
@@ -38,6 +42,12 @@ Use this skill when sourcing could materially change output quality, quality cei
 Use proportional rigor. Do not turn a commodity choice into a research project.
 
 ## Capability-surface / existing-capability check
+
+If the requested output is itself a reusable engineering mechanism (for example a
+harness, Skill, validator, workflow, schema, prompt framework, or orchestration
+layer), first inspect the current repository/runtime mechanism and mature
+authoring approaches. Do not assume custom design simply because the requested
+artifact is "meta" rather than product code.
 
 First ask whether the capability already exists **and is discoverable to the current executor** in:
 

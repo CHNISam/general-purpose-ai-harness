@@ -2,6 +2,23 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.12.1 — 2026-09-24
+
+### Protocol
+
+- Added **No Meta-Layer Exemption**: reusable harnesses, Skills, validators, schemas, prompt systems, orchestration layers, and agent configurations are capabilities and must pass the same sourcing/baseline logic before custom authoring.
+- Added bounded recursive routing for meta-capabilities: inspect existing project/runtime mechanisms, source mature authoring approaches, fit-gap, establish a baseline, then build only the project-specific delta.
+- Strengthened Workflow Hardening so "build a harness" cannot silently skip Capability Sourcing.
+- Added instruction-surface selection by scope, loading behavior, authority, determinism, context cost, and runtime support.
+
+### Runtime / evidence
+
+- Updated the compact router, capability-sourcing, workflow-hardening, delegation, runtime map, protocol index, method registry, README, and routing examples.
+- Added R020, a real meta-regression in which an upstream prompt attempted to invent a repository harness before sourcing mature harness-authoring capability.
+- Added current external method pointers for OpenAI Harness Engineering, OpenAI Cookbook harness-authoring workflow, OpenAI Skill Creator, Anthropic steering surfaces, and GitHub repository/path-scoped instructions.
+- Preserved v2.12.0 under `docs/history/`.
+- No new deterministic enforcement rule was added; recognizing that an intervention is itself a sourcing-relevant meta-capability remains a contextual routing judgment.
+
 ## v2.12.0 — 2026-09-24
 
 ### Protocol
