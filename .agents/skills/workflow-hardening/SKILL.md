@@ -19,6 +19,18 @@ Use when execution or evidence production is meaningfully:
 
 Before building a new workflow-hardening capability, apply **capability-sourcing**.
 
+This applies recursively to harness authoring itself. Inspect the live
+repository's existing instructions, tests, gates, planning/evidence surfaces and
+the target agent/runtime's mature customization mechanisms before inventing a
+new harness structure.
+
+Right-size the result. Prefer extending existing repository conventions over
+creating a parallel operating system. Select the delivery surface by required
+scope, loading behavior, authority, determinism, context cost, and runtime
+support; keep procedures out of always-on context when conditional loading is
+available, and move non-negotiable checks into deterministic enforcement when
+the platform can support it.
+
 ## Objective
 
 Convert important model claims, process states, and invariants into observable, repeatable, inspectable, and where useful blocking evidence.

@@ -7,7 +7,7 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 | Section | Use when |
 |---|---|
 | 0. PRIMARY OBJECTIVE | orienting the whole task and preventing task/feature/solution collapse |
-| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, Runtime Context/freshness/operator visibility, Verified Closure / managed variability, action boundary, capability-surface awareness, executor-bias guard, capability/implementation distinction, and evidence honesty |
+| 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, Runtime Context/freshness/operator visibility, Verified Closure / managed variability, recursive sourcing / no meta-layer exemption, action boundary, capability-surface awareness, executor-bias guard, capability/implementation distinction, and evidence honesty |
 | 2. DOMINANT GAP ROUTING | deciding whether the blocker is Model / Evidence / Decision / Planning / Capability / Reality / Verification-Validation |
 | 3. PURPOSE | clarifying the intended real-world state and decision ownership |
 | 4. MINIMUM SUFFICIENT MODELING | choosing the right model/schema for the intended use |
@@ -45,6 +45,9 @@ Read: **1.3 → 1.4 → 8 → 11**. Confirm that capability choice was not silen
 
 ### “The AI keeps re-solving something the project already proved”
 Read: **1.4.1 → 8.6.1 → 12 → 18 → 19**. Check whether a bounded Verified Closure already applies; preserve its Fixed Core, reopen only invalidated scope, and materialize recurring closure into a project mechanism when warranted.
+
+### “The next step is to build a harness / Skill / validator / workflow”
+Read: **1.4.2 → 8 → 12 → 14–15**. Treat the proposed mechanism as a capability in its own right: inspect the existing project/runtime harness and mature authoring sources first, select the baseline, then compile only the unresolved project delta into the downstream execution contract.
 
 ### “The data looks plausible but may be wrong”
 Read: **1.5 → 7 → 6.14 → 19**.

@@ -43,7 +43,7 @@ This failure is recorded as [R001](evals/real-world-retrospective-pilot-v0.1.md)
 
 | Evidence layer | Current public state |
 |---|---|
-| Real historical failure patterns | **19** sanitized retrospective cases |
+| Real historical failure patterns | **20** sanitized retrospective cases |
 | Deterministic conformance | **11/11** public fixtures passing |
 | Mechanical policy | JSON Schema + OPA/Rego |
 | Portable enforcement | CI-built OPA WebAssembly bundle |
@@ -110,7 +110,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.12.0**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.12.1**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
@@ -196,13 +196,13 @@ This follows three constraints:
 
 > Remove structure that cannot.
 
-v2.12.0 adds **Verified Closure and managed variability**. A prior PASS is reusable
-only inside the claim/use envelope actually supported by its proof; while those
-validity conditions hold, the solved core should not silently become an open design
-question again. Mature baselines should be materialized into the executor's
-environment where practical, intentional variation should remain explicit, and
-recurring consequential closure should graduate into discoverable / enforceable
-project mechanisms.
+v2.12.1 adds **recursive capability sourcing / no meta-layer exemption**. The
+Protocol must apply to the mechanisms it proposes: a harness, Skill, validator,
+schema, prompt system, orchestration layer, or agent configuration is itself a
+capability and should be sourced against the current repository/runtime and mature
+authoring baselines before custom construction. This patch was triggered when the
+Protocol correctly advocated sourcing for product capabilities but an upstream
+handoff still attempted to invent a repository harness from a long prompt.
 
 ## Executable enforcement
 
@@ -224,12 +224,12 @@ A mechanical PASS is deliberately weaker than a real-world VALIDATION PASS. The 
 
 This Protocol is iterated from real task failures, not only speculative framework design.
 
-The public retrospective pilot records **19 sanitized historical failure patterns**
-from real AI-assisted work. The latest five cases test closure semantics against a
-successful renderer baseline reuse, a subsystem-vs-product NPC proof boundary,
-traversal proof-scope leakage, repeated vegetation exclusions that need an invariant,
-and a quest backend whose correctness closure does not imply player-guidance closure.
-These cases produced v2.12.0's Verified Closure / managed-variability rules.
+The public retrospective pilot records **20 sanitized historical failure patterns**
+from real AI-assisted work. R015–R019 produced v2.12.0's Verified Closure /
+managed-variability rules. R020 exposed a meta-level routing failure: a proposed
+repository harness was about to be custom-designed from prompt prose without first
+sourcing the mature harness-authoring capability. v2.12.1 makes recursive sourcing
+explicit and routes meta-capabilities through the same capability gate.
 
 See:
 

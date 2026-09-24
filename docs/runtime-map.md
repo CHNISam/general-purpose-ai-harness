@@ -22,6 +22,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Capability surface awareness / discoverability / executor-bias guard | `AGENTS.md` + `capability-sourcing` + `delegation` |
 | Capability sourcing / solution-space coverage / quality ceiling | `capability-sourcing` |
 | Verified Closure / managed variability / baseline reuse | `PROTOCOL.md` 1.4.1 + `capability-sourcing` + `validation` |
+| Recursive sourcing / no meta-layer exemption | `PROTOCOL.md` 1.4.2 + `AGENTS.md` + `capability-sourcing` + `workflow-hardening` + `delegation` |
 | Closure preservation / capitalization mechanisms | `workflow-hardening` + `validation` |
 | Planning | `planning` |
 | Reality Gap / execution | direct action through the host AI/runtime |

@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.12.1
+# Model-First Adaptive Protocol v2.12.0
 
-Status: Candidate v2.12.1
+Status: Candidate v2.12.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -73,11 +73,6 @@ Design principles:
 
 > Prefer constraining the solution space over merely describing the desired solution more
 > precisely when a mature, sufficiently fitting baseline can be made directly usable or inspectable.
-
-> The Protocol has no meta-layer exemption. If the proposed intervention is itself a
-> reusable capability — such as a harness, workflow, skill, validator, schema, prompt
-> system, orchestration layer, or agent configuration — source that capability before
-> custom-authoring it just as you would any downstream product capability.
 
 This Protocol can be used directly as a single reusable prompt when useful, or through the repository's progressive-disclosure router and skills.
 
@@ -478,71 +473,6 @@ These are diagnostic labels, not mandatory workflow states.
 Principle:
 
 > Preserve solved uncertainty, but preserve its boundary too.
-
-
-
--------------------------------------------------------------------------------
-1.4.2 No Meta-Layer Exemption
--------------------------------------------------------------------------------
-
-The Protocol applies to the mechanisms it proposes.
-
-A higher-order intervention can itself be a capability requirement. Examples:
-
-- repository engineering harness;
-- reusable Skill / procedure;
-- validator / linter / policy bundle;
-- agent configuration or instruction system;
-- prompt-generation system;
-- orchestration workflow;
-- reusable schema / framework;
-- test or review infrastructure.
-
-Do not silently classify these as "the method" and skip Capability Sourcing.
-
-When the next intervention would create or materially change a reusable
-meta-capability, route it recursively:
-
-    Required Meta-Capability
-        ↓
-    Check Existing Closure / Existing Project Mechanism
-        ↓
-    Inspect Mature Internal / External Sources
-        ↓
-    Fit-Gap / Source Decision
-        ↓
-    Establish / Reuse Baseline
-        ↓
-    Build Only the Project-Specific Delta
-        ↓
-    Define Proof / Validate the Mechanism
-
-The recursion is bounded.
-
-Stop re-routing when a sufficiently concrete source / baseline is established and
-no remaining sourcing choice can materially change quality, cost, risk,
-maintainability, or proof. Do not turn every ordinary tool call or one-off script
-into a meta-analysis.
-
-For harness and agent-workflow work in particular:
-
-- inspect the live repository and its existing harness before prescribing a new
-  artifact structure;
-- inspect mature harness-authoring / agent-customization mechanisms when they can
-  materially change the design;
-- choose the instruction / automation surface according to its required loading,
-  scope, authority, determinism, context cost, and runtime support;
-- prefer deterministic enforcement for rules that must not depend on model memory
-  when the host/runtime supports such enforcement;
-- keep repository-specific truth in the repository rather than duplicating it
-  into a giant task prompt.
-
-A Protocol-generated recommendation is not exempt from these rules merely because
-it was produced by upstream reasoning.
-
-Principle:
-
-> Source the means of building the means.
 
 
 -------------------------------------------------------------------------------
@@ -2362,11 +2292,6 @@ When uncertainty dominates:
 
 Prefer the smallest action with the highest useful leverage.
 
-Before custom-building the chosen intervention, check whether the intervention
-itself is a reusable capability. If so, apply Section 1.4.2 and Capability
-Sourcing first rather than treating "build a harness / skill / validator /
-workflow" as an already-decided implementation.
-
 Useful leverage includes:
 
 - closing the dominant blocker;
@@ -2483,25 +2408,6 @@ Harden a workflow only when execution or evidence production is meaningfully:
 Before building a new workflow-hardening capability:
 
     apply the Capability Sourcing Gate.
-
-This includes the harness-authoring capability itself. Do not jump from
-"we need stronger harnessing" directly to a bespoke repository structure,
-Skill, validator, prompt suite, or orchestration layer. Inspect the existing
-project harness and credible mature authoring patterns first, then build only the
-unresolved delta.
-
-When deciding where a harness rule belongs, distinguish at least:
-
-    persistent repository context
-    conditional procedure / reusable skill
-    scoped instruction / local convention
-    deterministic guard / hook / lint / CI
-    isolated delegated investigation
-    one-off execution prompt
-
-Choose the lightest supported surface that provides the required scope,
-authority, determinism, discoverability, and context cost. Do not place every
-rule in one always-loaded instruction file or one giant prompt.
 
 Workflow hardening converts important model claims, process states, and invariants into:
 
@@ -3201,7 +3107,6 @@ MODEL QUALITY
 CAPABILITY SOURCING
 
 - Does execution require a capability not currently available?
-- Is my proposed intervention itself a reusable capability / harness / workflow / skill / validator / prompt system that also requires sourcing?
 - For a consequential sourcing decision, did I cover materially different
   source classes rather than only familiar tools or vendors?
 - Did I consider current-state / no-new-capability when it was genuinely viable?
@@ -3278,7 +3183,6 @@ Avoid:
 - using a prototype-friendly capability whose quality ceiling cannot satisfy the required production role;
 - assuming Reality Gap means Build;
 - rebuilding sufficiently solved commodity capabilities without reason;
-- treating a harness, workflow, Skill, validator, schema, prompt framework, or orchestration layer as exempt from Capability Sourcing;
 - silently reopening a still-valid verified closure;
 - claiming a closure broader than the actual proof / use envelope;
 - preserving an important recurring solved decision only as prose when a practical project mechanism is warranted;
@@ -3437,14 +3341,6 @@ internally or in a sufficiently mature external solution?
 
     YES / POSSIBLY
     → Capability Sourcing Gate.
-
-Is the proposed intervention itself a reusable meta-capability
-(harness / workflow / Skill / validator / schema / prompt system / orchestration)?
-
-    YES
-    → Apply the same Capability Sourcing Gate recursively.
-    → Inspect the existing project mechanism and mature authoring patterns.
-    → Stop recursion once the source/baseline is sufficiently concrete.
     → Existing Solution Check.
     → Cheap Spike if useful.
 

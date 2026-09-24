@@ -576,14 +576,66 @@ The closure model does not force every defect into “reopened solved uncertaint
 
 ---
 
+## R020 — Harness authoring bypassed the same sourcing discipline it was meant to enforce
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+After adding Verified Closure and managed variability, the next proposed step was to
+improve a game's repository harness so coding agents would preserve baselines,
+constrain variation, and stop reopening solved problems.
+
+**Observed failure**
+
+The upstream assistant produced a long implementation prompt telling the coding
+agent to design a Closure / Baseline / Reference Harness. That handoff skipped a
+prior capability-sourcing step for harness authoring itself, even though mature
+agent-harness patterns, Skill authoring workflows, runtime-specific instruction
+surfaces, and an existing project harness were available.
+
+The failure was recursive: the proposed mechanism violated the very rule it was
+supposed to enforce.
+
+**User correction**
+
+Apply the Protocol to its own interventions. Before asking a coding agent to build
+a harness, inspect mature harness-authoring approaches and the current repository,
+establish the closest baseline, then ask the coding agent to implement only the
+remaining project-specific delta.
+
+**Expected Protocol behavior**
+
+- Recognize repository harness authoring as a **Capability Gap**, not an already
+  selected custom implementation.
+- Inspect the target repository's existing harness / instructions / tests / gates.
+- Inspect credible mature harness-authoring and agent-customization mechanisms.
+- Treat vendor file layouts as candidate baselines, not mandatory schemas.
+- Select instruction / Skill / deterministic automation / isolated delegation
+  surfaces according to scope, loading, authority, determinism, context cost, and
+  runtime support.
+- Only after the source/baseline decision, compile a short execution contract for
+  the remaining project delta.
+- Stop recursive sourcing once a sufficiently concrete authoring baseline is known;
+  do not create infinite meta-process.
+
+**Current v2.12.1 coverage:** **PASS**
+
+v2.12.0 already said Workflow Hardening should apply Capability Sourcing before
+building a new mechanism, but the meta-intervention boundary was not salient enough
+in the runtime. v2.12.1 promotes the rule into the core runtime as **No Meta-Layer
+Exemption** and mirrors it in the relevant skills and routing surfaces.
+
+---
+
 # Pilot finding
 
-This real-world retrospective set contains nineteen distinct historical failure patterns.
+This real-world retrospective set contains twenty distinct historical failure patterns.
 
 - Fourteen were already represented through v2.11.1.
-- Five new cases (R015–R019) stress-tested the proposed closure model against both successes and failures: preserved baseline reuse, subsystem-vs-product proof boundaries, proof-scope leakage, local-rule-to-invariant graduation, and a genuinely OPEN product gap.
-- Those five cases produced v2.12.0's Verified Closure, managed-variability, baseline-materialization, and closure-capitalization rules.
-- All nineteen are now represented by current rules.
+- Five cases (R015–R019) produced v2.12.0's Verified Closure, managed-variability, baseline-materialization, and closure-capitalization rules.
+- R020 exposed a recursive sourcing failure at the harness-authoring layer and produced v2.12.1's No Meta-Layer Exemption rule.
+- All twenty are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 

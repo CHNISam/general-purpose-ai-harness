@@ -74,7 +74,7 @@ most likely to change the next useful decision, action, or proof.
 Additional task modes:
 
 - Project structure, dependency, milestone, or work-item derivation → `project-modeling`.
-- Repeated / risky / provenance-sensitive execution that needs observable gates → `workflow-hardening`.
+- Repeated / risky / provenance-sensitive execution that needs observable gates → `workflow-hardening`. If the intervention is a new harness/workflow/Skill/validator, pair it with `capability-sourcing` before authoring the mechanism.
 - Compiling work for another agent/tool → `delegation`.
 
 For Coding Agent handoff, `delegation` should normally produce the task-specific prompt/contract.
@@ -103,6 +103,7 @@ The downstream agent should not need to interpret this whole Protocol again.
 - Only decision-relevant Unknowns should block progress.
 - Source a capability before deciding to build it when the sourcing choice materially matters.
 - Build the delta, not the solved problem.
+- **No meta-layer exemption:** if the proposed intervention is itself a reusable capability (harness, workflow, Skill, validator, schema, prompt system, orchestration, agent configuration), source that capability before custom-authoring it. A Protocol-generated implementation idea is not exempt.
 - Before re-solving or rebuilding, check whether a prior verified closure already covers the current claim; reuse it while its scope and validity conditions still hold.
 - A prior PASS closes only the claim/use envelope actually supported by its proof. Do not promote subsystem verification, one fixture, one environment, or one version into a broader closure.
 - When a mature baseline materially constrains execution, keep Fixed Core / Allowed Variation / Project Delta distinct.

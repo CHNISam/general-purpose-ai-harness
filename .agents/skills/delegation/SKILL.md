@@ -80,6 +80,12 @@ Pass Protocol material downstream only when:
 
 A prompt is one deployment format for an action.
 
+Before compiling a prompt whose purpose is to create a reusable harness,
+workflow, Skill, validator, schema, prompt system, orchestration layer, or other
+meta-capability, confirm that its authoring/source decision has already passed
+Capability Sourcing. A long prompt is not a substitute for a mature baseline or
+repository-local mechanism.
+
 Compile the **minimum sufficient serialization of the validated model slice** relevant to the current action and executor.
 
 Do not:
