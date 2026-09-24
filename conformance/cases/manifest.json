@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "cases": [
     {
       "id": "C001",
@@ -86,6 +86,31 @@
       "expect_allow": false,
       "expect_codes": [
         "E015"
+      ]
+    },
+    {
+      "id": "C012",
+      "fixture": "conformance/cases/invalid-required-enforcement-bypassable.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E016",
+        "E017"
+      ]
+    },
+    {
+      "id": "C013",
+      "fixture": "conformance/cases/invalid-required-enforcement-unverified.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E017"
+      ]
+    },
+    {
+      "id": "C014",
+      "fixture": "conformance/cases/invalid-required-human-gate-undefined.json",
+      "expect_allow": false,
+      "expect_codes": [
+        "E018"
       ]
     }
   ]

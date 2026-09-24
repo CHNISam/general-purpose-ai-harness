@@ -1,0 +1,41 @@
+{
+  "task_id": "C013-enforcement-unverified",
+  "action": {
+    "changes_reality": true,
+    "proof_defined": true
+  },
+  "capability": {
+    "sourcing_required": true,
+    "single_obvious_source": false,
+    "source_selected": "existing-library",
+    "source_classes_considered": [
+      "internal",
+      "library"
+    ]
+  },
+  "evidence": [
+    {
+      "id": "EV-1",
+      "state": "VERIFIED",
+      "kind": "validation",
+      "source_type": "observed",
+      "provenance": "real-user-observation",
+      "decision_relevant": true,
+      "resolved": true
+    }
+  ],
+  "completion": {
+    "claimed": true,
+    "proof_type": "VALIDATION_PASS",
+    "validation_required": true,
+    "validation_observed": true,
+    "outcome_validated": true
+  },
+  "closure": {
+    "enforcement_graduation_required": true,
+    "mechanically_decidable": true,
+    "violation_can_silently_pass": false,
+    "enforcement_mechanism_verified": false,
+    "human_gate_defined": false
+  }
+}
