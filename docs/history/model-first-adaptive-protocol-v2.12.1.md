@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.13.0
+# Model-First Adaptive Protocol v2.12.1
 
-Status: Candidate v2.13.0
+Status: Candidate v2.12.1
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -78,12 +78,6 @@ Design principles:
 > reusable capability — such as a harness, workflow, skill, validator, schema, prompt
 > system, orchestration layer, or agent configuration — source that capability before
 > custom-authoring it just as you would any downstream product capability.
-
-> Documentation can make a rule legible without making it effective. For recurring or
-> consequential closure, ask whether a violating state can still silently pass. Where
-> the invariant is mechanically decidable, graduate it into the cheapest reliable
-> enforcement mechanism and prove the bad case is rejected. Where it is not mechanically
-> decidable, define the Human / Product gate instead of pretending automation can prove it.
 
 This Protocol can be used directly as a single reusable prompt when useful, or through the repository's progressive-disclosure router and skills.
 
@@ -168,8 +162,6 @@ For every non-trivial task:
     UPDATE
         ↓
     CAPITALIZE REUSABLE CLOSURE WHEN WARRANTED
-        ↓
-    GRADUATE ENFORCEMENT WHEN MATERIAL
         ↓
     REROUTE OR FINISH
 
@@ -469,26 +461,6 @@ Core rules:
    golden behavior, test, lint, template, generator, CI gate, runbook, or
    equivalent mechanism.
 
-5. **Do not confuse legibility with enforcement.**
-   A Closure can be epistemically clear yet operationally weak. For a recurring
-   or consequential invariant, ask whether a violating change/state can still
-   enter or persist without being detected. If the answer is yes and the
-   invariant is mechanically decidable from available signals, the closure has
-   not yet graduated to operational enforcement.
-
-   Distinguish:
-
-       Epistemic Closure
-           the project knows what claim is resolved, within what scope, and why.
-
-       Operational Closure
-           the project also has a proportionate mechanism that prevents or
-           detects silent violation of that resolved invariant, or an explicit
-           Human / Product gate when the judgment cannot be automated.
-
-   Do not claim Operational Closure merely because a rule appears in a prompt,
-   AGENTS.md, runbook, architecture note, or checklist.
-
 Useful failure diagnoses:
 
     False Closure
@@ -571,58 +543,6 @@ it was produced by upstream reasoning.
 Principle:
 
 > Source the means of building the means.
-
-
-
--------------------------------------------------------------------------------
-1.4.3 Enforcement Graduation
--------------------------------------------------------------------------------
-
-Use this gate when a reusable Closure or Fixed Core is recurring, consequential,
-expensive to rediscover, or repeatedly violated.
-
-Ask:
-
-    1. What invariant or boundary is actually being preserved?
-    2. Can violation be decided mechanically from available repository/runtime signals?
-    3. If yes, can a violating change/state still silently pass today?
-    4. What is the cheapest reliable mechanism that closes that path?
-    5. Does a negative control prove the mechanism rejects the bad case?
-    6. Does a valid control prove allowed variation still passes?
-    7. If the judgment cannot be automated, what Human / Product gate owns it?
-
-For mechanically decidable invariants, prefer the lowest-cost mechanism with the
-right authority and coverage: type/schema/API shape, canonical boundary,
-protected-path or diff guard, dependency rule, structural test, lint, contract
-test, fixture/golden behavior, runtime check, CI gate, or policy gate.
-
-Prefer enforcing the invariant over freezing an arbitrary implementation.
-Protect exact files or paths only when path ownership itself is the invariant.
-
-A deterministic guard is not proven merely because it exists. At minimum, verify
-that a known invalid case is rejected and a representative valid case is accepted.
-When the mechanism is meant to block changes, verify it is wired into the normal
-execution or merge path rather than existing as an optional script.
-
-For outcomes that cannot be decided mechanically — taste, meaning, product
-usefulness, visual quality, perceived liveliness, or other human judgment —
-define the Human / Product gate, observation surface, and review trigger. Do not
-replace judgment with a weak proxy merely to obtain automation.
-
-A local task may still finish with explicitly accepted enforcement debt when
-hardening cost exceeds current risk. Record the debt and rationale, do not call
-the closure Operationally Closed, and do not present documentation-only
-protection as equivalent to a gate.
-
-Adversarial completion question:
-
-> If an executor ignores the written rule, can the invalid state still enter the system?
-
-If yes, the rule is legible but not yet enforced.
-
-Principle:
-
-> Make the right thing discoverable; make important wrong things hard or impossible to ship.
 
 
 -------------------------------------------------------------------------------
@@ -2590,11 +2510,6 @@ Workflow hardening converts important model claims, process states, and invarian
 - inspectable;
 - and where useful blocking evidence.
 
-For recurring or consequential Closure, documentation alone does not satisfy
-hardening. Apply Enforcement Graduation. If a mechanically decidable violation
-can still silently pass, add the cheapest reliable enforcement or record explicit
-enforcement debt; do not call the result Operationally Closed.
-
 Possible components:
 
 - controlled inputs;
@@ -2620,10 +2535,6 @@ When a repeated defect or escaped regression appears, do not stop at the local
 patch. Ask:
 
 > Why was this failure state still representable or this solved decision still open?
-
-Then ask:
-
-> If the executor ignores the written rule, can the same invalid state still enter the system?
 
 Escalate only as far as the evidence justifies:
 
@@ -3219,10 +3130,6 @@ Before declaring completion, determine:
 7. Did new evidence invalidate any prior assumption?
 8. Is any prior Verified Closure being reused, and is it still within its supported scope?
 9. Did this work resolve recurring consequential uncertainty that should be capitalized into a reusable closure / mechanism?
-10. If that closure is recurring or consequential, is violation mechanically decidable?
-11. If mechanically decidable, can a violating state still silently pass, and was the chosen guard proven with both invalid and valid controls?
-12. If not mechanically decidable, is the Human / Product gate and observation surface explicit?
-13. If enforcement is intentionally deferred, is the debt explicit and the result kept below Operational Closure?
 
 
 ===============================================================================
@@ -3316,9 +3223,6 @@ CLOSURE / VARIABILITY
 - Am I claiming closure beyond the scope actually supported by the proof?
 - Where a mature baseline matters, did I distinguish Fixed Core, Allowed Variation, and Project Delta?
 - If this solved uncertainty is consequential and likely to recur, should it be materialized into a discoverable or enforceable mechanism?
-- If it is recurring/consequential and mechanically decidable, can an invalid change still silently pass?
-- If I added/reused a guard, did a known bad case fail and a representative allowed case pass?
-- If it is not mechanically decidable, is the Human / Product gate explicit?
 - Did I preserve a subsystem PASS as a subsystem PASS rather than silently promoting it into product validation?
 
 
@@ -3375,8 +3279,6 @@ Avoid:
 - assuming Reality Gap means Build;
 - rebuilding sufficiently solved commodity capabilities without reason;
 - treating a harness, workflow, Skill, validator, schema, prompt framework, or orchestration layer as exempt from Capability Sourcing;
-- treating a documented rule or routing page as Operational Closure when a mechanically decidable violation can still silently pass;
-- adding a guard without proving that a known bad case fails and an allowed case passes;
 - silently reopening a still-valid verified closure;
 - claiming a closure broader than the actual proof / use envelope;
 - preserving an important recurring solved decision only as prose when a practical project mechanism is warranted;

@@ -52,6 +52,8 @@ UPDATE
     ↓
 CAPITALIZE REUSABLE CLOSURE WHEN WARRANTED
     ↓
+GRADUATE ENFORCEMENT WHEN MATERIAL
+    ↓
 REROUTE OR FINISH
 ```
 
@@ -108,6 +110,7 @@ The downstream agent should not need to interpret this whole Protocol again.
 - A prior PASS closes only the claim/use envelope actually supported by its proof. Do not promote subsystem verification, one fixture, one environment, or one version into a broader closure.
 - When a mature baseline materially constrains execution, keep Fixed Core / Allowed Variation / Project Delta distinct.
 - When losing a consequential solved decision is likely to recur, preserve it in a discoverable and preferably enforceable project mechanism rather than relying on prompt prose or operator memory alone.
+- **Legible is not enforced:** for recurring/consequential closure, ask whether a violating state can still silently pass. If mechanically decidable, graduate to the cheapest reliable guard and prove bad-case rejection plus allowed-case acceptance; otherwise define the Human/Product gate. Documentation alone is not Operational Closure.
 - Do not manufacture alternatives when one action is clearly implied.
 - Define proof before consequential action.
 - Action completion is not outcome validation.
