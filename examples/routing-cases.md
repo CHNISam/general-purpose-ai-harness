@@ -6,7 +6,8 @@ They are **examples**, not measured behavioral evals or regression tests.
 
 | Case | Expected primary route | What should usually remain unloaded |
 |---|---|---|
-| "Fix this obvious typo." | Direct execution | modeling, decision-analysis, capability-sourcing, planning |
+| "Fix this obvious typo." | Direct execution; necessity is implicit and obvious | modeling, decision-analysis, capability-sourcing, planning |
+| "Improve the water, grass, mountains, and buildings in this game world." | Purpose / Necessity → identify the real outcome (e.g. high-quality playable world) → test whether these child tasks are necessary → then source/act | do not assume the listed subproblems are the correct work merely because they are concrete |
 | "I don't understand why this behaves differently in two cases." | Model Gap → `modeling` | capability-sourcing unless a missing capability emerges |
 | "The exact official database is known; retrieve the current value." | Evidence Gap → `evidence-acquisition` | observability-coverage unless frame sufficiency is uncertain |
 | "Google cannot find a local-government list; relevant publishing may happen on platform-native channels." | Evidence Gap → `observability-coverage` | decision-analysis unless materially different observation strategies remain |
@@ -66,6 +67,7 @@ The Protocol is also being applied poorly if the agent:
 - acts while a decision-changing unknown is obvious;
 - treats one observation frame as the entire target reality;
 - turns a capability need directly into custom implementation;
+- optimizes or implements a clearly stated task without checking whether that work is actually necessary for the parent outcome;
 - fails to discover a materially relevant capability that already exists in the project or workflow;
 - lets the executor's native modality choose the implementation without checking production fit;
 - declares success from a command or artifact without relevant proof;
@@ -138,3 +140,12 @@ This maintenance example was added in v2.12.1.
 | Failure pattern | Expected behavior |
 |---|---|
 | A repository documents that a Fixed Core must not be changed silently, but an agent can still edit the protected surface and CI stays green. | Treat the rule as **Epistemically Closed but not Operationally Closed**. If the invariant is mechanically decidable, add/reuse the cheapest blocking mechanism, prove a known bad case fails and an allowed case passes, and wire it into the normal path. If automation cannot decide the outcome, define the Human/Product gate instead. |
+
+
+## Why-before-How regression case
+
+This maintenance example was added in v2.14.0.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| A game repeatedly improves terrain, water, foliage, cliffs, buildings, and props. Each local task is clear and uses reuse-first sourcing, but the project never asks whether those tasks are necessary for the actual goal: obtaining a high-quality playable world quickly. | Run the Purpose / Necessity Gate before How. Recover the parent outcome, challenge the current work unit, and consider KEEP / REFRAME / REPLACE / DELETE-DEFER. A mature complete world baseline may then emerge naturally during capability sourcing, but that is a consequence of validating the need—not a special-case trigger based on sibling-gap count. |
