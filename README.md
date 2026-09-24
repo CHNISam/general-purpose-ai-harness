@@ -100,8 +100,9 @@ The Protocol supports model judgment. It does not replace judgment.
 1. Read [AGENTS.md](AGENTS.md).
 2. Load only the skill it routes you to.
 3. Use [PROTOCOL.md](PROTOCOL.md) only for canonical wording, edge cases, or methodology maintenance.
-4. When beginning a non-trivial runtime state, surface one compact Runtime Receipt; reuse it until a material state change requires refresh.
-5. When the task produces a supported machine-readable decision envelope, run the [executable enforcement](enforcement/) as an additional gate.
+4. Maintain Runtime Context when state freshness matters; refresh it on runtime-state boundaries and project a Runtime Receipt only when that state is decision-relevant or requested.
+5. Keep runtime observability separate from the human Decision Surface; use host-supported output guardrails for mechanically checkable presentation constraints when useful.
+6. When the task produces a supported machine-readable decision envelope, run the [executable enforcement](enforcement/) as an additional gate.
 
 For precise canonical navigation without loading the whole document, use [docs/protocol-index.md](docs/protocol-index.md).
 
@@ -109,7 +110,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.11.0**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.11.1**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
@@ -195,12 +196,12 @@ This follows three constraints:
 
 > Remove structure that cannot.
 
-v2.11.0 builds on v2.10.0 by making **runtime state observable without forcing
-mechanical refreshes**. Agents may reuse identified, relevant, sufficiently fresh
-context, but must re-locate state when freshness is uncertain or the decision
-surface changes. A compact Runtime Receipt exposes the Protocol basis, selected
-method, Source of Truth/freshness basis, external-evidence status, and Dominant
-Gap when a new non-trivial runtime state is established.
+v2.11.1 refines v2.11.0 by separating **Runtime Context** from its
+operator-facing projection. Runtime/session/trace state should be maintained and
+refreshed on state boundaries; a Runtime Receipt is surfaced only when that state
+changes operator understanding, trust, authority, or the next action. Human-facing
+Decision Surface conformance remains a separate concern and can use host-supported
+output guardrails when the constraint is mechanically checkable.
 
 ## Executable enforcement
 
@@ -226,7 +227,7 @@ The public retrospective pilot records **14 sanitized historical failure pattern
 from real AI-assisted work. Eleven were already directly covered by v2.9.0; one exposed
 the staged-audit gap and produced v2.9.1; one exposed capability discoverability /
 executor-native modality bias and produced v2.10.0; the newest exposed runtime-state
-freshness / observability and produced v2.11.0.
+freshness / observability and produced v2.11.0, refined by v2.11.1 to separate runtime context from operator projection.
 
 See:
 
