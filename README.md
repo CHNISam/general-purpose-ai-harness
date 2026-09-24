@@ -224,8 +224,9 @@ This Protocol is iterated from real task failures, not only speculative framewor
 
 The public retrospective pilot records **14 sanitized historical failure patterns**
 from real AI-assisted work. Eleven were already directly covered by v2.9.0; one exposed
-a missing staged-audit rule and produced the v2.9.1 correction; the newest exposed
-capability discoverability / executor-native modality bias and produced v2.10.0.
+the staged-audit gap and produced v2.9.1; one exposed capability discoverability /
+executor-native modality bias and produced v2.10.0; the newest exposed runtime-state
+freshness / observability and produced v2.11.0.
 
 See:
 
