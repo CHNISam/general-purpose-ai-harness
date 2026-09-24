@@ -2,6 +2,29 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.12.0 — 2026-09-24
+
+### Protocol
+
+- Added **Verified Closure**: a bounded prior result may be reused without recomputation only while its claim, scope/use envelope, assumptions, dependencies, environment/version and other validity conditions still hold.
+- Added explicit failure diagnoses for **False Closure**, **Lost Closure**, and **Unmaterialized Closure** without turning them into new Gap types.
+- Added **managed variability**: distinguish Fixed / Proven Core, Allowed Variation, and Project Delta when a mature baseline materially constrains execution.
+- Strengthened Capability Sourcing with **Baseline Acquisition / Reference Materialization** and source roles: reusable component, implementation reference, behavioral oracle, and evidence-only.
+- Strengthened post-action work with proportional **closure capitalization** so recurring consequential learning becomes a discoverable / enforceable project mechanism rather than prompt prose alone.
+
+### Runtime / evidence
+
+- Updated the compact router plus capability-sourcing, workflow-hardening, validation, delegation, runtime map, protocol index, README, and routing examples.
+- Added five sanitized real-world retrospective cases (R015–R019) covering baseline reuse, subsystem-vs-product closure, proof-scope leakage, invariant graduation, and a genuinely open product gap.
+- Preserved v2.11.1 under `docs/history/`.
+
+### Executable enforcement
+
+- Extended the decision envelope with an optional closure block.
+- Added deterministic guards for unjustified reopening of an explicitly valid in-scope closure, claiming new closure beyond declared proof scope, and completion when capitalization has explicitly been marked required but remains absent.
+- Added three public conformance fixtures; the suite is now 11 cases.
+- Mechanical PASS still proves only the supplied envelope satisfies encoded policy, not that the closure facts themselves are true.
+
 ## v2.11.1 — 2026-09-24
 
 ### Protocol

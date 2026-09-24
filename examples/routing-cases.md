@@ -109,3 +109,16 @@ These cases are representative maintenance checks introduced in v2.10.0.
 | A production capability exists in scattered documentation but the downstream executor cannot discover it from the target repository instructions or task handoff. | Treat the capability as operationally unavailable until it is made discoverable through a lightweight routing entry or preserved in the execution contract. |
 | A source is fast and highly testable but cannot plausibly reach the required final fidelity. | Reject or constrain it to prototype/intermediate use; quality/production ceiling is part of fit. |
 | Upstream intentionally leaves the capability source open, but prompt compression removes all available-means context. | Delegation preserves enough discoverable capability surface for the downstream executor to make the remaining choice without native-tool bias. |
+
+
+## Verified-closure regression cases
+
+These maintenance examples were added in v2.12.0.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| A prior renderer baseline was qualified, pinned, and still fits the same production envelope, but a new task asks the coding agent to invent a fresh renderer from a verbal style description. | Detect **Lost Closure** risk. Reuse the qualified baseline, keep it Fixed Core, and build only the integration / product-specific delta. |
+| NPC reservation/HSM/LOD stress tests pass, but players still report that NPCs do not feel alive. | Preserve the subsystem VERIFICATION closure; do not rewrite it or promote it to product VALIDATION. Open the missing player-visible composition/validation gap. |
+| Climb tests pass on a ridge fixture, then trees/roofs expose stuck states. | Diagnose **False Closure** if the fixture PASS was generalized beyond its proof scope. Expand/invalidate only the affected geometry envelope and preserve unrelated movement closures. |
+| Vegetation repeatedly needs new local exclusions (water, road, platform, building). | Fix the escaped case, then consider closure capitalization: graduate the repeated local rule into the smallest shared spatial-placement invariant / mechanism that prevents the whole failure class. |
+| Quest lifecycle/persistence/reward correctness is proven, but players cannot tell where to go. | Keep the backend closure. Guidance was never closed; classify it as an OPEN product gap rather than a regression of the quest subsystem. |
