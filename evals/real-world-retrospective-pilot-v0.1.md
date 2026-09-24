@@ -409,14 +409,49 @@ This case exposed a real gap in v2.9.1. Capability sourcing existed, but capabil
 
 ---
 
+
+## R014 — Protocol/current-state freshness was invisible to the operator
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+A general-purpose AI was repeatedly asked to work under a repository-hosted operating protocol while project state, external research, and prior conversation context were changing across sessions.
+
+**Observed failure**
+
+The operator often could not tell whether the agent had actually read the current Protocol, which skill/method it had loaded, whether project state had been freshly inspected, or whether external evidence had been searched. The opposite workaround — requiring a fresh web/repository lookup every turn — would add latency and context churn even when the already-loaded state was still sufficient.
+
+This created a false choice between invisible stale assumptions and wasteful mechanical refreshes.
+
+**User correction**
+
+Do not equate rigor with “always browse.” Reuse context when its identity, relevance, and freshness are sufficient; refresh when freshness is unknown or decision-relevant state may have changed. Make the basis visible so the operator does not have to guess.
+
+**Expected Protocol behavior**
+
+- Maintain decision-relevant runtime state for non-trivial work.
+- Reuse already-inspected context when it remains sufficiently fresh for the current decision.
+- Re-locate state for a new/unknown runtime, plausibly stale source, changed upstream state, new Source of Truth/environment/Gap, or current/latest verification request.
+- Surface a compact Runtime Receipt when a new non-trivial runtime state is established or materially changes.
+- Distinguish external evidence as inspected / not required / unavailable rather than silently implying browsing occurred.
+- Treat the receipt as observability metadata, not proof that the underlying claim is correct.
+
+**Current v2.11.0 coverage:** **PASS**
+
+v2.11.0 adds canonical runtime-state freshness and observability semantics plus the compact router representation. The rule avoids mandatory per-turn re-fetching while removing the operator's need to infer whether the agent's working state is current.
+
+---
+
 # Pilot finding
 
-This real-world retrospective set contains thirteen distinct historical failure patterns.
+This real-world retrospective set contains fourteen distinct historical failure patterns.
 
 - Eleven were already **clearly represented** in v2.9.0.
 - One exposed the staged top-down audit gap and produced the v2.9.1 correction.
 - One exposed the capability-discoverability / executor-native-modality gap and produced the v2.10.0 correction.
-- All thirteen are now represented by current rules.
+- One exposed the runtime-state freshness / observability gap and produced the v2.11.0 correction.
+- All fourteen are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 
