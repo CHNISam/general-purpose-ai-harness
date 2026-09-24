@@ -27,7 +27,9 @@ Capability is discoverable / usable by this executor
 
 > Do not let the executor's native modality choose the implementation.
 
-> Build the delta, not the solved problem.
+> Establish or reuse the baseline, then build the delta.
+
+> Do not silently reopen a still-valid solved capability as free-form implementation choice.
 
 ## Trigger
 
@@ -122,6 +124,27 @@ The important question is:
 
 **How much unresolved task-specific delta remains?**
 
+## Baseline acquisition / reference materialization
+
+When a mature source solves a material portion of the requirement, classify how it should constrain execution:
+
+- **Reusable component** — safe to adopt/integrate under the required production, licensing, provenance, and compatibility envelope.
+- **Implementation reference** — inspect real source/structure, but do not necessarily vendor or ship it.
+- **Behavioral oracle** — use observable behavior / acceptance as the reference without copying the implementation.
+- **Evidence only** — useful for understanding, not a production baseline.
+
+When practical, make the chosen source directly discoverable to the executor through a pinned revision/dependency, repository-local reference pack, executable example, fixture, golden trace, canonical asset, or equivalent artifact.
+
+Then separate:
+
+- **Fixed / proven core** — already solved and not to be redesigned without invalidating evidence.
+- **Allowed variation** — intentionally configurable or creative degrees of freedom.
+- **Project delta** — unresolved or differentiating work.
+
+A prose instruction such as "make it like X" may still leave the solved problem open. Prefer a concrete baseline or oracle when it materially shrinks rediscovery and drift.
+
+Do not promote study projects, reverse-engineering artifacts, or reference-only sources into production dependencies without checking licensing, provenance, compatibility, maintenance, and production fit.
+
 ## Cheap spike
 
 When fit is uncertain and the decision matters, run the cheapest useful representative spike before full integration or custom replacement.
@@ -165,6 +188,12 @@ Possible outcomes:
 - Build
 
 Prefer the source producing the best total outcome, not merely the least code, the fewest tool changes, or the closest match to the executor's native modality.
+
+## Existing closure check
+
+Before selecting a new implementation, ask whether the current project already contains a verified, sufficiently scoped baseline for this capability.
+
+If it does and its dependencies / assumptions still hold, reuse or extend that baseline by default. Reopen the solved portion only when new evidence, changed requirements, changed scope, or changed production constraints invalidate it.
 
 ## Custom build
 

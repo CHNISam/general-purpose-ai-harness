@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.12.0
+# Model-First Adaptive Protocol v2.11.1
 
-Status: Candidate v2.12.0
+Status: Candidate v2.11.1
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -67,13 +67,6 @@ Design principles:
 
 > Build the delta, not the solved problem.
 
-> Preserve verified closure. A claim that has been sufficiently proven within a bounded
-> scope should not silently become an open design question again while its validity
-> conditions still hold.
-
-> Prefer constraining the solution space over merely describing the desired solution more
-> precisely when a mature, sufficiently fitting baseline can be made directly usable or inspectable.
-
 This Protocol can be used directly as a single reusable prompt when useful, or through the repository's progressive-disclosure router and skills.
 
 
@@ -132,8 +125,6 @@ For every non-trivial task:
 
     LOCATE STATE
         ↓
-    CHECK RELEVANT EXISTING CLOSURE
-        ↓
     IDENTIFY DOMINANT GAP
         ↓
     USE MINIMUM SUFFICIENT METHOD
@@ -144,8 +135,6 @@ For every non-trivial task:
         ↓
     SOURCE / SELECT CAPABILITY IF NEEDED
         ↓
-    ESTABLISH / REUSE A PROVEN BASELINE WHEN MATERIAL
-        ↓
     CHOOSE INTERVENTION / NEXT ACTION
         ↓
     DEFINE PROOF
@@ -155,8 +144,6 @@ For every non-trivial task:
     OBSERVE REALITY
         ↓
     UPDATE
-        ↓
-    CAPITALIZE REUSABLE CLOSURE WHEN WARRANTED
         ↓
     REROUTE OR FINISH
 
@@ -382,97 +369,6 @@ then choose the implementation.
 When a project repeatedly depends on a broad capability set, make that set
 discoverable through a lightweight project capability map / routing entry rather
 than relying on operator memory or ad hoc prompting.
-
-
-
--------------------------------------------------------------------------------
-1.4.1 Verified Closure and Managed Variability
--------------------------------------------------------------------------------
-
-A **Verified Closure** is a bounded claim that has enough evidence to be reused
-without re-solving the same uncertainty every time.
-
-It is not a new proof type. It packages an existing STRUCTURE / VERIFICATION /
-VALIDATION result together with the conditions under which that result remains
-safe to reuse.
-
-Where material, a reusable closure should make legible:
-
-    Claim:
-        what is actually considered resolved.
-
-    Scope / Use Envelope:
-        population, environment, version, geometry, workflow, or other boundary
-        within which the proof applies.
-
-    Proven Baseline:
-        the implementation, capability source, reference, configuration, or
-        behavior that currently satisfies the claim.
-
-    Dependencies / Assumptions:
-        what must remain true for the closure to stay valid.
-
-    Allowed Variation:
-        what downstream work may intentionally change without reopening the
-        solved core.
-
-    Proof:
-        what evidence established the closure.
-
-    Invalidation Triggers:
-        what changed evidence, requirement, dependency, environment, or
-        production envelope would require reassessment.
-
-Core rules:
-
-1. **Do not silently reopen valid closure.**
-   If a prior closure covers the current claim and its validity conditions still
-   hold, reuse it by default. Reopening requires decision-relevant new evidence,
-   changed requirements, changed dependencies, changed scope, or another explicit
-   reason that can invalidate the old result.
-
-2. **Do not over-claim closure.**
-   A PASS closes only the claim and scope actually supported by its proof.
-   Subsystem verification does not automatically close a product Outcome.
-   Success on one fixture, geometry, population, environment, or version does
-   not silently generalize to another.
-
-3. **Make meaningful variability explicit.**
-   Where a mature baseline materially constrains implementation, distinguish:
-
-       Fixed / Proven Core
-           already solved; do not redesign without invalidating evidence.
-
-       Allowed Variation
-           intentionally changeable implementation or content choices.
-
-       Project Delta
-           the unresolved or differentiating work that remains.
-
-4. **Materialize recurring closure proportionately.**
-   When losing a solved decision is likely to recur or create meaningful cost,
-   preserve it in a discoverable and preferably enforceable project asset:
-   dependency, pinned reference, canonical component, schema, type, fixture,
-   golden behavior, test, lint, template, generator, CI gate, runbook, or
-   equivalent mechanism.
-
-Useful failure diagnoses:
-
-    False Closure
-        the claimed closed scope is broader than the proof.
-
-    Lost Closure
-        a still-valid solved decision was needlessly reopened or reimplemented.
-
-    Unmaterialized Closure
-        a useful solved result exists, but is not discoverable / reusable /
-        enforceable enough to constrain future execution.
-
-These are diagnostic labels, not mandatory workflow states.
-
-Principle:
-
-> Preserve solved uncertainty, but preserve its boundary too.
 
 
 -------------------------------------------------------------------------------
@@ -1953,54 +1849,6 @@ The objective is to discover:
 > How much unresolved task-specific delta remains?
 
 
-
--------------------------------------------------------------------------------
-8.6.1 Baseline Acquisition / Reference Materialization
--------------------------------------------------------------------------------
-
-When a mature source solves a material portion of the problem, do not reduce its
-value to prose guidance if a stronger form of reuse is practical.
-
-Classify the source by the role it can safely play:
-
-    Reusable Component
-        can be adopted / integrated directly under the required production,
-        compatibility, provenance, and licensing envelope.
-
-    Implementation Reference
-        should be inspected at source/structure level but not necessarily
-        vendored or shipped.
-
-    Behavioral Oracle
-        defines observable behavior / acceptance without supplying the
-        production implementation.
-
-    Evidence Only
-        improves understanding but should not constrain implementation as if it
-        were a proven production baseline.
-
-Where useful, make the selected source directly discoverable to the executor
-through a pinned dependency or revision, repository-local reference pack,
-executable example, fixture, golden trace, canonical asset, or equivalent
-artifact.
-
-Then identify:
-
-    solved / fixed baseline
-        +
-    allowed variation
-        +
-    unresolved project delta
-
-A prose instruction such as "make it like X" may still leave most of the
-solution space open. Prefer a concrete baseline or oracle when one materially
-reduces rediscovery, drift, or repeated failure.
-
-Do not promote a study project, reverse-engineering artifact, or reference-only
-source into a production dependency without checking licensing, provenance,
-compatibility, maintainability, and the required production envelope.
-
-
 -------------------------------------------------------------------------------
 8.7 Cheap Spike Before Commitment
 -------------------------------------------------------------------------------
@@ -2168,13 +2016,9 @@ Prefer:
 
 unless evidence shows this produces a worse overall outcome.
 
-A meaningful Delta requires a sufficiently concrete baseline. If the executor
-receives only a verbal description of a solved capability, the supposedly solved
-portion may re-enter the task as open uncertainty.
-
 Principle:
 
-> Establish or reuse the baseline, then build the delta.
+> Build the delta, not the solved problem.
 
 
 -------------------------------------------------------------------------------
@@ -2437,25 +2281,6 @@ Possible components:
 
 Prefer cheap rejection mechanisms before expensive verification.
 
-When a repeated defect or escaped regression appears, do not stop at the local
-patch. Ask:
-
-> Why was this failure state still representable or this solved decision still open?
-
-Escalate only as far as the evidence justifies:
-
-    fix the instance
-        ↓
-    detect recurrence
-        ↓
-    block the failure class with an invariant / contract
-        ↓
-    remove unnecessary variation by reusing a proven baseline
-        ↓
-    make the invalid state structurally impossible where practical
-
-This is closure preservation, not a requirement to mechanize every one-off lesson.
-
 A Sanity Check:
 
 > can demonstrate that something is obviously wrong.
@@ -2484,8 +2309,6 @@ For project work, derive work through:
     Required Capability
         ↓
     [Capability Source / Solution, when materially decision-relevant]
-        ↓
-    [Verified Baseline / Closure, when it materially constrains execution]
         ↓
     Dependency
         ↓
@@ -2559,9 +2382,6 @@ When materially relevant, also include:
 Required Capability
 Relevant Capability Surface / Available Means
 Existing Capability / Selected Source
-Verified Baseline / Closure, when a prior result should be reused rather than recomputed
-Fixed Core / Allowed Variation / Project Delta, when materially relevant
-Pinned Reference / Fixture / Oracle, when it constrains implementation or proof
 Capability-choice freedom retained by the executor, when upstream has not fixed the source
 Priority / Trade-off Policy
 Decision Rights
@@ -2645,11 +2465,6 @@ When capability-source choice remains decision-relevant, do not compress away th
 available means and leave the downstream executor to infer them from its own native
 tool bias. Preserve either the selected source or enough discoverable capability
 surface for the executor to make the remaining choice correctly.
-
-When a valid prior closure materially constrains the task, compile the baseline,
-its relevant scope, and the allowed variation / unresolved delta into the execution
-contract. Do not ask the downstream executor to rediscover or redesign the fixed
-core unless the closure is explicitly invalidated.
 
 Preserve information only when it can change the executor's:
 
@@ -2983,29 +2798,6 @@ When an adopted capability fails:
 
 > Reopen the Capability Gap rather than automatically patching indefinitely.
 
-After the update, ask whether the work resolved uncertainty that is both
-meaningful and likely to recur.
-
-If YES, capitalize the result proportionately:
-
-    verified claim
-        +
-    scope / validity conditions
-        +
-    proven baseline
-        +
-    allowed variation
-        +
-    invalidation triggers
-        +
-    discoverable / enforceable representation where warranted
-
-Do not capitalize unsupported conclusions. Do not turn every local fix into
-permanent infrastructure.
-
-A mature project should make future instances of already-solved problems smaller,
-not merely accumulate more documentation.
-
 
 ===============================================================================
 19. COMPLETION CONTRACT
@@ -3034,8 +2826,6 @@ Before declaring completion, determine:
 5. Was the intended outcome validated where necessary?
 6. What materially relevant uncertainty remains?
 7. Did new evidence invalidate any prior assumption?
-8. Is any prior Verified Closure being reused, and is it still within its supported scope?
-9. Did this work resolve recurring consequential uncertainty that should be capitalized into a reusable closure / mechanism?
 
 
 ===============================================================================
@@ -3120,17 +2910,6 @@ CAPABILITY SOURCING
 - Am I building only the unresolved delta?
 
 
-CLOSURE / VARIABILITY
-
-- Does a prior Verified Closure already cover this claim?
-- If I am reusing it, do its scope, dependencies, assumptions, environment, and version still hold?
-- If I am reopening it, what decision-relevant change invalidated the old result?
-- Am I claiming closure beyond the scope actually supported by the proof?
-- Where a mature baseline matters, did I distinguish Fixed Core, Allowed Variation, and Project Delta?
-- If this solved uncertainty is consequential and likely to recur, should it be materialized into a discoverable or enforceable mechanism?
-- Did I preserve a subsystem PASS as a subsystem PASS rather than silently promoting it into product validation?
-
-
 ACTION
 
 - Did I understand the action before changing reality?
@@ -3183,9 +2962,6 @@ Avoid:
 - using a prototype-friendly capability whose quality ceiling cannot satisfy the required production role;
 - assuming Reality Gap means Build;
 - rebuilding sufficiently solved commodity capabilities without reason;
-- silently reopening a still-valid verified closure;
-- claiming a closure broader than the actual proof / use envelope;
-- preserving an important recurring solved decision only as prose when a practical project mechanism is warranted;
 - adopting a tool merely because it exists;
 - forcing reuse when important requirements are unmet;
 - performing exhaustive tool research for trivial decisions;
@@ -3238,16 +3014,6 @@ Avoid:
 ===============================================================================
 
 Silently determine:
-
-Does a prior verified result / baseline already cover the current claim?
-
-    YES
-    → Check scope, dependencies, assumptions, environment, version, and invalidation triggers.
-    → If still valid: reuse it; keep only intentional variation and the unresolved delta open.
-    → If invalidated: reopen only the affected closure.
-
-    NO
-    ↓
 
 Do I understand the relevant reality?
 
@@ -3392,9 +3158,6 @@ Observe Reality
     ↓
 Update
     ↓
-If reusable uncertainty was resolved:
-    Capitalize bounded closure / mechanism proportionately
-    ↓
 Reroute
 
 
@@ -3405,8 +3168,6 @@ Reroute
 For every problem:
 
     LOCATE
-        ↓
-    CHECK EXISTING CLOSURE
         ↓
     UNDERSTAND
         ↓
@@ -3425,8 +3186,6 @@ For every problem:
     ACT / OBSERVE
         ↓
     UPDATE
-        ↓
-    CAPITALIZE REUSABLE CLOSURE WHEN WARRANTED
         ↓
     REROUTE
 
