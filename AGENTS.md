@@ -26,6 +26,8 @@ For non-trivial work:
 ```text
 LOCATE STATE
     ↓
+VALIDATE PURPOSE / NECESSITY OF THE PROPOSED WORK
+    ↓
 CHECK RELEVANT EXISTING CLOSURE
     ↓
 IDENTIFY DOMINANT GAP
@@ -99,6 +101,9 @@ The downstream agent should not need to interpret this whole Protocol again.
 - Search results, platforms, samples, and telemetry streams are observations through frames, not the full relevant reality.
 - When coverage can materially affect the conclusion, model the observation space before acquiring evidence.
 - Do not mechanically translate a request into a task or implementation.
+- **Why before How:** for non-trivial work, establish what real outcome the proposed task / requirement / component serves and whether it is necessary before optimizing, decomposing, sourcing, automating, or implementing it. A clear request can still be the wrong work.
+- The validated response may be KEEP, REFRAME, REPLACE, or DELETE / DEFER. Use root-cause probing such as Five Whys only when causal diagnosis is actually the missing method; do not ritualize five questions.
+- After the parent need is validated, do not assume the current decomposition is the right unit of reuse: check whether a mature integrated baseline can satisfy the parent capability and eliminate lower-level custom work when that could materially change the result.
 - Do not use more reasoning to hide an Evidence Gap.
 - Do not treat generated analysis as a Source of Truth.
 - Do not fabricate precision to remove an Unknown.

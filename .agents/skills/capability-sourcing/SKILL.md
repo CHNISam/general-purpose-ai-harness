@@ -25,6 +25,10 @@ Capability is discoverable / usable by this executor
 
 > Source the capability before deciding to build it.
 
+> Capability sourcing begins only after the parent need / outcome is sufficiently
+> valid. Do not efficiently source a capability for work that should be reframed,
+> replaced, deleted, or deferred.
+
 > Do not let the executor's native modality choose the implementation.
 
 > Establish or reuse the baseline, then build the delta.
@@ -95,6 +99,17 @@ For consequential sourcing choices, check **solution-space coverage**:
   later.
 
 Several vendors in one class are not several fundamentally different solutions.
+
+Before accepting the current decomposition as the sourcing unit, ask whether a
+mature integrated source can satisfy the validated parent capability directly.
+Compare lower-level composition plus project-owned integration / maintenance
+against parent-level adoption plus bounded adaptation. This check does not require
+a prior pattern of repeated sibling failures; it follows whenever sourcing
+granularity could materially change the outcome.
+
+Do not blindly prefer the largest solution. Quality, compatibility, licensing,
+provenance, performance, lock-in, maintainability, and adaptation cost still
+govern fit.
 
 Do not search exhaustively. Stop expanding the landscape when omitted source
 classes are unlikely to change the decision at reasonable search cost.

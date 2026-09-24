@@ -2,6 +2,24 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.14.0 — 2026-09-24
+
+### Protocol
+
+- Promoted **Why before How / Necessity Gate** into the non-trivial runtime: a clearly stated task, requirement, component, or optimization no longer justifies itself.
+- Before decomposition, sourcing, optimization, automation, or implementation, require the minimum sufficient check of the real outcome and whether the proposed work should be kept, reframed, replaced, deleted, or deferred.
+- Clarified that **Five Whys** is a conditional root-cause technique for causal diagnosis, not a universal five-question ritual and not a substitute for validating whether work should exist.
+- Strengthened Capability Sourcing so the current decomposition is not automatically the unit of reuse; a mature integrated parent-level baseline should be considered when it can satisfy the validated outcome with lower total delta and ownership burden.
+- Clarified that Delta is baseline-relative: choosing a stronger baseline may eliminate work that looked like unavoidable project-specific Delta.
+
+### Runtime / evidence
+
+- Updated the compact router, modeling and capability-sourcing skills, runtime map, protocol index, method registry, README, and routing examples.
+- Added R022, the real Nameless Reach environment-production failure where local reuse was working but the project optimized the wrong unit of work before challenging whether terrain/water/foliage/building tasks were necessary.
+- Added NASA verification-vs-validation and ASQ Five Whys references to the non-canonical method registry.
+- Preserved v2.13.0 under `docs/history/`.
+- No new deterministic enforcement rule was added; necessity and problem-framing remain contextual model judgments.
+
 ## v2.13.0 — 2026-09-24
 
 ### Protocol

@@ -6,7 +6,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 
 | Canonical concept | Primary runtime representation |
 |---|---|
-| Purpose / orientation | `AGENTS.md` core loop + `modeling` when unclear |
+| Purpose / necessity / Why-before-How | `PROTOCOL.md` 3 + 3.1 + `AGENTS.md` core loop + `modeling` |
 | Runtime Context / freshness / operator projection | `PROTOCOL.md` 1.1.1 + `AGENTS.md` Runtime context and visibility |
 | Diagnostic dimensions | `AGENTS.md` Gap router |
 | Minimum sufficient judgment | `AGENTS.md` guards + relevant skills |
@@ -20,7 +20,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Evidence retrieval / measurement / quality | `evidence-acquisition` |
 | Decision / alternative-space sufficiency | `decision-analysis` |
 | Capability surface awareness / discoverability / executor-bias guard | `AGENTS.md` + `capability-sourcing` + `delegation` |
-| Capability sourcing / solution-space coverage / quality ceiling | `capability-sourcing` |
+| Capability sourcing / solution-space coverage / quality ceiling / sourcing granularity | `capability-sourcing` |
 | Verified Closure / managed variability / baseline reuse | `PROTOCOL.md` 1.4.1 + `capability-sourcing` + `validation` |
 | Recursive sourcing / no meta-layer exemption | `PROTOCOL.md` 1.4.2 + `AGENTS.md` + `capability-sourcing` + `workflow-hardening` + `delegation` |
 | Closure preservation / capitalization mechanisms | `workflow-hardening` + `validation` |

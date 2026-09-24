@@ -33,6 +33,8 @@ relying on it.
 
 | Need | External reference | Useful capability |
 |---|---|---|
+| Product / requirement validation before implementation | NASA Systems Engineering Handbook, Verification vs Validation — https://www.nasa.gov/reference/2-4-distinctions-between-product-verification-and-product-validation/ | Keep “building the right product” distinct from “building the product right”; validate intended purpose early and throughout development. |
+| Root-cause probing when a symptom's cause is unclear | ASQ, Five Whys and Five Hows — https://asq.org/quality-resources/five-whys | Repeatedly ask Why to move from symptom toward root cause; the count is not literal and the method does not by itself prove that a proposed feature/process should exist. |
 | Model intended use, credibility, permissible use, provenance, uncertainty | NASA Standard for Models and Simulations (NASA-STD-7009B) — https://standards.nasa.gov/node/263 | Scope a model to its intended use; distinguish verification, validation, input/data pedigree, uncertainty, and credibility. |
 | Operational scenarios / nominal and off-nominal cases | NASA Systems Engineering Handbook, ConOps Appendix — https://www.nasa.gov/reference/appendix-s-concept-of-operations-annotated-outline/ | Exercise a model through concrete operational scenarios and expose missing capabilities or safeguards. |
 | Requirements engineering and operational scenarios | ISO/IEC/IEEE 29148:2018 — https://www.iso.org/standard/72089.html | Requirements lifecycle discipline; operational scenarios for evaluating requirements and design. |

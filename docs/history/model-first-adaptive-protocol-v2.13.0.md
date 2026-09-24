@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.14.0
+# Model-First Adaptive Protocol v2.13.0
 
-Status: Candidate v2.14.0
+Status: Candidate v2.13.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -66,11 +66,6 @@ Design principles:
 > Reuse, standardize, or integrate where differentiation does not matter.
 
 > Build the delta, not the solved problem.
-
-> Why before How. Before optimizing, sourcing, decomposing, automating, or
-> implementing a proposed task / requirement / component, establish what real
-> outcome it serves and whether that work is actually necessary. A clear request
-> can still be the wrong work.
 
 > Preserve verified closure. A claim that has been sufficiently proven within a bounded
 > scope should not silently become an open design question again while its validity
@@ -147,8 +142,6 @@ The objective is:
 For every non-trivial task:
 
     LOCATE STATE
-        ↓
-    VALIDATE PURPOSE / NECESSITY OF THE PROPOSED WORK
         ↓
     CHECK RELEVANT EXISTING CLOSURE
         ↓
@@ -947,62 +940,6 @@ If multiple interpretations would produce materially different decisions or acti
 If purpose is already obvious:
 
     do not waste output restating it.
-
-
--------------------------------------------------------------------------------
-3.1 Why-Before-How / Necessity Gate
--------------------------------------------------------------------------------
-
-For every non-trivial task, do not treat the requested work itself as an axiom.
-
-Before asking:
-
-> How should we do this?
-
-establish, to the minimum useful depth:
-
-> Why does this work need to exist at all?
-
-Ask only questions capable of changing action:
-
-- What real outcome / need is this work supposed to serve?
-- Is the proposed task, requirement, component, process, or optimization actually
-  necessary for that outcome?
-- Is it the problem, a symptom, an inherited means, or a local manifestation of
-  a higher-level problem?
-- What would happen if we did not do it, deleted it, replaced it, or satisfied
-  the parent need another way?
-- If the current proposed solution disappeared, what requirement would remain?
-- Is there a higher-level intervention that removes the need for several lower-level
-  tasks instead of making each one better?
-
-Possible results:
-
-    KEEP
-        the work is necessary enough; proceed to How.
-
-    REFRAME
-        the underlying need is valid, but the current problem statement / unit of
-        work is wrong.
-
-    REPLACE
-        another intervention satisfies the same outcome with a better total result.
-
-    DELETE / DEFER
-        the work is not currently necessary enough to justify execution.
-
-This Gate is broader than root-cause analysis.
-
-Use Five Whys / causal probing when the important uncertainty is **why a problem
-occurs**. Do not mechanically ask exactly five questions, and do not confuse a
-causal root cause with proof that a proposed feature / task should exist.
-
-For simple obvious work, this Gate may pass implicitly in seconds. Do not turn
-"Why before How" into ceremony.
-
-Principle:
-
-> Do not optimize the answer to the wrong question.
 
 
 ===============================================================================
@@ -2052,22 +1989,6 @@ Do not assume Custom Build belongs first in this list.
 
 Do not assume it belongs last in all circumstances either.
 
-Also check the **unit of sourcing** before accepting a decomposition as fixed:
-
-- can a mature integrated source satisfy the parent capability directly?
-- can adopting a stronger baseline eliminate several child capabilities as
-  project-owned work?
-- would lower-level composition create more integration / maintenance / ownership
-  burden than parent-level adoption plus bounded adaptation?
-
-Do not require several sibling failures before asking this. The check follows
-from the validated purpose: source the capability at the level that best serves
-the outcome.
-
-Do not blindly prefer the largest available solution. Integrated sources still
-lose when quality, compatibility, licensing, provenance, performance, lock-in,
-maintainability, or adaptation cost makes them worse overall.
-
 
 -------------------------------------------------------------------------------
 8.4 Capability Evolution / Maturity
@@ -2401,13 +2322,9 @@ A meaningful Delta requires a sufficiently concrete baseline. If the executor
 receives only a verbal description of a solved capability, the supposedly solved
 portion may re-enter the task as open uncertainty.
 
-Delta is baseline-relative. Before accepting a large amount of custom delta,
-check whether the validated parent outcome can be served by a stronger integrated
-baseline that makes that work unnecessary.
-
 Principle:
 
-> Establish or reuse the right baseline, then build the delta.
+> Establish or reuse the baseline, then build the delta.
 
 
 -------------------------------------------------------------------------------
@@ -3516,18 +3433,6 @@ Avoid:
 
 Silently determine:
 
-Is the proposed work itself necessary to reach the intended outcome?
-
-    NO / UNCLEAR
-    → Purpose / Necessity Gate.
-    → Ask Why before How.
-    → Keep / Reframe / Replace / Delete-or-Defer.
-    → If causal uncertainty matters, use root-cause probing such as Five Whys.
-    → Reroute before optimizing the proposed work.
-
-    YES
-    ↓
-
 Does a prior verified result / baseline already cover the current claim?
 
     YES
@@ -3703,8 +3608,6 @@ For every problem:
 
     LOCATE
         ↓
-    VALIDATE PURPOSE / NECESSITY
-        ↓
     CHECK EXISTING CLOSURE
         ↓
     UNDERSTAND
@@ -3741,10 +3644,6 @@ For evidence:
 
 
 For engineering:
-
-> Why before How.
-
-> A task does not justify itself merely by being clearly stated.
 
 > Need does not imply implementation.
 
