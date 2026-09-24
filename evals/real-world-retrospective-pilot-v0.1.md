@@ -673,15 +673,66 @@ runtime and hardening/validation paths.
 
 ---
 
+## R022 — Local reuse optimized the wrong work before asking whether the work should exist
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+A realtime open-world game wanted to reach a high-quality playable world quickly.
+The project spent repeated cycles improving terrain, water, grass / foliage,
+mountains / cliffs, buildings, props, and related environment systems. Reuse had
+already improved: individual tasks increasingly used existing kits, tools,
+pipelines, and mature capabilities.
+
+**Observed failure**
+
+The project still accepted the visible child tasks as the work to optimize.
+Because "improve water", "improve grass", or "improve buildings" were clear
+requests, the runtime moved quickly into capability sourcing and implementation.
+
+The missing question came first:
+
+> Why do these tasks need to exist?
+
+The actual outcome was not ownership of bespoke terrain, water, foliage, and
+buildings. It was a sufficiently high-quality, playable, extensible world. Once
+that purpose was recovered, a mature complete world / environment baseline became
+an obvious alternative that could make much of the child work unnecessary.
+
+The failure was therefore deeper than reuse granularity. It was a **Why-before-How
+failure**: the project became increasingly efficient at solving work whose
+necessity had not been challenged.
+
+**Expected Protocol behavior**
+
+- Treat the proposed task / requirement / component as a candidate means, not an axiom.
+- Recover the real outcome before optimizing the stated work.
+- Ask whether the work should be kept, reframed, replaced, deleted, or deferred.
+- Use causal Five Whys only if root cause is the missing understanding; do not require exactly five questions.
+- Only after necessity is sufficiently established, enter Capability Sourcing and How.
+- During sourcing, do not assume the current decomposition is the correct unit of reuse; consider a mature integrated parent-level baseline when it can eliminate lower-level custom work.
+- Preserve normal quality, licensing, compatibility, provenance, performance, lock-in, and maintainability gates for any replacement baseline.
+
+**Current v2.14.0 coverage:** **PASS**
+
+v2.13.0 already contained Purpose, First Principles, Capability Sourcing, and
+Build the Delta, but Purpose was operationalized mainly when intent was unclear.
+A task can be perfectly clear and still be the wrong work. v2.14.0 therefore
+promotes necessity checking into the always-on non-trivial runtime before How.
+
+---
+
 # Pilot finding
 
-This real-world retrospective set contains twenty-one distinct historical failure patterns.
+This real-world retrospective set contains twenty-two distinct historical failure patterns.
 
 - Fourteen were already represented through v2.11.1.
 - Five cases (R015–R019) produced v2.12.0's Verified Closure, managed-variability, baseline-materialization, and closure-capitalization rules.
 - R020 exposed a recursive sourcing failure at the harness-authoring layer and produced v2.12.1's No Meta-Layer Exemption rule.
 - R021 exposed the difference between a legible rule and an enforceable mechanism and produced v2.13.0's Enforcement Graduation / Operational Closure rules.
-- All twenty-one are now represented by current rules.
+- R022 exposed a Why-before-How failure: locally correct reuse and optimization proceeded before the necessity of the work itself was challenged.
+- All twenty-two are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 
