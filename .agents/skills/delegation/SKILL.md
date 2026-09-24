@@ -25,6 +25,9 @@ When materially relevant:
 - Required Capability
 - Relevant Capability Surface / Available Means
 - Existing Capability / Selected Source
+- Verified Baseline / Closure, when prior proof should constrain the task
+- Fixed Core / Allowed Variation / Project Delta, when materially relevant
+- Pinned Reference / Fixture / Behavioral Oracle, when it constrains implementation or proof
 - Capability-choice freedom retained by the downstream executor, when the source is intentionally not fixed upstream
 - Priority / Trade-off Policy
 - Decision Rights
@@ -87,6 +90,11 @@ Do not:
 - preserve information that cannot change judgment, choice, capability sourcing, implementation, boundary, constraints, or acceptance.
 
 When capability-source choice remains open and materially affects the outcome, preserve either the selected source or enough discoverable available means for the downstream executor to choose correctly.
+
+When a valid prior closure materially constrains execution, compile the relevant
+baseline/scope and the allowed variation / unresolved delta into the contract.
+Do not ask the downstream executor to rediscover or redesign the fixed core unless
+the closure is explicitly invalidated.
 
 Adapt instructions to the actual agent, model, tool, repository, runtime, and environment.
 

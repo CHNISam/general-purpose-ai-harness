@@ -43,6 +43,20 @@ Possible components:
 
 Prefer cheap rejection mechanisms before expensive verification.
 
+For repeated defects or escaped regressions, ask:
+
+> Why was this failure still representable, or why was this solved decision still open?
+
+Escalate only as far as the evidence justifies:
+
+1. fix the current instance;
+2. detect recurrence;
+3. encode the failure class as an invariant / contract;
+4. remove unnecessary variation by reusing a proven baseline;
+5. make the invalid state structurally impossible where practical.
+
+When a useful closure is likely to recur, preserve its claim, scope, baseline, validity conditions, allowed variation, proof, and invalidation triggers in the lightest discoverable / enforceable mechanism that fits the risk.
+
 A sanity check can show that something is obviously wrong. It does not prove correctness.
 
 ## Restraint

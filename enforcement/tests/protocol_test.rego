@@ -15,6 +15,16 @@ valid_input := {
     "source_selected": "existing-library",
     "source_classes_considered": ["internal", "library"],
   },
+  "closure": {
+    "existing_valid_closure": false,
+    "current_scope_covered": false,
+    "reopened": false,
+    "reopen_justified": false,
+    "claiming_new_closure": false,
+    "proof_scope_matches_claim": true,
+    "capitalization_required": false,
+    "materialized": false,
+  },
   "evidence": [{
     "id": "EV-1",
     "state": "VERIFIED",
@@ -116,4 +126,62 @@ test_unresolved_conflict_blocks_completion if {
   not result.allow
   some violation in result.violations
   violation.code == "E005"
+}
+
+
+test_unjustified_valid_closure_reopen_is_blocked if {
+  bad := object.union(valid_input, {
+    "closure": {
+      "existing_valid_closure": true,
+      "current_scope_covered": true,
+      "reopened": true,
+      "reopen_justified": false,
+      "claiming_new_closure": false,
+      "proof_scope_matches_claim": true,
+      "capitalization_required": false,
+      "materialized": false,
+    },
+  })
+  result := enforcement.decision with input as bad
+  not result.allow
+  some violation in result.violations
+  violation.code == "E013"
+}
+
+test_false_closure_scope_is_blocked if {
+  bad := object.union(valid_input, {
+    "closure": {
+      "existing_valid_closure": false,
+      "current_scope_covered": false,
+      "reopened": false,
+      "reopen_justified": false,
+      "claiming_new_closure": true,
+      "proof_scope_matches_claim": false,
+      "capitalization_required": false,
+      "materialized": false,
+    },
+  })
+  result := enforcement.decision with input as bad
+  not result.allow
+  some violation in result.violations
+  violation.code == "E014"
+}
+
+test_required_closure_capitalization_is_blocked_if_absent if {
+  bad := object.union(valid_input, {
+    "closure": {
+      "existing_valid_closure": false,
+      "current_scope_covered": false,
+      "reopened": false,
+      "reopen_justified": false,
+      "claiming_new_closure": true,
+      "proof_scope_matches_claim": true,
+      "capitalization_required": true,
+      "materialized": false,
+    },
+  })
+  result := enforcement.decision with input as bad
+  not result.allow
+  some violation in result.violations
+  violation.code == "E015"
 }

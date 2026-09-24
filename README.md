@@ -43,8 +43,8 @@ This failure is recorded as [R001](evals/real-world-retrospective-pilot-v0.1.md)
 
 | Evidence layer | Current public state |
 |---|---|
-| Real historical failure patterns | **14** sanitized retrospective cases |
-| Deterministic conformance | **8/8** public fixtures passing |
+| Real historical failure patterns | **19** sanitized retrospective cases |
+| Deterministic conformance | **11/11** public fixtures passing |
 | Mechanical policy | JSON Schema + OPA/Rego |
 | Portable enforcement | CI-built OPA WebAssembly bundle |
 | Repository engineering signal | Protocol Conformance CI + OpenSSF Scorecard |
@@ -110,7 +110,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.11.1**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.12.0**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.
@@ -196,12 +196,13 @@ This follows three constraints:
 
 > Remove structure that cannot.
 
-v2.11.1 refines v2.11.0 by separating **Runtime Context** from its
-operator-facing projection. Runtime/session/trace state should be maintained and
-refreshed on state boundaries; a Runtime Receipt is surfaced only when that state
-changes operator understanding, trust, authority, or the next action. Human-facing
-Decision Surface conformance remains a separate concern and can use host-supported
-output guardrails when the constraint is mechanically checkable.
+v2.12.0 adds **Verified Closure and managed variability**. A prior PASS is reusable
+only inside the claim/use envelope actually supported by its proof; while those
+validity conditions hold, the solved core should not silently become an open design
+question again. Mature baselines should be materialized into the executor's
+environment where practical, intentional variation should remain explicit, and
+recurring consequential closure should graduate into discoverable / enforceable
+project mechanisms.
 
 ## Executable enforcement
 
@@ -215,7 +216,7 @@ The current reference implementation uses:
 - **GitHub Actions** for automatic conformance checks;
 - **OPA WebAssembly builds** for portable embedding without an always-on server.
 
-Examples of mechanically blocked states include VERIFIED evidence without provenance, generated output promoted directly to VERIFIED evidence, reality-changing action without proof defined first, unresolved decision-relevant evidence conflicts at completion, and a claimed VALIDATION PASS without observed validation evidence.
+Examples of mechanically blocked states include VERIFIED evidence without provenance, generated output promoted directly to VERIFIED evidence, reality-changing action without proof defined first, unresolved decision-relevant evidence conflicts at completion, a claimed VALIDATION PASS without observed validation evidence, reopening an explicitly valid in-scope closure without justification, claiming closure beyond the declared proof scope, and completing while explicitly required closure capitalization remains absent.
 
 A mechanical PASS is deliberately weaker than a real-world VALIDATION PASS. The executable layer proves only the invariants it actually encodes.
 
@@ -223,11 +224,12 @@ A mechanical PASS is deliberately weaker than a real-world VALIDATION PASS. The 
 
 This Protocol is iterated from real task failures, not only speculative framework design.
 
-The public retrospective pilot records **14 sanitized historical failure patterns**
-from real AI-assisted work. Eleven were already directly covered by v2.9.0; one exposed
-the staged-audit gap and produced v2.9.1; one exposed capability discoverability /
-executor-native modality bias and produced v2.10.0; the newest exposed runtime-state
-freshness / observability and produced v2.11.0, refined by v2.11.1 to separate runtime context from operator projection.
+The public retrospective pilot records **19 sanitized historical failure patterns**
+from real AI-assisted work. The latest five cases test closure semantics against a
+successful renderer baseline reuse, a subsystem-vs-product NPC proof boundary,
+traversal proof-scope leakage, repeated vegetation exclusions that need an invariant,
+and a quest backend whose correctness closure does not imply player-guidance closure.
+These cases produced v2.12.0's Verified Closure / managed-variability rules.
 
 See:
 

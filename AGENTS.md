@@ -26,6 +26,8 @@ For non-trivial work:
 ```text
 LOCATE STATE
     ↓
+CHECK RELEVANT EXISTING CLOSURE
+    ↓
 IDENTIFY DOMINANT GAP
     ↓
 LOAD THE MINIMUM SUFFICIENT SKILL
@@ -36,6 +38,8 @@ INSPECT RELEVANT CAPABILITY SURFACE WHEN MATERIAL
     ↓
 SOURCE / SELECT CAPABILITY IF NEEDED
     ↓
+ESTABLISH / REUSE A PROVEN BASELINE WHEN MATERIAL
+    ↓
 CHOOSE INTERVENTION / NEXT ACTION
     ↓
 DEFINE PROOF
@@ -45,6 +49,8 @@ ACT / ACQUIRE EVIDENCE
 OBSERVE REALITY
     ↓
 UPDATE
+    ↓
+CAPITALIZE REUSABLE CLOSURE WHEN WARRANTED
     ↓
 REROUTE OR FINISH
 ```
@@ -97,6 +103,10 @@ The downstream agent should not need to interpret this whole Protocol again.
 - Only decision-relevant Unknowns should block progress.
 - Source a capability before deciding to build it when the sourcing choice materially matters.
 - Build the delta, not the solved problem.
+- Before re-solving or rebuilding, check whether a prior verified closure already covers the current claim; reuse it while its scope and validity conditions still hold.
+- A prior PASS closes only the claim/use envelope actually supported by its proof. Do not promote subsystem verification, one fixture, one environment, or one version into a broader closure.
+- When a mature baseline materially constrains execution, keep Fixed Core / Allowed Variation / Project Delta distinct.
+- When losing a consequential solved decision is likely to recur, preserve it in a discoverable and preferably enforceable project mechanism rather than relying on prompt prose or operator memory alone.
 - Do not manufacture alternatives when one action is clearly implied.
 - Define proof before consequential action.
 - Action completion is not outcome validation.

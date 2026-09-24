@@ -446,15 +446,144 @@ v2.11.0 introduced runtime-state freshness and observability. v2.11.1 refines th
 
 ---
 
+## R015 — A qualified character-rendering baseline was reused instead of reinvented
+
+**Date:** 2026-09-22 to 2026-09-23
+
+**Real task context**
+
+A realtime 3D game already contained a previously qualified dynamic-toon character renderer. A later First Playable pass needed that quality in the current runtime.
+
+**Observed pattern**
+
+The successful route explicitly treated the prior renderer as existing production capability: it pinned the prior source revision, preserved provenance, integrated the existing renderer into the current runtime, captured matched before/after evidence, and refused to turn the task into a new character/base-renderer project.
+
+**Why this matters**
+
+This is the positive control for closure preservation. The expensive uncertainty around the solved rendering baseline stayed closed; work concentrated on integration and the remaining visual delta.
+
+**Expected Protocol behavior**
+
+- Detect the prior proven baseline before designing a new renderer.
+- Treat the validated renderer as Fixed Core inside its supported envelope.
+- Preserve provenance and the pinned source identity.
+- Reopen only the integration assumptions actually changed by the new runtime.
+- Keep Human Outcome validation separate from technical renderer verification.
+
+**Current v2.12.0 coverage:** **PASS**
+
+Verified Closure + Baseline Acquisition describe this successful pattern directly.
+
+---
+
+## R016 — Strong NPC subsystem proof did not create a player-visible “living NPC” closure
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+The game already had a layered NPC architecture with WorldState, needs/context, intent selection, behavior execution, reservation, atomic interaction state machines, simulation LOD, deterministic stress tests, and debug inspection. Stress evidence included tens of thousands of interaction attempts with hard invariants at zero.
+
+**Observed failure**
+
+Despite strong subsystem verification, human play still reported repetitive dialogue, weak autonomy, and NPCs that did not feel alive. The project risked treating the existence and correctness of internal NPC machinery as proof of the player-facing product Outcome.
+
+**Expected Protocol behavior**
+
+- Preserve the verified subsystem closures; do not rewrite reservation/HSM/LOD merely because product validation failed.
+- Do not promote subsystem VERIFICATION PASS into player-visible VALIDATION PASS.
+- Identify the missing composition / product-validation closure: representative residents whose schedule, context, relationships, persistence, and consequences are actually perceived in play.
+- Reopen only the layer contradicted by human evidence.
+
+**Current v2.12.0 coverage:** **PASS**
+
+Bounded Closure and proof-type separation prevent the lower-level PASS from swallowing the higher-level open Outcome.
+
+---
+
+## R017 — Traversal tests passed inside their fixtures while production geometry still exposed stuck/clipping failures
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+The game contained substantial traversal tests and evidence for climb, glide, movement transitions, physics, and representative ridge cases. Later play still found stuck/clipping failures involving trees, roofs, water envelopes, and assembled world geometry.
+
+**Observed failure**
+
+A fixture-level or representative-geometry PASS could be mistaken for a universal traversal closure. Hidden production geometry and composition dependencies were outside the prior proof envelope.
+
+**Expected Protocol behavior**
+
+- Treat the prior traversal PASS as bounded to the tested geometry/state/environment.
+- Do not discard valid movement closures unrelated to the escaped geometry.
+- Expand or invalidate only the affected closure when new geometry/dependencies become material.
+- Add the newly discovered dependency/fixture/invariant so the same scope mistake cannot silently recur.
+
+**Current v2.12.0 coverage:** **PASS**
+
+The False Closure guard and explicit closure validity conditions correctly distinguish “prior work was worthless” from “prior proof scope was narrower than production reality.”
+
+---
+
+## R018 — Vegetation exclusions existed as local rules but had not graduated into one spatial invariant
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+The world vegetation scatter already excluded roads, dirt, standing water, river corridors, platforms, slopes, and other local conditions. Human play nevertheless found grass inside buildings.
+
+**Observed failure**
+
+The project knew the general class of rule — decoration needs exclusion domains — but encoded it as a growing set of local conditions. Each new environment producer or forbidden region could therefore reopen the same decision and miss a case.
+
+**Expected Protocol behavior**
+
+- Fix the immediate escaped case if needed.
+- Ask why every vegetation producer is still allowed to decide independently where decoration is legal.
+- Promote recurring local exclusions into the smallest shared spatial-placement invariant / authority that fits the architecture.
+- Prefer making invalid placement unrepresentable or mechanically rejected over adding another reminder in prose.
+
+**Current v2.12.0 coverage:** **PASS**
+
+Workflow Hardening + closure capitalization route the repeated local rule toward a class-level mechanism without requiring infrastructure for every one-off defect.
+
+---
+
+## R019 — Quest backend correctness was closed, but player guidance had never been closed
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+The game had a rigorous quest backend with lifecycle rules, prerequisites, blockers, persistence, exactly-once rewards, contention semantics, malformed fixtures, and CI checks. Human play still reported uncertainty about task start, current objective, destination, navigation, and completion feedback.
+
+**Observed failure**
+
+It would be incorrect to call the player-guidance problem a regression of the quest backend. The architecture itself explicitly separated quest correctness from opportunity/adoption/presentation, and the missing player-guidance semantics had never been validated as a Product Closure.
+
+**Expected Protocol behavior**
+
+- Preserve the verified quest-backend closure.
+- Keep Quest Correctness, Player Intent, and Guidance/Presentation as separate claims.
+- Classify guidance as an OPEN product gap rather than “lost closure.”
+- Build and validate only the missing product-facing delta.
+
+**Current v2.12.0 coverage:** **PASS**
+
+The closure model does not force every defect into “reopened solved uncertainty”; it preserves genuine OPEN gaps and prevents unnecessary backend redesign.
+
+---
+
 # Pilot finding
 
-This real-world retrospective set contains fourteen distinct historical failure patterns.
+This real-world retrospective set contains nineteen distinct historical failure patterns.
 
-- Eleven were already **clearly represented** in v2.9.0.
-- One exposed the staged top-down audit gap and produced the v2.9.1 correction.
-- One exposed the capability-discoverability / executor-native-modality gap and produced the v2.10.0 correction.
-- One exposed the runtime-state freshness / observability gap and produced v2.11.0, refined by v2.11.1 to separate runtime context, refresh boundaries, operator projection, and output conformance.
-- All fourteen are now represented by current rules.
+- Fourteen were already represented through v2.11.1.
+- Five new cases (R015–R019) stress-tested the proposed closure model against both successes and failures: preserved baseline reuse, subsystem-vs-product proof boundaries, proof-scope leakage, local-rule-to-invariant graduation, and a genuinely OPEN product gap.
+- Those five cases produced v2.12.0's Verified Closure, managed-variability, baseline-materialization, and closure-capitalization rules.
+- All nineteen are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 

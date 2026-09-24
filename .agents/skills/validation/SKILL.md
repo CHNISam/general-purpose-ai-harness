@@ -43,6 +43,15 @@ proof actually supported:
 Do not promote a lower proof type into a higher one merely because the lower-level
 test passed.
 
+A **Verified Closure** is not an additional proof type. It is a reusable package
+around a bounded prior result. Before reusing a prior PASS, verify that the current
+claim remains inside its supported scope/use envelope and that decision-relevant
+dependencies, assumptions, environment, and version have not changed.
+
+Do not call a closure broader than its proof. Subsystem verification does not
+automatically close a product Outcome; one fixture does not close all production
+geometry; one population or environment does not close another.
+
 Prefer evidence from the real Source of Truth.
 
 Do not confuse:
@@ -89,5 +98,10 @@ Before completion determine:
 - Was the intended outcome validated where necessary?
 - What materially relevant uncertainty remains?
 - Did new evidence invalidate a prior assumption?
+
+If meaningful uncertainty was resolved and is likely to recur, decide whether the
+result should be capitalized into a discoverable or enforceable closure mechanism.
+Record only the bounded claim actually supported, plus the conditions that would
+invalidate it.
 
 Then finish or reroute.

@@ -29,6 +29,9 @@ The first policy bundle rejects, among other cases:
 8. completion with `UNKNOWN` proof.
 9. claiming a validated outcome without `VALIDATION_PASS`.
 10. completion while required validation remains unobserved.
+11. reopening an explicitly valid, in-scope closure without recorded justification.
+12. claiming a new closure when the declared proof scope does not match the claim.
+13. completion when closure capitalization is explicitly required but remains unmaterialized.
 
 These rules are intentionally narrower than the full Protocol.
 
@@ -59,6 +62,6 @@ The resulting bundle contains `policy.wasm`. It can be embedded in compatible Wa
 
 A policy PASS means only:
 
-> the supplied machine-readable envelope satisfies the encoded invariants.
+> the supplied machine-readable envelope satisfies the encoded invariants, including any explicitly declared closure state.
 
 It does **not** prove that the underlying model is correct, the evidence is true, or the real-world outcome is validated. Those remain separate proof obligations.
