@@ -2,6 +2,24 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.13.0 — 2026-09-24
+
+### Protocol
+
+- Added **Enforcement Graduation** and the distinction between **Epistemic Closure** and **Operational Closure**.
+- Added the adversarial completion question: if an executor ignores the written rule, can the invalid state still enter the system?
+- For recurring/consequential mechanically decidable invariants, require the cheapest reliable enforcement when hardening is warranted, plus known-invalid rejection and representative-valid acceptance.
+- For outcomes that cannot be decided mechanically, require an explicit Human/Product gate rather than fake automation.
+- Prefer protecting invariants over freezing implementation details; path/diff guards are appropriate when path ownership itself is the invariant.
+- Explicit enforcement debt may be accepted when proportional, but cannot be mislabeled as Operational Closure.
+
+### Runtime / evidence
+
+- Updated runtime skills, method registry, runtime map, protocol index, README, and routing examples.
+- Added R021, the real failure where Closure routing became legible without preventing silent violation.
+- External baseline: OpenAI Harness Engineering plus AWS mechanism design.
+- Preserved v2.12.1 under `docs/history/`.
+
 ## v2.12.1 — 2026-09-24
 
 ### Protocol
