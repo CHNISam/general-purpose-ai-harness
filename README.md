@@ -43,8 +43,8 @@ This failure is recorded as [R001](evals/real-world-retrospective-pilot-v0.1.md)
 
 | Evidence layer | Current public state |
 |---|---|
-| Real historical failure patterns | **20** sanitized retrospective cases |
-| Deterministic conformance | **11/11** public fixtures passing |
+| Real historical failure patterns | **21** sanitized retrospective cases |
+| Deterministic conformance | **14/14** public fixtures passing |
 | Mechanical policy | JSON Schema + OPA/Rego |
 | Portable enforcement | CI-built OPA WebAssembly bundle |
 | Repository engineering signal | Protocol Conformance CI + OpenSSF Scorecard |
@@ -91,6 +91,13 @@ It is **not**:
 
 The repository now also includes a **reference executable enforcement layer** for the subset of Protocol invariants that can be checked deterministically. That layer complements model judgment; it does not replace it.
 
+v2.13.0 adds **Enforcement Graduation**. A recurring or consequential Closure is
+not Operationally Closed merely because its rule is discoverable. When violation
+is mechanically decidable, ask whether an invalid state can still silently pass;
+if yes, graduate to the cheapest reliable guard and prove a bad case is rejected
+plus an allowed case is accepted. When automation cannot decide the outcome,
+define the Human/Product gate instead of replacing judgment with a weak proxy.
+
 The Protocol supports model judgment. It does not replace judgment.
 
 ## Quick start
@@ -110,7 +117,7 @@ Codex can discover repository `AGENTS.md` instructions and repository-local skil
 
 ### Humans
 
-- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.12.1**.
+- [PROTOCOL.md](PROTOCOL.md) — canonical **Model-First Adaptive Protocol v2.13.0**.
 - [AGENTS.md](AGENTS.md) — compact router and always-on guards.
 - [`.agents/skills/`](.agents/skills/) — conditional methods and task modes.
 - [docs/architecture.md](docs/architecture.md) — repository architecture and maintenance policy.

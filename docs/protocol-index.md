@@ -44,7 +44,10 @@ Read: **16 → 20 COMMUNICATION**. Treat output conformance separately from runt
 Read: **1.3 → 1.4 → 8 → 11**. Confirm that capability choice was not silently determined by the executor's native tool or modality.
 
 ### “The AI keeps re-solving something the project already proved”
-Read: **1.4.1 → 8.6.1 → 12 → 18 → 19**. Check whether a bounded Verified Closure already applies; preserve its Fixed Core, reopen only invalidated scope, and materialize recurring closure into a project mechanism when warranted.
+Read: **1.4.1 → 1.4.3 → 8.6.1 → 12 → 18 → 19**. Check whether a bounded Verified Closure already applies; preserve its Fixed Core, reopen only invalidated scope, and materialize recurring closure into a project mechanism when warranted. If a recurring/consequential violation is mechanically decidable, ask whether it can still silently pass; if yes, the closure is legible but not yet operationally enforced.
+
+### “The rule is documented, but an agent can still ignore it”
+Read: **1.4.3 → 12 → 18 → 19**. Run Enforcement Graduation: enforce the invariant with the cheapest reliable mechanism and prove bad-case rejection plus allowed-case acceptance, or define the Human/Product gate when the judgment cannot be automated.
 
 ### “The next step is to build a harness / Skill / validator / workflow”
 Read: **1.4.2 → 8 → 12 → 14–15**. Treat the proposed mechanism as a capability in its own right: inspect the existing project/runtime harness and mature authoring sources first, select the baseline, then compile only the unresolved project delta into the downstream execution contract.

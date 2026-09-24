@@ -185,3 +185,52 @@ test_required_closure_capitalization_is_blocked_if_absent if {
   some violation in result.violations
   violation.code == "E015"
 }
+
+
+test_required_mechanical_enforcement_blocks_silent_bypass if {
+  bad := object.union(valid_input, {
+    "closure": {
+      "enforcement_graduation_required": true,
+      "mechanically_decidable": true,
+      "violation_can_silently_pass": true,
+      "enforcement_mechanism_verified": false,
+      "human_gate_defined": false,
+    },
+  })
+  result := enforcement.decision with input as bad
+  not result.allow
+  some violation in result.violations
+  violation.code == "E016"
+}
+
+test_required_mechanical_enforcement_must_be_verified if {
+  bad := object.union(valid_input, {
+    "closure": {
+      "enforcement_graduation_required": true,
+      "mechanically_decidable": true,
+      "violation_can_silently_pass": false,
+      "enforcement_mechanism_verified": false,
+      "human_gate_defined": false,
+    },
+  })
+  result := enforcement.decision with input as bad
+  not result.allow
+  some violation in result.violations
+  violation.code == "E017"
+}
+
+test_required_nonmechanical_enforcement_needs_human_gate if {
+  bad := object.union(valid_input, {
+    "closure": {
+      "enforcement_graduation_required": true,
+      "mechanically_decidable": false,
+      "violation_can_silently_pass": true,
+      "enforcement_mechanism_verified": false,
+      "human_gate_defined": false,
+    },
+  })
+  result := enforcement.decision with input as bad
+  not result.allow
+  some violation in result.violations
+  violation.code == "E018"
+}

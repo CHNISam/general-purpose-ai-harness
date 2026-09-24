@@ -69,6 +69,25 @@ Escalate only as far as the evidence justifies:
 
 When a useful closure is likely to recur, preserve its claim, scope, baseline, validity conditions, allowed variation, proof, and invalidation triggers in the lightest discoverable / enforceable mechanism that fits the risk.
 
+## Enforcement graduation
+
+For recurring or consequential closure, separate **Epistemic Closure** from
+**Operational Closure**. Ask whether violation is mechanically decidable and,
+if it is, whether a violating change/state can still silently pass. Prefer the
+cheapest reliable guard: type/schema, canonical boundary, diff/path guard,
+dependency rule, lint, contract/fixture/runtime test, or CI/policy gate.
+
+A guard is not proven merely because it exists. Prove a known invalid case is
+rejected, a representative allowed case is accepted, and—when blocking is the
+purpose—that the guard is wired into the normal execution/merge path.
+
+Prefer enforcing invariants over freezing implementation details. Protect exact
+paths only when path ownership itself is the invariant.
+
+If the outcome is not mechanically decidable, define the Human/Product gate and
+observation surface. If hardening is deferred, record enforcement debt and do
+not call a documentation-only rule Operationally Closed.
+
 A sanity check can show that something is obviously wrong. It does not prove correctness.
 
 ## Restraint

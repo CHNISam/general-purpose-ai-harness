@@ -88,6 +88,11 @@ repository-local mechanism.
 
 Compile the **minimum sufficient serialization of the validated model slice** relevant to the current action and executor.
 
+When a task touches a recurring/consequential Fixed Core, include the owning
+mechanical gate or Human gate when it changes what the executor may modify or
+what proof must run. Do not rely on prose alone when the project already has an
+enforceable boundary.
+
 Do not:
 
 - copy the entire world model into every prompt;

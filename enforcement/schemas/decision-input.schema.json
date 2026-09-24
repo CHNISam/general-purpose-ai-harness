@@ -200,6 +200,21 @@
         "metadata": {
           "type": "object",
           "additionalProperties": true
+        },
+        "enforcement_graduation_required": {
+          "type": "boolean"
+        },
+        "mechanically_decidable": {
+          "type": "boolean"
+        },
+        "violation_can_silently_pass": {
+          "type": "boolean"
+        },
+        "enforcement_mechanism_verified": {
+          "type": "boolean"
+        },
+        "human_gate_defined": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false

@@ -154,6 +154,36 @@ violations contains {
   object.get(closure, "materialized", false) == false
 }
 
+violations contains {
+  "code": "E016",
+  "message": "Required mechanical enforcement graduation is incomplete while a violating state can still silently pass.",
+} if {
+  object.get(completion, "claimed", false)
+  object.get(closure, "enforcement_graduation_required", false)
+  object.get(closure, "mechanically_decidable", false)
+  object.get(closure, "violation_can_silently_pass", false)
+}
+
+violations contains {
+  "code": "E017",
+  "message": "Required mechanical enforcement graduation must verify the enforcement mechanism before completion.",
+} if {
+  object.get(completion, "claimed", false)
+  object.get(closure, "enforcement_graduation_required", false)
+  object.get(closure, "mechanically_decidable", false)
+  object.get(closure, "enforcement_mechanism_verified", false) == false
+}
+
+violations contains {
+  "code": "E018",
+  "message": "Required non-mechanical enforcement graduation needs an explicit Human/Product gate before completion.",
+} if {
+  object.get(completion, "claimed", false)
+  object.get(closure, "enforcement_graduation_required", false)
+  object.get(closure, "mechanically_decidable", false) == false
+  object.get(closure, "human_gate_defined", false) == false
+}
+
 allow if {
   count(violations) == 0
 }

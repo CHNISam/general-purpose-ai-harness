@@ -131,3 +131,10 @@ This maintenance example was added in v2.12.1.
 | Failure pattern | Expected behavior |
 |---|---|
 | The project needs a stronger coding-agent harness, so the assistant writes a detailed prompt instructing another agent to invent a Closure/Reference harness from scratch. | Reclassify the proposed harness as a **meta-capability**. Inspect the existing repository harness and mature harness-authoring / agent-customization sources first; select the closest baseline and delivery surfaces, then delegate only the unresolved project-specific delta. |
+
+
+## Enforcement-graduation regression case
+
+| Failure pattern | Expected behavior |
+|---|---|
+| A repository documents that a Fixed Core must not be changed silently, but an agent can still edit the protected surface and CI stays green. | Treat the rule as **Epistemically Closed but not Operationally Closed**. If the invariant is mechanically decidable, add/reuse the cheapest blocking mechanism, prove a known bad case fails and an allowed case passes, and wire it into the normal path. If automation cannot decide the outcome, define the Human/Product gate instead. |

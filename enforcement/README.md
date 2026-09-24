@@ -65,3 +65,12 @@ A policy PASS means only:
 > the supplied machine-readable envelope satisfies the encoded invariants, including any explicitly declared closure state.
 
 It does **not** prove that the underlying model is correct, the evidence is true, or the real-world outcome is validated. Those remain separate proof obligations.
+
+
+## Enforcement Graduation boundary
+
+The executable policy checks the supplied decision envelope for consistency when
+Enforcement Graduation is declared required. It does not discover by itself whether
+an invariant is truly mechanically decidable or whether a target-repository guard
+is actually wired into the normal execution path. Prove those facts in the target
+system with a known-invalid rejection and a representative-valid acceptance.

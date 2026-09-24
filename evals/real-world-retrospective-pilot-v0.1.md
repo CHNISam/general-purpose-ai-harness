@@ -628,14 +628,60 @@ Exemption** and mirrors it in the relevant skills and routing surfaces.
 
 ---
 
+## R021 — Closure knowledge became legible but remained mechanically bypassable
+
+**Date:** 2026-09-24
+
+**Real task context**
+
+A game repository added a concise Verified Closure routing page so future coding
+agents could find proof owners, proof scope, Fixed Core, allowed variation,
+remaining Delta, and invalidation triggers before implementation.
+
+**Observed failure**
+
+The routing improvement was useful, but it changed only Markdown surfaces. No
+new diff guard, contract, lint, fixture, validator, or CI rule prevented an agent
+from ignoring the written Fixed Core and submitting a violating change. The work
+risked being treated as “Harness complete” because the rule was clear even though
+the invalid state remained mechanically representable.
+
+**User correction**
+
+A recurring or consequential Closure should not stop at legibility when the
+violation is objectively machine-checkable. Ask whether a violating change can
+still silently pass. If yes, graduate the invariant into the cheapest reliable
+mechanism and prove the mechanism rejects a bad case. Keep Human/Product judgment
+for outcomes that are not mechanically decidable.
+
+**Expected Protocol behavior**
+
+- Distinguish **Epistemic Closure** from **Operational Closure**.
+- Run Enforcement Graduation before declaring recurring/consequential closure operationally complete.
+- Prefer invariant enforcement over freezing arbitrary implementation details.
+- Use diff/path guards when path ownership itself is the invariant.
+- Require a known-invalid negative control and representative valid control.
+- Require a blocking mechanism to be wired into the normal execution/merge path.
+- For non-mechanical judgments, define the Human/Product gate rather than a weak proxy.
+- Permit explicit enforcement debt when proportional, but do not label it Operational Closure.
+
+**Current v2.13.0 coverage:** **PASS**
+
+v2.12.x made closure discoverable and sourceable but did not make the graduation
+boundary explicit enough. v2.13.0 adds Enforcement Graduation to the canonical
+runtime and hardening/validation paths.
+
+---
+
 # Pilot finding
 
-This real-world retrospective set contains twenty distinct historical failure patterns.
+This real-world retrospective set contains twenty-one distinct historical failure patterns.
 
 - Fourteen were already represented through v2.11.1.
 - Five cases (R015–R019) produced v2.12.0's Verified Closure, managed-variability, baseline-materialization, and closure-capitalization rules.
 - R020 exposed a recursive sourcing failure at the harness-authoring layer and produced v2.12.1's No Meta-Layer Exemption rule.
-- All twenty are now represented by current rules.
+- R021 exposed the difference between a legible rule and an enforceable mechanism and produced v2.13.0's Enforcement Graduation / Operational Closure rules.
+- All twenty-one are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 
