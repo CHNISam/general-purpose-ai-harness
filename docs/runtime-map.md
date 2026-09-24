@@ -7,7 +7,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Canonical concept | Primary runtime representation |
 |---|---|
 | Purpose / orientation | `AGENTS.md` core loop + `modeling` when unclear |
-| Runtime-state freshness / observable receipt | `PROTOCOL.md` 1.1.1 + `AGENTS.md` Runtime state visibility |
+| Runtime Context / freshness / operator projection | `PROTOCOL.md` 1.1.1 + `AGENTS.md` Runtime context and visibility |
 | Diagnostic dimensions | `AGENTS.md` Gap router |
 | Minimum sufficient judgment | `AGENTS.md` guards + relevant skills |
 | Model Gap / minimum sufficient modeling | `modeling` |
@@ -28,6 +28,7 @@ It is a **maintenance map**, not proof of semantic completeness and not an autom
 | Project work | `project-modeling` |
 | Delegation / prompt compilation | `delegation` |
 | Human-facing compression | `decision-surface` |
+| Output-contract conformance vs runtime observability | `PROTOCOL.md` 16 + 20 + `AGENTS.md` Human communication |
 | External method / standard pointers (non-canonical) | `docs/method-registry.md` |
 | Mechanically checkable Protocol invariants | `enforcement/` + `conformance/` + CI |
 
