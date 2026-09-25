@@ -25,6 +25,10 @@ Prefer outcomes that can change action:
 - whether evidence is distinguished from inference or guesswork;
 - whether capability needs are mapped directly to custom implementation;
 - whether mature capability sources are inspected before building when sourcing matters;
+- whether the problem frame / ownership boundary is revalidated before material
+  project-owned work when the decomposition itself may be the source of low leverage;
+- whether repeated local Gap closure triggers frame escalation when the parent
+  Outcome is not moving proportionally;
 - whether Source of Truth and identity/version/environment are checked when material;
 - whether lower-level verification is falsely promoted to real-world validation;
 - whether upstream semantics survive compilation into plans/tasks/prompts;
