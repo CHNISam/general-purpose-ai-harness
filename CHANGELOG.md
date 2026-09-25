@@ -2,6 +2,25 @@
 
 This file records public semantic and engineering changes. Canonical methodology remains in `PROTOCOL.md`.
 
+## v2.15.0 — 2026-09-25
+
+### Protocol
+
+- Added a **Problem Frame / Ownership Boundary Gate** between necessity validation and local Gap execution. A correct local Dominant Gap is now explicitly treated as frame-relative rather than automatically high leverage.
+- Added the **Ownership Frontier**: project ownership is an explicit decision about which capabilities should remain project-owned versus consumed, adapted, referenced, delegated, or used as Behavioral Oracles.
+- Added the **Ceiling-Baseline Counterfactual**: temporarily assume the validated parent capability already exists at production quality, subtract the work that would disappear, and use the remainder to expose candidate Project Delta before descending back to feasible sources.
+- Strengthened Capability Sourcing from reuse granularity to **sourcing altitude**: inspect the highest sufficiently fitting parent-level baseline / reference / oracle first, then descend only when material constraints rule that level out.
+- Added **Strategically Superseded Closure**: a local implementation may remain technically valid while a stronger parent baseline or changed ownership boundary makes continued ownership unnecessary. Closure now protects solved uncertainty and value, not incumbent implementation.
+- Added a frame-escalation trigger: when repeated local closures consume meaningful work without proportional movement in the parent Outcome, revalidate the problem frame before selecting the next sibling Gap.
+- Strengthened Project Modeling and Delegation so unresolved ownership / source assumptions cannot silently compile into implementation-shaped Work Items or coding prompts.
+
+### Runtime / evidence
+
+- Updated the compact router, modeling, capability-sourcing, project-modeling, delegation, runtime map, protocol index, README, and routing examples.
+- Added R023, the real Nameless Reach failure where Why-before-How and local reuse were already present, but the current decomposition and ownership boundary still caused agents to optimize valid child work instead of challenging the frame.
+- Preserved v2.14.0 under `docs/history/`.
+- No new deterministic enforcement rule was added; frame validity, ownership boundaries, and strategic supersession remain contextual model / project judgments.
+
 ## v2.14.0 — 2026-09-24
 
 ### Protocol
