@@ -16,7 +16,7 @@ This file records public semantic and engineering changes. Canonical methodology
 
 ### Runtime / evidence
 
-- Updated the compact router, modeling, capability-sourcing, project-modeling, delegation, runtime map, protocol index, README, and routing examples.
+- Updated the compact router, modeling, capability-sourcing, project-modeling, delegation, runtime map, protocol index, method registry, README, and routing examples.
 - Added R023, the real Nameless Reach failure where Why-before-How and local reuse were already present, but the current decomposition and ownership boundary still caused agents to optimize valid child work instead of challenging the frame.
 - Preserved v2.14.0 under `docs/history/`.
 - No new deterministic enforcement rule was added; frame validity, ownership boundaries, and strategic supersession remain contextual model / project judgments.
