@@ -33,6 +33,8 @@ Capability is discoverable / usable by this executor
 
 > Establish or reuse the baseline, then build the delta.
 
+> Project ownership is a sourcing decision, not the default result of decomposition.
+
 > Do not silently reopen a still-valid solved capability as free-form implementation choice.
 
 > Meta-capabilities are still capabilities. Harnesses, Skills, validators, schemas,
@@ -100,12 +102,24 @@ For consequential sourcing choices, check **solution-space coverage**:
 
 Several vendors in one class are not several fundamentally different solutions.
 
-Before accepting the current decomposition as the sourcing unit, ask whether a
-mature integrated source can satisfy the validated parent capability directly.
-Compare lower-level composition plus project-owned integration / maintenance
-against parent-level adoption plus bounded adaptation. This check does not require
-a prior pattern of repeated sibling failures; it follows whenever sourcing
-granularity could materially change the outcome.
+Before accepting the current decomposition as the sourcing unit, check the
+**sourcing altitude**:
+
+- can a mature integrated source satisfy the validated parent capability directly?
+- can a higher-level baseline remove several child capabilities from project ownership?
+- can a source that is unsuitable as a production dependency still serve safely
+  as an Implementation Reference or Behavioral Oracle?
+- would lower-level composition create more project-owned integration / maintenance
+  than parent-level adoption plus bounded adaptation?
+
+Start at the highest abstraction level that could plausibly satisfy the validated
+parent capability, then descend only when fit, quality, licensing, provenance,
+compatibility, performance, control, adaptation cost, lock-in, or another material
+constraint rules that level out.
+
+This check does not require a prior pattern of repeated sibling failures; it follows
+whenever sourcing granularity can materially change the Ownership Frontier or total
+unresolved Delta.
 
 Do not blindly prefer the largest solution. Quality, compatibility, licensing,
 provenance, performance, lock-in, maintainability, and adaptation cost still

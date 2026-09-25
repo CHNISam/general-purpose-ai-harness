@@ -7,7 +7,7 @@ They are **examples**, not measured behavioral evals or regression tests.
 | Case | Expected primary route | What should usually remain unloaded |
 |---|---|---|
 | "Fix this obvious typo." | Direct execution; necessity is implicit and obvious | modeling, decision-analysis, capability-sourcing, planning |
-| "Improve the water, grass, mountains, and buildings in this game world." | Purpose / Necessity → identify the real outcome (e.g. high-quality playable world) → test whether these child tasks are necessary → then source/act | do not assume the listed subproblems are the correct work merely because they are concrete |
+| "Improve the water, grass, mountains, and buildings in this game world." | Purpose / Necessity → recover the parent playable-world outcome → Frame / Ownership revalidation → source at the highest fitting baseline before descending | do not assume the listed subproblems or their project ownership are correct merely because they are concrete |
 | "I don't understand why this behaves differently in two cases." | Model Gap → `modeling` | capability-sourcing unless a missing capability emerges |
 | "The exact official database is known; retrieve the current value." | Evidence Gap → `evidence-acquisition` | observability-coverage unless frame sufficiency is uncertain |
 | "Google cannot find a local-government list; relevant publishing may happen on platform-native channels." | Evidence Gap → `observability-coverage` | decision-analysis unless materially different observation strategies remain |
@@ -68,6 +68,9 @@ The Protocol is also being applied poorly if the agent:
 - treats one observation frame as the entire target reality;
 - turns a capability need directly into custom implementation;
 - optimizes or implements a clearly stated task without checking whether that work is actually necessary for the parent outcome;
+- keeps selecting correct local Dominant Gaps after repeated local closures fail to move the parent Outcome, without revalidating the problem frame;
+- lets a backlog / architecture decomposition silently decide what the project owns;
+- preserves a technically valid local implementation after a higher-level baseline has made that ownership unnecessary;
 - fails to discover a materially relevant capability that already exists in the project or workflow;
 - lets the executor's native modality choose the implementation without checking production fit;
 - declares success from a command or artifact without relevant proof;
@@ -141,6 +144,19 @@ This maintenance example was added in v2.12.1.
 |---|---|
 | A repository documents that a Fixed Core must not be changed silently, but an agent can still edit the protected surface and CI stays green. | Treat the rule as **Epistemically Closed but not Operationally Closed**. If the invariant is mechanically decidable, add/reuse the cheapest blocking mechanism, prove a known bad case fails and an allowed case passes, and wire it into the normal path. If automation cannot decide the outcome, define the Human/Product gate instead. |
 
+
+
+
+## Frame / ownership regression cases
+
+These maintenance examples were added in v2.15.0.
+
+| Failure pattern | Expected behavior |
+|---|---|
+| A project has correctly identified the parent outcome, but its backlog already decomposes the work into terrain, water, traversal, camera, animation, and UI. Agents keep closing the largest local Gap while the product advances slowly. | Treat the Dominant Gap as frame-relative. Escalate one level, revalidate the decomposition / Ownership Frontier, and ask whether a stronger parent-level baseline can subsume several child work items before choosing the next sibling Gap. |
+| A task says “build the climbing system” and has a valid upstream capability requirement, but no one has decided whether climbing should be project-owned or inherited from a mature playable baseline. | Do not compile the implementation-shaped task. Resolve the frame / sourcing decision first; delegate Research / Decision / Sourcing work if necessary. |
+| A custom terrain stack has strong verification and remains technically correct, but adoption of a mature complete-world baseline would eliminate its maintenance and better serve the same parent outcome. | Preserve the useful proof / learned contract, mark the incumbent implementation strategically superseded where appropriate, impact-analyze dependents, and do not use prior Closure as a reason to keep unnecessary ownership. |
+| A proprietary mature game cannot be a production dependency, but its observable traversal/camera behavior is an excellent target reference. | Treat it as a Behavioral Oracle, not as reusable code. Production-dependency licensing constraints do not erase reference/oracle value, and reference value does not authorize copying protected implementation. |
 
 ## Why-before-How regression case
 

@@ -9,7 +9,7 @@ The section numbers below are stable semantic landmarks. Search the exact headin
 | 0. PRIMARY OBJECTIVE | orienting the whole task and preventing task/feature/solution collapse |
 | 1. RUNTIME KERNEL — NON-NEGOTIABLE | checking the core operating loop, Runtime Context/freshness/operator visibility, Verified Closure / managed variability, recursive sourcing / no meta-layer exemption, action boundary, capability-surface awareness, executor-bias guard, capability/implementation distinction, and evidence honesty |
 | 2. DOMINANT GAP ROUTING | deciding whether the blocker is Model / Evidence / Decision / Planning / Capability / Reality / Verification-Validation |
-| 3. PURPOSE | clarifying the intended real-world state, challenging whether proposed work is necessary, and applying Why-before-How before implementation |
+| 3. PURPOSE | clarifying the intended real-world state, challenging whether proposed work is necessary, and revalidating problem frame / Ownership Frontier before material owned work |
 | 4. MINIMUM SUFFICIENT MODELING | choosing the right model/schema for the intended use |
 | 5. OPTIONAL REASONING OPERATORS | selectively using first principles, inversion, stress thinking, or another reasoning operator |
 | 6. MODEL GATES | testing model quality, layer preservation, compilation integrity, proof types, and revalidation |
@@ -41,10 +41,13 @@ Read: **1.1 → 1.1.1**. Maintain Runtime Context, refresh it on state boundarie
 Read: **16 → 20 COMMUNICATION**. Treat output conformance separately from runtime observability; compress to the Decision Surface and use a host-supported output guardrail when the presentation constraint is mechanically checkable.
 
 ### “The AI is solving the task exactly as asked, but may be solving the wrong thing”
-Read: **3 → 3.1 → 5.1 → 8**. Establish the real outcome, challenge whether the proposed work is necessary, and only then move from Why to How. Use Five Whys when causal root cause is the actual uncertainty, not as ritual.
+Read: **3 → 3.1 → 3.2 → 5.1 → 8**. Establish the real outcome, challenge whether the proposed work is necessary, then challenge whether the current decomposition / ownership boundary is the right frame before moving into local How.
+
+### “Local gaps keep closing but the parent outcome barely moves”
+Read: **2 → 3.2 → 8 → 13**. Escalate one level, run the Ceiling-Baseline Counterfactual when useful, re-establish the Ownership Frontier, and retire / supersede child work that a stronger parent baseline makes unnecessary.
 
 ### “The AI is about to build something”
-Read: **3.1 → 1.3 → 1.4 → 8 → 11**. Confirm that capability choice was not silently determined by the executor's native tool or modality.
+Read: **3.1 → 3.2 → 1.3 → 1.4 → 8 → 11**. Confirm that the ownership decision and capability source were not silently inherited from the backlog, current architecture, or executor's native tool.
 
 ### “The AI keeps re-solving something the project already proved”
 Read: **1.4.1 → 1.4.3 → 8.6.1 → 12 → 18 → 19**. Check whether a bounded Verified Closure already applies; preserve its Fixed Core, reopen only invalidated scope, and materialize recurring closure into a project mechanism when warranted. If a recurring/consequential violation is mechanically decidable, ask whether it can still silently pass; if yes, the closure is legible but not yet operationally enforced.

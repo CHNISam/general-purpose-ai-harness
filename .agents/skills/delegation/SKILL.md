@@ -56,6 +56,12 @@ Coding Agent
   → run the target repository's required verification
 ```
 
+Before compiling a task that would create meaningful project-owned code, assets,
+systems, workflow, or maintenance, confirm upstream has sufficiently resolved the
+problem frame / Ownership Frontier and materially relevant source decision. If not,
+delegate the missing modeling / sourcing decision rather than encoding an
+implementation-shaped assumption as a coding mandate.
+
 Do **not** automatically instruct the Coding Agent to read this Protocol repository.
 
 The Coding Agent should normally receive:
@@ -95,6 +101,7 @@ enforceable boundary.
 
 Do not:
 
+- compile unresolved ownership or decomposition assumptions into implementation work;
 - copy the entire world model into every prompt;
 - compile an unverified capability assumption into an implementation mandate;
 - compress away a decision-relevant capability surface and leave the downstream executor to choose by native-tool bias;

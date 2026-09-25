@@ -723,16 +723,80 @@ promotes necessity checking into the always-on non-trivial runtime before How.
 
 ---
 
+## R023 — Correct local gaps preserved the wrong problem frame and ownership boundary
+
+**Date:** 2026-09-25
+
+**Real task context**
+
+An AI-first 3D game project had already adopted Why-before-How, reuse-first
+Capability Sourcing, Verified Closure, and a mature environment baseline. Local
+engineering work was increasingly competent: terrain/world presentation improved,
+individual systems were reused more often, and agents could close concrete bugs
+and follow-up tasks quickly.
+
+**Observed failure**
+
+Progress still arrived in discontinuous jumps. Agents correctly identified and
+closed local Dominant Gaps such as terrain, traversal, camera, animation,
+performance, and interaction defects, yet the parent playable-game outcome often
+moved much less than the amount of engineering work implied.
+
+The project eventually used a counterfactual thought experiment: assume a mature
+production-quality third-person open-world game already exists as the starting
+point. Under that frame, most terrain, traversal, UI, animation, rendering, save,
+interaction, and other foundation work would disappear from project ownership;
+the remaining project-specific work would concentrate much closer to the intended
+differentiation.
+
+This exposed a failure not fully covered by v2.14.0. The purpose of the work could
+be valid, and local capability sourcing could be reuse-first, while the **problem
+representation and ownership boundary were still inherited from the current
+backlog / architecture**. Once those assumptions compiled into Work Items, local
+Dominant-Gap routing and Closure preservation could reinforce the wrong work tree.
+
+**Expected Protocol behavior**
+
+- Treat a Dominant Gap as meaningful only inside a sufficiently valid problem frame.
+- Before meaningful project-owned work, distinguish requirements from inherited
+  decomposition / implementation choices.
+- Use a Ceiling-Baseline Counterfactual when useful: if the parent capability
+  already existed at production quality, identify what project-specific Delta
+  would remain.
+- Make the Ownership Frontier explicit enough to distinguish intentionally owned
+  capability from capability that should be consumed, adapted, referenced,
+  delegated, or used only as a Behavioral Oracle.
+- Source at the highest sufficiently fitting abstraction level, then descend only
+  when fit / quality / licensing / provenance / compatibility / control /
+  adaptation-cost constraints require it.
+- If repeated local closures fail to move the parent Outcome proportionally,
+  escalate one abstraction level before selecting the next sibling Gap.
+- Do not compile unresolved ownership / source assumptions into implementation
+  Work Items or coding-agent prompts.
+- Allow a technically valid local Closure to become strategically superseded by
+  a stronger parent-level baseline without pretending the prior proof became false.
+
+**Current v2.15.0 coverage:** **PASS**
+
+v2.14.0 made work necessity explicit and improved integrated parent-level sourcing,
+but the check could still run inside a decomposition that had already decided what
+the project owned. v2.15.0 adds frame / ownership revalidation before material
+owned work and gives the runtime a trigger for escaping locally correct but
+globally low-leverage Gap closure.
+
+---
+
 # Pilot finding
 
-This real-world retrospective set contains twenty-two distinct historical failure patterns.
+This real-world retrospective set contains twenty-three distinct historical failure patterns.
 
 - Fourteen were already represented through v2.11.1.
 - Five cases (R015–R019) produced v2.12.0's Verified Closure, managed-variability, baseline-materialization, and closure-capitalization rules.
 - R020 exposed a recursive sourcing failure at the harness-authoring layer and produced v2.12.1's No Meta-Layer Exemption rule.
 - R021 exposed the difference between a legible rule and an enforceable mechanism and produced v2.13.0's Enforcement Graduation / Operational Closure rules.
 - R022 exposed a Why-before-How failure: locally correct reuse and optimization proceeded before the necessity of the work itself was challenged.
-- All twenty-two are now represented by current rules.
+- R023 exposed a deeper frame / ownership failure: even with valid purpose and reuse-first local sourcing, the current decomposition could still compile unnecessary ownership into Work Items and keep local Dominant-Gap routing trapped inside the wrong frame.
+- All twenty-three are now represented by current rules.
 
 This is evidence that the Protocol is being revised against failures that actually occurred in practice, and that the current rules have meaningful **coverage** of this retrospective set.
 
