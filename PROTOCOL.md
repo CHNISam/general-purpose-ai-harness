@@ -1661,6 +1661,14 @@ One implementation surface may contribute evidence to several claims.
 
 That does not make those claims semantically identical.
 
+Human-facing decision and control surfaces are also downstream compilations.
+Preserve every state, relation, boundary, uncertainty, and proof distinction
+whose loss could change the user's interpretation, decision, or next action.
+Do not infer a structured relation from visual nesting, lifecycle status, or
+narrative prose, and do not invent semantics absent from the Source of Truth.
+If a consequential relation is not modeled, display it as unspecified until
+the canonical model expresses it.
+
 
 -------------------------------------------------------------------------------
 6.12 Proof-Type Test

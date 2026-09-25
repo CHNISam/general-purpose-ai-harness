@@ -50,6 +50,12 @@ Do not remove a layer, relation, assumption, proof type, or boundary merely to
 make an explanation shorter when its removal could change the user's
 understanding of what failed, what should happen next, or what counts as proof.
 
+When compiling a canonical model into a visual decision/control surface, keep
+decision-relevant relations, states, scope boundaries, uncertainty, and proof
+types distinct. Never let visual nesting imply an unstated dependency, scope
+commitment, or validation result. Show consequential missing relations as
+unspecified rather than deriving them from narrative or lifecycle status.
+
 When the user asks to see the model itself, prefer the simplest faithful
 structure over a shorter but incomplete one.
 
