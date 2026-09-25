@@ -28,6 +28,8 @@ LOCATE STATE
     ↓
 VALIDATE PURPOSE / NECESSITY OF THE PROPOSED WORK
     ↓
+REVALIDATE PROBLEM FRAME / OWNERSHIP BOUNDARY WHEN MATERIAL
+    ↓
 CHECK RELEVANT EXISTING CLOSURE
     ↓
 IDENTIFY DOMINANT GAP
@@ -103,7 +105,10 @@ The downstream agent should not need to interpret this whole Protocol again.
 - Do not mechanically translate a request into a task or implementation.
 - **Why before How:** for non-trivial work, establish what real outcome the proposed task / requirement / component serves and whether it is necessary before optimizing, decomposing, sourcing, automating, or implementing it. A clear request can still be the wrong work.
 - The validated response may be KEEP, REFRAME, REPLACE, or DELETE / DEFER. Use root-cause probing such as Five Whys only when causal diagnosis is actually the missing method; do not ritualize five questions.
-- After the parent need is validated, do not assume the current decomposition is the right unit of reuse: check whether a mature integrated baseline can satisfy the parent capability and eliminate lower-level custom work when that could materially change the result.
+- **Frame before local optimization:** a Dominant Gap is meaningful only inside a sufficiently valid problem frame. Before material project-owned work, or when repeated local closures do not proportionally move the parent Outcome, revalidate the decomposition and ownership boundary instead of selecting the next sibling Gap by inertia.
+- **Ownership is a decision:** distinguish what the project intentionally owns from what it consumes, adapts, references, delegates, or treats as a Behavioral Oracle. Use a ceiling-baseline counterfactual when useful: if the parent capability already existed at production quality, what project-specific Delta would remain?
+- After the parent need is validated, do not assume the current decomposition is the right unit of reuse: inspect the highest sufficiently fitting mature baseline / reference / oracle that can satisfy the parent capability, and descend to lower-level sourcing only when the higher level is unsuitable.
+- A valid local Closure protects solved uncertainty, not permanent ownership of its implementation. A higher-level baseline or changed ownership boundary may strategically supersede local work without making the old proof false.
 - Do not use more reasoning to hide an Evidence Gap.
 - Do not treat generated analysis as a Source of Truth.
 - Do not fabricate precision to remove an Unknown.
