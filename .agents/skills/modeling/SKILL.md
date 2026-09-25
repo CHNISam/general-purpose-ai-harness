@@ -33,6 +33,39 @@ Use Five Whys or another causal method only when the missing understanding is a
 causal chain. "Why before How" is a necessity / problem-framing rule, not a
 requirement to ask exactly five questions.
 
+## Revalidate the problem frame / ownership boundary
+
+A clear parent need can still be represented at the wrong level.
+
+Use this check when the next action would create meaningful project-owned code,
+assets, systems, workflow, or maintenance; when a backlog / prompt already presents
+implementation-shaped child work; when repeated local closures are not moving the
+parent Outcome enough; or when a stronger parent-level baseline could subsume
+several child capabilities.
+
+Ask:
+
+- If the current implementation and task tree disappeared, what parent capability
+  or Outcome would remain?
+- Which parts of the decomposition are requirements versus inherited solution choices?
+- If that parent capability already existed at the required production quality,
+  what project-specific Delta would still remain?
+- Which capability genuinely justifies project ownership because of differentiation,
+  required control, or strategic learning?
+- What highest sufficiently fitting reusable baseline, reference, Behavioral Oracle,
+  platform, service, or composition could move the ownership boundary upward?
+
+Treat the boundary between intentionally owned capability and consumed / adapted /
+referenced capability as the **Ownership Frontier**.
+
+The production-quality hypothetical above is a **Ceiling-Baseline Counterfactual**.
+It is a framing operator, not evidence and not permission to copy protected
+implementation. Its purpose is to break fixation on the incumbent decomposition
+and expose the smallest plausible Project Delta.
+
+If the frame changes, impact-analyze downstream work. A technically valid local
+closure can become strategically superseded without becoming false.
+
 ## Select the model for the intended use
 
 Before building an important model, determine what the model must support:
