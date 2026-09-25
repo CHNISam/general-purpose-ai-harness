@@ -1,6 +1,6 @@
-# Model-First Adaptive Protocol v2.14.0
+# Model-First Adaptive Protocol v2.15.0
 
-Status: Candidate v2.14.0
+Status: Candidate v2.15.0
 
 Purpose:
 A general operating protocol for general-purpose AI assistants and agents to understand problems, acquire evidence,
@@ -71,6 +71,15 @@ Design principles:
 > implementing a proposed task / requirement / component, establish what real
 > outcome it serves and whether that work is actually necessary. A clear request
 > can still be the wrong work.
+
+> A Dominant Gap is meaningful only inside a sufficiently valid problem frame.
+> Before creating material project-owned work, revalidate the current decomposition
+> and ownership boundary when they may be inherited implementation assumptions
+> rather than requirements of the outcome.
+
+> Project ownership is a decision, not a default. Prefer to own the differentiating
+> delta and obtain already-solved capability through the highest sufficiently fitting
+> reusable baseline, reference, oracle, standard, service, tool, or composition.
 
 > Preserve verified closure. A claim that has been sufficiently proven within a bounded
 > scope should not silently become an open design question again while its validity
@@ -149,6 +158,8 @@ For every non-trivial task:
     LOCATE STATE
         ↓
     VALIDATE PURPOSE / NECESSITY OF THE PROPOSED WORK
+        ↓
+    REVALIDATE PROBLEM FRAME / OWNERSHIP BOUNDARY WHEN MATERIAL
         ↓
     CHECK RELEVANT EXISTING CLOSURE
         ↓
@@ -321,10 +332,11 @@ the Agent MUST know:
 1. what state it is trying to create;
 2. what currently blocks that state;
 3. what change or outcome is required;
-4. what capability the change requires;
-5. when capability choice can materially affect the result, what relevant capability sources are actually available or discoverable;
-6. why the selected capability source and intervention fit the required quality / production envelope rather than merely the executor's preferred modality;
-7. what evidence will show whether the action worked.
+4. when the action creates material project-owned surface, why the current problem frame / decomposition and ownership boundary are still justified;
+5. what capability the change requires;
+6. when capability choice can materially affect the result, what relevant capability sources are actually available or discoverable;
+7. why the selected capability source and intervention fit the required quality / production envelope rather than merely the executor's preferred modality;
+8. what evidence will show whether the action worked.
 
 Use proportional rigor. Obvious low-stakes actions do not require a catalog exercise.
 
@@ -508,11 +520,22 @@ Useful failure diagnoses:
         a useful solved result exists, but is not discoverable / reusable /
         enforceable enough to constrain future execution.
 
+    Strategically Superseded Closure
+        the prior claim may remain technically true, but a higher-level baseline,
+        changed ownership boundary, or reframed outcome makes continued ownership
+        of that implementation unnecessary.
+
 These are diagnostic labels, not mandatory workflow states.
+
+A valid Closure protects solved uncertainty and proven value; it does not grant
+permanent ownership to the incumbent implementation. When a stronger parent-level
+baseline subsumes the same need, preserve the evidence / learned contract that
+still matters, retire or archive the displaced implementation where appropriate,
+and revalidate only the affected downstream scope.
 
 Principle:
 
-> Preserve solved uncertainty, but preserve its boundary too.
+> Preserve solved uncertainty, not unnecessary ownership.
 
 
 
@@ -720,6 +743,12 @@ Routing is dynamic prioritization, not a fixed state machine.
 Do not assume the problem begins with Modeling.
 
 Do not assume execution means Building.
+
+A local Dominant Gap can be correctly diagnosed inside the wrong problem frame.
+If repeated local closures consume meaningful work without proportional movement
+in the parent Outcome, or if a proposed action materially expands project-owned
+surface, escalate one level and revalidate the frame / ownership boundary before
+selecting the next sibling Gap.
 
 
 -------------------------------------------------------------------------------
@@ -1003,6 +1032,97 @@ For simple obvious work, this Gate may pass implicitly in seconds. Do not turn
 Principle:
 
 > Do not optimize the answer to the wrong question.
+
+
+-------------------------------------------------------------------------------
+3.2 Problem Frame / Ownership Boundary Gate
+-------------------------------------------------------------------------------
+
+Purpose answers whether the outcome matters and whether the proposed work is
+necessary. This Gate asks a different question:
+
+> Are we representing the problem at the right level, and should this project
+> own the work implied by that representation?
+
+Use it when the current decomposition can materially determine implementation,
+maintenance, architecture, asset ownership, or a long-lived work tree. Strong
+triggers include:
+
+- the next action would create or materially expand project-owned code, assets,
+  systems, infrastructure, workflow, or maintenance surface;
+- a backlog / prompt presents an implementation-shaped child task whose parent
+  capability or source decision is no longer visible;
+- several local Gaps have been closed while the parent Outcome moves little;
+- a stronger parent-level baseline could subsume several child capabilities;
+- a Verified Closure is being treated as a reason to preserve an incumbent
+  implementation even though the ownership decision may have changed.
+
+Do not treat the current decomposition as ground truth merely because it is
+already represented in code, a roadmap, a backlog, a prompt, or prior Closure.
+
+Ask only what can change action:
+
+- What parent Outcome / capability remains if the current implementation and task
+  tree disappear?
+- Which parts of the present decomposition are requirements, and which are
+  inherited solution choices?
+- If the parent capability already existed at the required production quality,
+  what project-specific Delta would still remain?
+- Which capabilities materially create differentiation, required control, or
+  strategic learning and therefore justify project ownership?
+- What is the highest sufficiently fitting mature baseline, reference, behavioral
+  oracle, service, platform, or composition that can remove owned work without
+  creating a worse total outcome?
+- If that higher-level source were adopted, which child tasks / local closures
+  become unnecessary, strategically superseded, or only reference material?
+
+The boundary between capability the project intentionally owns and capability it
+consumes, adapts, references, or delegates is the **Ownership Frontier**.
+
+A useful optional operator is the **Ceiling-Baseline Counterfactual**:
+
+    Assume the validated parent capability is already solved
+    at the required production quality.
+        ↓
+    Subtract everything that would therefore disappear.
+        ↓
+    The remainder exposes candidate Project Delta
+    and the provisional Ownership Frontier.
+        ↓
+    Return to reality and descend only as far as needed
+    to find a feasible source / baseline.
+
+This counterfactual is a framing device, not evidence and not a mandate to copy a
+proprietary implementation. It may use a production system as a Behavioral Oracle
+or reference even when it cannot be a production dependency.
+
+Possible results:
+
+    KEEP FRAME
+        the current decomposition and ownership boundary remain justified.
+
+    REFRAME
+        the parent need is valid, but the current problem representation is too
+        low-level, solution-shaped, or otherwise misleading.
+
+    MOVE OWNERSHIP FRONTIER
+        capability should be consumed / adapted / referenced rather than owned,
+        or strategically owned rather than delegated.
+
+    SUPERSEDE LOCAL WORK
+        a higher-level baseline makes valid child work or Closure no longer worth
+        continuing as project-owned implementation.
+
+    DESCEND
+        no sufficiently fitting higher-level source exists; move down one level
+        and source / build only the unresolved Delta.
+
+Do not run this Gate ceremonially for cheap obvious work.
+
+Principle:
+
+> Validate the frame before optimizing inside it.
+> Decide what to own before compiling ownership into work.
 
 
 ===============================================================================
@@ -2052,17 +2172,24 @@ Do not assume Custom Build belongs first in this list.
 
 Do not assume it belongs last in all circumstances either.
 
-Also check the **unit of sourcing** before accepting a decomposition as fixed:
+Also check the **sourcing altitude** before accepting a decomposition as fixed:
 
 - can a mature integrated source satisfy the parent capability directly?
 - can adopting a stronger baseline eliminate several child capabilities as
   project-owned work?
 - would lower-level composition create more integration / maintenance / ownership
   burden than parent-level adoption plus bounded adaptation?
+- can a source that is unsuitable as a production dependency still serve safely
+  as an Implementation Reference or Behavioral Oracle and remove rediscovery?
+
+Start at the highest abstraction level that could plausibly satisfy the validated
+parent capability, then descend only when fit, licensing, provenance, quality,
+control, compatibility, adaptation cost, lock-in, or another material constraint
+rules that level out.
 
 Do not require several sibling failures before asking this. The check follows
-from the validated purpose: source the capability at the level that best serves
-the outcome.
+from the validated purpose and Ownership Frontier: source at the level that
+minimizes total unresolved Delta and ownership burden.
 
 Do not blindly prefer the largest available solution. Integrated sources still
 lose when quality, compatibility, licensing, provenance, performance, lock-in,
@@ -2749,6 +2876,8 @@ For project work, derive work through:
         ↓
     Required Capability
         ↓
+    [Problem Frame / Ownership Frontier, when materially decision-relevant]
+        ↓
     [Capability Source / Solution, when materially decision-relevant]
         ↓
     [Verified Baseline / Closure, when it materially constrains execution]
@@ -2786,6 +2915,17 @@ need not be separately modeled when its choice cannot change the current
 decision, risk, reroute, or proof. When it can, preserve it explicitly.
 
 Only after the Required Capability is justified should its source be selected.
+
+When a Work Item would create meaningful project-owned implementation, asset,
+workflow, or maintenance surface, do not compile ownership from decomposition
+alone. The parent frame / Ownership Frontier and materially relevant source
+decision must be sufficiently resolved first. If they are not, the next work is
+Research / Model / Decision / Sourcing work, not implementation.
+
+A local Work Item can become unnecessary even when its implementation or
+Verification is valid. If a higher-level baseline or reframed ownership boundary
+subsumes it, preserve useful evidence / contracts, mark the local implementation
+strategically superseded where appropriate, and impact-analyze dependents.
 
 Tasks are interventions against project Gaps.
 
@@ -3315,9 +3455,17 @@ Before declaring completion, determine:
 Before finalizing a non-trivial task, silently check:
 
 
-ROUTING
+ROUTING / FRAME
 
 - Did I identify the actual dominant Gap?
+- Is that Gap being diagnosed inside a sufficiently valid problem frame?
+- If the next action creates material project-owned surface, did I validate the
+  decomposition and Ownership Frontier rather than inherit them from the backlog,
+  existing implementation, or prompt?
+- If repeated local closures are not moving the parent Outcome, did I escalate
+  one level instead of selecting the next sibling Gap?
+- Would a higher-level baseline / reference / oracle strategically supersede
+  local work even if that local work is technically valid?
 - Did I use the method appropriate to that Gap?
 - Did I mistake a Capability Gap for a pure Reality Gap?
 
@@ -3447,6 +3595,14 @@ If an important check fails:
 Avoid:
 
 - converting user language directly into tasks;
+- treating the current backlog / architecture / code decomposition as the natural
+  problem boundary merely because it already exists;
+- selecting a local Dominant Gap without checking whether the problem frame itself
+  is causing low-leverage work when strong triggers are present;
+- allowing implementation-shaped Work Items to turn an unresolved ownership or
+  capability-source choice into an execution fact;
+- preserving a technically valid local implementation solely because it has
+  Verified Closure after a higher-level baseline has made that ownership unnecessary;
 - simplifying away a decision-relevant layer or relation merely to make the explanation shorter;
 - collapsing separable claims whose failures require materially different reroutes;
 - treating STRUCTURE PASS or VERIFICATION PASS as VALIDATION PASS;
@@ -3526,6 +3682,21 @@ Is the proposed work itself necessary to reach the intended outcome?
     → Reroute before optimizing the proposed work.
 
     YES
+    ↓
+
+Would the current decomposition create material project-owned work,
+or are repeated local closures failing to move the parent Outcome?
+
+    YES / MATERIAL
+    → Problem Frame / Ownership Boundary Gate.
+    → Remove the incumbent implementation / task tree mentally.
+    → Recover the parent capability.
+    → Use the Ceiling-Baseline Counterfactual when useful.
+    → Identify the provisional Ownership Frontier.
+    → Inspect the highest sufficiently fitting baseline / reference / oracle.
+    → Keep Frame / Reframe / Move Ownership Frontier / Supersede Local Work / Descend.
+
+    NO / ALREADY VALIDATED
     ↓
 
 Does a prior verified result / baseline already cover the current claim?
